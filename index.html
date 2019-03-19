@@ -167,50 +167,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="使用Hexo-amp-GitPage-搭建博客"><a href="#使用Hexo-amp-GitPage-搭建博客" class="headerlink" title="使用Hexo &amp; GitPage 搭建博客"></a><center>使用Hexo &amp; GitPage 搭建博客</center></h1><font size="5"><strong>写在前面</strong></font><br><font size="4"><br>刚开始使用GitHub，看到别人在git上搭建的博客很简洁优美，简直就是一片净土，于是自己也来试试！在搭建的过程中遇到了一些问题，再此做个记录。也算是自己的第一篇文章 :)<br><font size="5"><strong>概述</strong></font><br>Git Pages本来是用于介绍托管在GitHub上的项目，不过，由于它的空间免费稳定，非常适合搭建一个博客。也可以认为是用户编写的、托管在GitHub上的静态网页。<br>目前有两大静态博客主流框架：<a href="https://jekyllrb.com/" target="_blank" rel="noopener">Jekyll</a>和<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo</a>。但是看到网上很多人吹捧hexo，于是直接放弃Jekyll，开始了hexo+GitHub搭建博客的第一步（在搭建的过程中，发现使用jekyll很简单，等会儿会提到我是如何偶遇它的）。hexo是一个快速、简洁且高效的博客框架，使用markdown解析文章，使用Node.js渲染界面( <a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo Themes</a>上有很多主题以及各种功能，可参考博客<a href="https://blog.csdn.net/u011475210/article/details/79023429" target="_blank" rel="noopener">我的个人博客之旅：从jekyll到hexo</a>)。<br><br><font size="5"><strong>搭建步骤</strong></font>  
-
-<p><strong>1.环境准备</strong>  </p>
-<ul>
-<li>安装Node.js,用来安装博客框架、渲染主题等。  </li>
-<li>安装Git，用来下载主题、提交、部署文章等。  </li>
-</ul>
-<p><strong>2.安装Hexo</strong><br>运行git bash，执行下面第一条命令安装hexo，第二条用于检查hexo安装的版本,第三条用于初始化hexo，hexo会自动下载一些文件到这个目录，包括node_modules。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">	npm install -g hexo-cli    </span><br><span class="line"> 	hexo -v </span><br><span class="line">	hexo init</span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line">**3.建站及本地测试**  </span><br><span class="line">找一个合适的文件夹新建所需文件,第一条在指定文件夹创建所需文件(并初始化)，第三条安装所需组件.第四条开启服务器，访问localhost:4000(默认端口4000，&apos;ctrl+c&apos;关闭server)即可体验。</span><br></pre></td></tr></table></figure>
-<pre><code>hexo init myBlog  
-cd myBlog
-npm install
-hexo S
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在hexo文件夹下执行命令：  </span><br><span class="line"></span><br><span class="line">- hexo generate  或者 hexo g  //生成静态页面至public目录,public文件夹内的内容是要提交到GitHub上的  </span><br><span class="line">- hexo server 或 hexo s  //开启预览访问端口(开启本地服务)  </span><br><span class="line"></span><br><span class="line">**4.主题下载和配置**  </span><br><span class="line">使用命令下载主题，然后修改myBlog文件夹下的_config.yml(网站的配置文件，等会儿和github关联时也会修改改配置)。</span><br></pre></td></tr></table></figure>
-<pre><code>cd themes
-git init  
-git clone https://github.com/iissnan/hexo-theme-next.git
-</code></pre><p><code>`</code>  </p>
-<p><strong>5.将hexo和Git Pages关联起来</strong>  </p>
-<p><strong>5.1准备工作</strong>  </p>
-<ul>
-<li>注册GitHub账号<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a>，并设置Git的user name和email    </li>
-<li>配置ssh-key  </li>
-<li>代码库的设置：创建名为 “ ***.github.io” 的仓库，星号表示用户名，创建好之后访问<a href="https://zuiing.github.io即可。" target="_blank" rel="noopener">https://zuiing.github.io即可。</a>  </li>
-</ul>
-<p>插曲：以前我建立过一个git网页博客，但是今天配置hexo时不成功就删除又建了一个，但是域名变为<a href="https://zuiing.github.io/zuiing.github.io，如果访问https://zuiing.github.io出现下面的错误：" target="_blank" rel="noopener">https://zuiing.github.io/zuiing.github.io，如果访问https://zuiing.github.io出现下面的错误：</a><center><img src="./pics/404Error.jpg"></center><br>表示域名已经能够解析到，但是还需要配置，进入仓库zuiing.github.io-&gt;Setting;我的操作是Rename一下，又点了Git Pages中的”Choose a theme”(在这里偶遇了yekyll)，然后就点开了下图中的网页博客链接,就神奇的好了，而且还有了主题，惊喜！</p>
-<center> <img src=".//pics//GitPages.JPG"></center>  
-
-<p><strong>5.2正式开始部署，即设置deployment</strong><br>(1)安装deploy git插件 执行下面代码  </p>
-<ul>
-<li>npm install hexo-deployer-git –save</li>
-</ul>
-<p>(2)在网站配置文件 _config.yml中有关deploy部分：修改仓库地址,需要特别注意的是冒号后面一定要有一个空格，以及这里使用的是ssh协议而不是http协议(刚开始我使用的http协议，执行hexo d之后一直关联不成功，估计和协议有关系)，前提是确保在Github上已经添加了公钥。<br><img src="./pics/deploymentSet.JPG"><br>(3)执行 hexo d 即可发布到Github仓库，其实我的过程远不像上面写的那么简单，在经历了千辛万苦之后总算成功了，这简直就是今天最开心的事儿了！还有，有网友建议每次都按下面的执行顺序来： </p>
-<ul>
-<li>hexo clean  </li>
-<li>hexo generate  </li>
-<li>hexo deploy</li>
-</ul>
-<p>(4)新增或修改主题之后请执行 hexo clean &amp;&amp; hexo d 清理缓存文件并部署。  </p>
-<p><strong>6.未知</strong><br>我知道现在才成功了一步，自己对git和hexo的了解还非常少，继续探索啦啦啦，做一个努力的小仙女儿！！！</p>
-<hr>
-<p><strong>6.上传md文件格式杂乱的问题</strong></p>
-<p></p></font><p></p>
-
+        <h1 id="使用Hexo-amp-GitPage-搭建博客"><a href="#使用Hexo-amp-GitPage-搭建博客" class="headerlink" title="使用Hexo &amp; GitPage 搭建博客"></a><center>使用Hexo &amp; GitPage 搭建博客</center></h1><font size="5"><strong>写在前面</strong></font><br><font size="4"><br>刚开始使用GitHub，看到别人在git上搭建的博客很简洁优美，简直就是一片净土，于是自己也来试试！在搭建的过程中遇到了一些问题，再此做个记录。也算是自己的第一篇文章 :)<br><font size="5"><strong>概述</strong></font><br>Git Pages本来是用于介绍托管在GitHub上的项目，不过，由于它的空间免费稳定，非常适合搭建一个博客。也可以认为是用户编写的、托管在GitHub上的静态网页。<br>目前有两大静态博客主流框架：<a href="https://jekyllrb.com/" target="_blank" rel="noopener">Jekyll</a>和<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo</a>。但是看到网上很多人吹捧hexo，于是直接放弃Jekyll，开始了hexo+GitHub搭建博客的第一步（在搭建的过程中，发现使用jekyll很简单，等会儿会提到我是如何偶遇它的）。hexo是一个快速、简洁且高效的博客框架，使用markdown解析文章，使用Node.js渲染界面( <a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo Themes</a>上有很多主题以及各种功能，可参考博客<a href="https://blog.csdn.net/u011475210/article/details/79023429" target="_blank" rel="noopener">我的个人博客之旅：从jekyll到hexo</a>)。<br></font>
+        
+          <a class="article-more-a" href="/2019/03/19/MyFirstBlog/#more">more >></a>
+        
       
 
       
