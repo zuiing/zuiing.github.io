@@ -224,7 +224,7 @@ $ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-
 <p>(2)在网站配置文件 _config.yml中有关deploy部分：修改仓库地址,需要特别注意的是冒号后面一定要有一个空格，以及这里使用的是ssh协议而不是http协议(刚开始我使用的http协议，执行hexo d之后一直关联不成功，估计和协议有关系)，前提是确保在Github上已经添加了公钥。  </p>
 <center><img src="/2019/03/20/myFirstBlog/deploymentSet.JPG"> </center>
 
-<p>(3)执行 hexo d 即可发布到Github仓库，其实我的过程远不像上面写的那么简单，在经历了千辛万苦之后总算成功了，这简直就是今天最开心的事儿了！还有，有网友建议每次都按下面的执行顺序来： </p>
+<p>(3)执行 hexo d 即可发布到Github仓库，其实我的过程远不像上面写的那么简单，在经历了千辛万苦之后总算成功了，这简直就是今天最开心的事儿了！还有，有网友建议每次都按下面的执行顺序来：  </p>
 <ul>
 <li>hexo clean  </li>
 <li>hexo generate  </li>
@@ -232,7 +232,9 @@ $ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-
 </ul>
 <p>(4)新增或修改主题之后请执行 hexo clean &amp;&amp; hexo d 清理缓存文件并部署。  </p>
 <h3 id="6-未知"><a href="#6-未知" class="headerlink" title="6.未知"></a>6.未知</h3><p>我知道现在才成功了一步，自己对git和hexo的了解还非常少，继续探索啦啦啦，做一个努力的小仙女儿！！！</p>
-<h3 id="6-上传md文件格式杂乱的问题"><a href="#6-上传md文件格式杂乱的问题" class="headerlink" title="6.上传md文件格式杂乱的问题"></a>6.上传md文件格式杂乱的问题</h3>
+<h3 id="7-上传md文件图片无法显示的坑-下面是填坑过程"><a href="#7-上传md文件图片无法显示的坑-下面是填坑过程" class="headerlink" title="7.上传md文件图片无法显示的坑(下面是填坑过程)"></a>7.上传md文件图片无法显示的坑(下面是填坑过程)</h3><h4 id="7-1问题介绍"><a href="#7-1问题介绍" class="headerlink" title="7.1问题介绍"></a>7.1问题介绍</h4><p>在sourse文件夹下建了一个img文件夹用于存储md插入图片，生成并上传到git之后，发现图片被存在了’用户名.github.io/img’文件夹下,如下图<br><img src="/2019/03/20/myFirstBlog/imgIssues1.JPG" alt="imgIssues1"><br>打开博客网页却看不到图片，肯定是因为生成的index.html格式的文件图片路径不对，导致在GitHub上找不到图片,于是开始网上找解决方案，大部分说辞都差不多，例如<a href="https://www.jianshu.com/p/c2ba9533088a" target="_blank" rel="noopener">hexo博客图片问题</a>。</p>
+<h4 id="7-2实际动手"><a href="#7-2实际动手" class="headerlink" title="7.2实际动手"></a>7.2实际动手</h4><p>1)确认_config.yml中的post_asset_folder:true；Hexo提供了一种方便管理Asset的设定post_asset_folder，当设置为true后，在建立文件时，Hexo会自动建立一个与文章同名的文件夹，可以把该文章相关的所有资源都放到那个文件夹，这样便可以更方便的使用资源。<br>2)在Hexo的目录下执行npm install <a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">https://github.com/CodeFalling/hexo-asset-image</a> –save<br>3)安装完成后用hexo创建文章时会发现_posts目录下面会多出一个和文章名字一样的文件夹，图片就放文件夹内即可。<br>4)接下来是测试图片的过程，图片插入格式如下图：<br><img src="/2019/03/20/myFirstBlog/imgIssues2.JPG" alt="imgIssues2"></p>
+
       
 
       
@@ -294,8 +296,10 @@ $ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这是我要插入的图片:<br><img src="/2019/03/20/testImg/test.JPG">   </p>
-<p>再来一张：<br><img src="/2019/03/20/testImg/test.JPG" alt="test"></p>
+        <p>这是我要插入的图片:<br><img src="/2019/03/20/testImg/test.JPG">  </p>
+<p>再来一张：<br><img src="/2019/03/20/testImg/test.JPG">   </p>
+<p>当然这样插入也可以：<br><img src="/2019/03/20/testImg/test.JPG" alt="test">  </p>
+<p>为方便对比再来一张：<br><img src="/2019/03/20/testImg/test.JPG" alt="test">  </p>
 
       
 
