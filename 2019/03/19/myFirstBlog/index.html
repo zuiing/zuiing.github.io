@@ -15,14 +15,14 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="使用Hexo &amp;amp; GitPage 搭建博客写在前面刚开始使用GitHub，看到别人在git上搭建的博客很简洁优美，简直就是一片净土，于是自己也来试试！在搭建的过程中遇到了一些问题，再此做个记录。也算是自己的第一篇文章 :)概述Git Pages本来是用于介绍托管在GitHub上的项目，不过，由于它的空间免费稳定，非常适合搭建一个博客。也可以认为是用户编写的、托管在GitHub上的静态网页。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/03/img/404Error.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/19/MyFirstBlog/404Error.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/03/19/MyFirstBlog/GitPages.JPG">
 <meta property="og:image" content="http://yoursite.com/2019/03/19/MyFirstBlog/deploymentSet.JPG">
-<meta property="og:updated_time" content="2019-03-19T15:18:31.451Z">
+<meta property="og:updated_time" content="2019-03-20T00:54:12.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
 <meta name="twitter:description" content="使用Hexo &amp;amp; GitPage 搭建博客写在前面刚开始使用GitHub，看到别人在git上搭建的博客很简洁优美，简直就是一片净土，于是自己也来试试！在搭建的过程中遇到了一些问题，再此做个记录。也算是自己的第一篇文章 :)概述Git Pages本来是用于介绍托管在GitHub上的项目，不过，由于它的空间免费稳定，非常适合搭建一个博客。也可以认为是用户编写的、托管在GitHub上的静态网页。">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/img/404Error.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/19/MyFirstBlog/404Error.jpg">
   
   
     <link rel="icon" href="/favicon.png">
@@ -181,12 +181,12 @@
 <li>安装Git，用来下载主题、提交、部署文章等。  </li>
 </ul>
 <p><strong>2.安装Hexo</strong><br>运行git bash，执行下面第一条命令安装hexo，第二条用于检查hexo安装的版本,第三条用于初始化hexo，hexo会自动下载一些文件到这个目录，包括node_modules。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">	npm install -g hexo-cli    </span><br><span class="line"> 	hexo -v </span><br><span class="line">	hexo init</span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line">**3.建站及本地测试**  </span><br><span class="line">找一个合适的文件夹新建所需文件,第一条在指定文件夹创建所需文件(并初始化)，第三条安装所需组件.第四条开启服务器，访问localhost:4000(默认端口4000，&apos;ctrl+c&apos;关闭server)即可体验。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">	npm install -g hexo-cli    </span><br><span class="line"> 	hexo -v </span><br><span class="line">	hexo init</span><br><span class="line"></span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line">**3.建站及本地测试**  </span><br><span class="line">找一个合适的文件夹新建所需文件,第一条在指定文件夹创建所需文件(并初始化)，第三条安装所需组件.第四条开启服务器，访问localhost:4000(默认端口4000，&apos;ctrl+c&apos;关闭server)即可体验。</span><br></pre></td></tr></table></figure>
 <pre><code>hexo init myBlog  
 cd myBlog
 npm install
 hexo S
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在hexo文件夹下执行命令：  </span><br><span class="line"></span><br><span class="line">- hexo generate  或者 hexo g  //生成静态页面至public目录,public文件夹内的内容是要提交到GitHub上的  </span><br><span class="line">- hexo server 或 hexo s  //开启预览访问端口(开启本地服务)  </span><br><span class="line"></span><br><span class="line">**4.主题下载和配置**  </span><br><span class="line">使用命令下载主题，然后修改myBlog文件夹下的_config.yml(网站的配置文件，等会儿和github关联时也会修改改配置)。</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在hexo文件夹下执行命令：  </span><br><span class="line"></span><br><span class="line">- hexo generate  或者 hexo g  //生成静态页面至public目录,public文件夹内的内容是要提交到GitHub上的  </span><br><span class="line">- hexo server 或 hexo s  //开启预览访问端口(开启本地服务)  </span><br><span class="line"></span><br><span class="line">**4.主题下载和配置**  </span><br><span class="line">使用命令下载主题，然后修改myBlog文件夹下的_config.yml(网站的配置文件，等会儿和github关联时也会修改改配置)。</span><br></pre></td></tr></table></figure>
 <pre><code>cd themes
 git init  
 git clone https://github.com/iissnan/hexo-theme-next.git
@@ -196,11 +196,10 @@ git clone https://github.com/iissnan/hexo-theme-next.git
 <ul>
 <li>注册GitHub账号<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a>，并设置Git的user name和email    </li>
 <li>配置ssh-key  </li>
-<li>代码库的设置：创建名为 “ ***.github.io” 的仓库，星号表示用户名，创建好之后访问<a href="https://zuiing.github.io即可。" target="_blank" rel="noopener">https://zuiing.github.io即可。</a>  </li>
-</ul>
-<p>插曲：以前我建立过一个git网页博客，但是今天配置hexo时不成功就删除又建了一个，但是域名变为<a href="https://zuiing.github.io/zuiing.github.io，如果访问https://zuiing.github.io出现下面的错误：" target="_blank" rel="noopener">https://zuiing.github.io/zuiing.github.io，如果访问https://zuiing.github.io出现下面的错误：</a><center><img src="/2019/03/19/MyFirstBlog/../../img/404Error.jpg"></center><br>表示域名已经能够解析到，但是还需要配置，进入仓库zuiing.github.io-&gt;Setting;我的操作是Rename一下，又点了Git Pages中的”Choose a theme”(在这里偶遇了yekyll)，然后就点开了下图中的网页博客链接,就神奇的好了，而且还有了主题，惊喜！</p>
-<center> <img src="/2019/03/19/MyFirstBlog/GitPages.JPG"></center>  
+<li>代码库的设置：创建名为 “用户名.github.io” 的仓库，星号表示用户名，创建好之后访问<a href="https://zuiing.github.io" target="_blank" rel="noopener">https://zuiing.github.io</a> 即可。<br>插曲：以前我建立过一个git网页博客，但是今天配置hexo时不成功就删除又建了一个，但是域名变为<a href="https://zuiing.github.io/zuiing.github.io，如果访问https://zuiing.github.io" target="_blank" rel="noopener">https://zuiing.github.io/zuiing.github.io，如果访问https://zuiing.github.io</a> 出现下面的错误：<center><img src="/2019/03/19/MyFirstBlog/404Error.jpg"></center><br>表示域名已经能够解析到，但是还需要配置，进入仓库zuiing.github.io-&gt;Setting;我的操作是Rename一下，又点了Git Pages中的”Choose a theme”(在这里偶遇了yekyll)，然后就点开了下图中的网页博客链接,就神奇的好了，而且还有了主题，惊喜！<center> <img src="/2019/03/19/MyFirstBlog/GitPages.JPG"></center>  
 
+</li>
+</ul>
 <p><strong>5.2正式开始部署，即设置deployment</strong><br>(1)安装deploy git插件 执行下面代码  </p>
 <ul>
 <li>npm install hexo-deployer-git –save</li>
