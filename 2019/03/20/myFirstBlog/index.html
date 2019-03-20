@@ -31,6 +31,8 @@
 <meta name="twitter:description" content="写在前面刚开始使用GitHub，看到别人在git上搭建的博客很简洁优美，简直就是一片净土，于是自己也来试试！在搭建的过程中遇到了一些问题，再此做个记录。也算是自己的第一篇文章 :)     概述Git Pages本来是用于介绍托管在GitHub上的项目，不过，由于它的空间免费稳定，非常适合搭建一个博客。也可以认为是用户编写的、托管在GitHub上的静态网页。目前有两大静态博客主流框架：Jekyll">
 <meta name="twitter:image" content="http://yoursite.com/2019/03/20/myFirstBlog/404Error.jpg">
   
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
   
     <link rel="icon" href="/favicon.png">
   
@@ -68,9 +70,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/allPages">所有文章</a></li>
-	        
-				<li><a href="/tags">随笔</a></li>
+				<li><a href="/tags/随笔/">随笔</a></li>
 	        
 				<li><a href="/photoes">相册</a></li>
 	        
@@ -98,7 +98,7 @@
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
-					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
+					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
 					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
@@ -132,8 +132,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -143,7 +141,7 @@
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
-						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
+						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
 						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
@@ -154,13 +152,11 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 25%"><a href="/allPages">所有文章</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 25%"><a href="/tags">随笔</a></li>
-		        
-					<li style="width: 25%"><a href="/photoes">相册</a></li>
+					<li style="width: 33.333333333333336%"><a href="/photoes">相册</a></li>
 		        
 				</ul>
 			</nav>
@@ -273,7 +269,7 @@ $ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-
                     
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/wechat.jpg">
+                      <img class="reward-img" src="/assets/img/wechat.png">
                       <span class="reward-type">微信</span>
                     </div>
                     
@@ -450,6 +446,16 @@ $ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-
     	<div class="footer-left">
     		&copy; 2019 John Doe
     	</div>
+	  <!--统计start-->
+      <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+      </script>
+      <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+      <span id="busuanzi_container_site_uv">
+  总访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+      <!--统计end-->	
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
