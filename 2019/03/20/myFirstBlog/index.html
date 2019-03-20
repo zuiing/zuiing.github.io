@@ -9,7 +9,7 @@
   <title>使用Hexo &amp; GitPage 搭建博客 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="写在前面刚开始使用GitHub，看到别人在git上搭建的博客很简洁优美，简直就是一片净土，于是自己也来试试！在搭建的过程中遇到了一些问题，再此做个记录。也算是自己的第一篇文章 :)     概述Git Pages本来是用于介绍托管在GitHub上的项目，不过，由于它的空间免费稳定，非常适合搭建一个博客。也可以认为是用户编写的、托管在GitHub上的静态网页。目前有两大静态博客主流框架：Jekyll">
-<meta name="keywords" content="笔记,hexo &amp; GitPage">
+<meta name="keywords" content="笔记,hexo&amp;GitPage">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Hexo &amp; GitPage 搭建博客">
 <meta property="og:url" content="http://yoursite.com/2019/03/20/myFirstBlog/index.html">
@@ -25,7 +25,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/20/myFirstBlog/success.JPG">
 <meta property="og:image" content="http://yoursite.com/2019/03/20/myFirstBlog/formatIssues.JPG">
 <meta property="og:image" content="http://yoursite.com/2019/03/20/myFirstBlog/formatIssues2.JPG">
-<meta property="og:updated_time" content="2019-03-20T04:48:30.910Z">
+<meta property="og:updated_time" content="2019-03-20T11:05:05.911Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Hexo &amp; GitPage 搭建博客">
 <meta name="twitter:description" content="写在前面刚开始使用GitHub，看到别人在git上搭建的博客很简洁优美，简直就是一片净土，于是自己也来试试！在搭建的过程中遇到了一些问题，再此做个记录。也算是自己的第一篇文章 :)     概述Git Pages本来是用于介绍托管在GitHub上的项目，不过，由于它的空间免费稳定，非常适合搭建一个博客。也可以认为是用户编写的、托管在GitHub上的静态网页。目前有两大静态博客主流框架：Jekyll">
@@ -70,9 +70,13 @@
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/">主页</a></li>
+				<li><a href="/">home</a></li>
 	        
-				<li><a href="/photoes">相册</a></li>
+				<li><a href="/categories/ || th">categories</a></li>
+	        
+				<li><a href="/tags/ ||tags">tags</a></li>
+	        
+				<li><a href="/archives/ || archive">archives</a></li>
 	        
 			</ul>
 		</nav>
@@ -132,6 +136,10 @@
 			
 				
 			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -149,12 +157,16 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">home</a></li>
 		        
-					<li style="width: 50%"><a href="/photoes">相册</a></li>
+					<li style="width: 25%"><a href="/categories/ || th">categories</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/ ||tags">tags</a></li>
+		        
+					<li style="width: 25%"><a href="/archives/ || archive">archives</a></li>
 		        
 				</ul>
 			</nav>
@@ -191,6 +203,7 @@
       
         <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>刚开始使用GitHub，看到别人在git上搭建的博客很简洁优美，简直就是一片净土，于是自己也来试试！在搭建的过程中遇到了一些问题，再此做个记录。也算是自己的第一篇文章 :)    </p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Git Pages本来是用于介绍托管在GitHub上的项目，不过，由于它的空间免费稳定，非常适合搭建一个博客。也可以认为是用户编写的、托管在GitHub上的静态网页。<br>目前有两大静态博客主流框架：<a href="https://jekyllrb.com/" target="_blank" rel="noopener">Jekyll</a>和<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo</a>。但是看到网上很多人吹捧hexo，于是直接放弃Jekyll，开始了hexo+GitHub搭建博客的第一步（在搭建的过程中，发现使用jekyll很简单，等会儿会提到我是如何偶遇它的）。hexo是一个快速、简洁且高效的博客框架，使用markdown解析文章，使用Node.js渲染界面( <a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo Themes</a>上有很多主题以及各种功能，可参考博客<a href="https://blog.csdn.net/u011475210/article/details/79023429" target="_blank" rel="noopener">我的个人博客之旅：从jekyll到hexo</a>)。  </p>
+<a id="more"></a>
 <h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><h3 id="1-环境准备"><a href="#1-环境准备" class="headerlink" title="1.环境准备"></a>1.环境准备</h3><ul>
 <li>安装Node.js,用来安装博客框架、渲染主题等。  </li>
 <li>安装Git，用来下载主题、提交、部署文章等。  </li>
@@ -294,7 +307,7 @@ $ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo & GitPage</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">hexo&GitPage</a>
         		</li>
       		
 		</ul>
@@ -545,7 +558,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo & GitPage</a>
+                <a href="javascript:void(0)" class="js-tag color3">hexo&GitPage</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">helloWorld</a>
               </li>
             
             <div class="clearfix"></div>
