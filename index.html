@@ -55,7 +55,7 @@
 	        
 				<li><a href="/allPages">所有文章</a></li>
 	        
-				<li><a href="/tags/">随笔</a></li>
+				<li><a href="/tags">随笔</a></li>
 	        
 				<li><a href="/photoes">相册</a></li>
 	        
@@ -143,7 +143,7 @@
 		        
 					<li style="width: 25%"><a href="/allPages">所有文章</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags">随笔</a></li>
 		        
 					<li style="width: 25%"><a href="/photoes">相册</a></li>
 		        
@@ -169,7 +169,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/20/myFirstBlog/">myFirstBlog</a>
+      <a class="article-title" href="/2019/03/20/myFirstBlog/">使用Hexo &amp; GitPage 搭建博客</a>
     </h1>
   
 
@@ -182,8 +182,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="title-使用Hexo-amp-GitPage-搭建博客-update"><a href="#title-使用Hexo-amp-GitPage-搭建博客-update" class="headerlink" title="title: 使用Hexo &amp; GitPage 搭建博客 update"></a>title: 使用Hexo &amp; GitPage 搭建博客 update</h2><h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>刚开始使用GitHub，看到别人在git上搭建的博客很简洁优美，简直就是一片净土，于是自己也来试试！在搭建的过程中遇到了一些问题，再此做个记录。也算是自己的第一篇文章 :)    </p>
+        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>刚开始使用GitHub，看到别人在git上搭建的博客很简洁优美，简直就是一片净土，于是自己也来试试！在搭建的过程中遇到了一些问题，再此做个记录。也算是自己的第一篇文章 :)    </p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Git Pages本来是用于介绍托管在GitHub上的项目，不过，由于它的空间免费稳定，非常适合搭建一个博客。也可以认为是用户编写的、托管在GitHub上的静态网页。<br>目前有两大静态博客主流框架：<a href="https://jekyllrb.com/" target="_blank" rel="noopener">Jekyll</a>和<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo</a>。但是看到网上很多人吹捧hexo，于是直接放弃Jekyll，开始了hexo+GitHub搭建博客的第一步（在搭建的过程中，发现使用jekyll很简单，等会儿会提到我是如何偶遇它的）。hexo是一个快速、简洁且高效的博客框架，使用markdown解析文章，使用Node.js渲染界面( <a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo Themes</a>上有很多主题以及各种功能，可参考博客<a href="https://blog.csdn.net/u011475210/article/details/79023429" target="_blank" rel="noopener">我的个人博客之旅：从jekyll到hexo</a>)。  </p>
 <h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><h3 id="1-环境准备"><a href="#1-环境准备" class="headerlink" title="1.环境准备"></a>1.环境准备</h3><ul>
 <li>安装Node.js,用来安装博客框架、渲染主题等。  </li>
@@ -237,7 +236,7 @@ $ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-
 
 <h3 id="8-上传md文件格式杂乱"><a href="#8-上传md文件格式杂乱" class="headerlink" title="8.上传md文件格式杂乱"></a>8.上传md文件格式杂乱</h3><p>1)md文档在本地格式正常，但上传到git上就很乱糟糟，如图：  </p>
 <p><center><img src="/2019/03/20/myFirstBlog/formatIssues.JPG" alt="formatIssues"></center><br>2)很奇怪的是当我搞好图片显示问题之后，这个问题就自动好了，但我觉得二者之间没太大联系，可能是网页更新显示太慢的原因，如下图：  </p>
-<p><center><img src="/2019/03/20/myFirstBlog/formatIssues2.JPG" alt="formatIssues2"></center><br>3)在用md写文档或插入代码的时候总出错，这里有篇还不错的博文，可以学习下markdown的语法 <a href="http://www.cnblogs.com/Jetictors/p/8506757.html" target="_blank" rel="noopener">Markdown语法你都会了吗？</a>；<br>4)在操作的过程中总是会遇到各种怪象，都是因为自己是太菜，都要被自己蠢哭了 :(<br>2019/03/20更</p>
+<p><center><img src="/2019/03/20/myFirstBlog/formatIssues2.JPG" alt="formatIssues2"></center><br>3)在用md写文档或插入代码的时候总出错，这里有篇还不错的博文，可以学习下markdown的语法 <a href="http://www.cnblogs.com/Jetictors/p/8506757.html" target="_blank" rel="noopener">Markdown语法你都会了吗？</a>；<br>4)在操作的过程中总是会遇到各种怪象，太菜啦，要被自己蠢哭了 :(<br>2019/03/20更</p>
 
       
 
@@ -246,6 +245,17 @@ $ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -278,7 +288,9 @@ $ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-
 
 
 
-
+   <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
   
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -349,7 +361,9 @@ $ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-
 
 
 
-
+   <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
   
   
 
@@ -442,6 +456,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
