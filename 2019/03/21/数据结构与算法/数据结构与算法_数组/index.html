@@ -91,7 +91,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/03/21/数据结构与算法/数据结构与算法_数组/linerList.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/03/21/数据结构与算法/数据结构与算法_数组/noneLinerList.jpg">
-<meta property="og:updated_time" content="2019-03-21T04:57:26.892Z">
+<meta property="og:updated_time" content="2019-03-21T05:06:05.430Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构与算法——数组：为什么很多编程语言中数组都从0开始编号？">
 <meta name="twitter:description" content="前言在每一种编程语言中，基本都会有数组这种数据类型。但它不仅仅是一种编程语言中的数据类型，还是一种最基础的数据结构。大部分编程语言中，数组都是从0开始编号的，但你是否下意识的想过，为什么数组要从0开始编号，而不是从1开始呢？  从1开始不是更符合人类的思维习惯吗？   如何实现随机访问？数组(Array)是一种线性表数据结构，它用一组连续的内存空间，来存储一组具有相同类型的数据。  接下来分两个角">
@@ -395,7 +395,7 @@
 
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在每一种编程语言中，基本都会有数组这种数据类型。但它不仅仅是一种编程语言中的数据类型，还是一种最基础的数据结构。大部分编程语言中，数组都是从0开始编号的，但你是否下意识的想过，<strong>为什么数组要从0开始编号，而不是从1开始呢？</strong>  从1开始不是更符合人类的思维习惯吗？  </p>
-<h2 id="如何实现随机访问？"><a href="#如何实现随机访问？" class="headerlink" title="如何实现随机访问？"></a>如何实现随机访问？</h2><p><strong>数组(Array)是一种线性表数据结构，它用一组连续的内存空间，来存储一组具有相同类型的数据。</strong>  接下来分两个角度来理解。  </p>
+<h2 id="如何实现随机访问？"><a href="#如何实现随机访问？" class="headerlink" title="如何实现随机访问？"></a>如何实现随机访问？</h2><p><strong>数组(Array)是一种线性表数据结构，它用一组连续的内存空间，来存储一组具有相同类型的数据。</strong>  接下来分两个角度来理解。<br><a id="more"></a></p>
 <ol>
 <li><strong>第一个是线性表</strong>  线性表就是数据拍成向一条线一样的结构。每个线性表上的数据最多只有前和后两个方向。除了数组，链表、队列、栈也是线性表结构。<br><img src="/2019/03/21/数据结构与算法/数据结构与算法_数组/linerList.jpg" alt="线性表">  </li>
 </ol>
@@ -413,7 +413,12 @@
 <h3 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h3><p>假设数组长度为n，现在需要将一个数据插入到数组中的第k个位置，须将k~n这部分的元素都顺序的往后挪一位，平均情况时间复杂度为O(n)。<br>如果数组中的数据是有序的，我们在某个位置插入一个新元素时，就必须安装刚才的方法搬移k之后的数据。但是，如果数组中存储的数据并没有任何规律，数组只是被当作一个存储数据的集合，，在这种情况下，要将某个元素插入到第k个位置，为避免大规模的数据搬移，有一个简单的办法就是<strong>直接将第k为的数据搬移到数组元素的最后，把新的元素直接放到第k个位置。</strong><br>这种处理技巧，在特性场景下，在第k个位置插入一个元素的时间复杂度就会降到O(1)。这个处理思想在快排中也会用到。  </p>
 <h3 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h3><p>和插入类似，如果删除数组末尾的数据，最好情况时间复杂度为O(1),如果删除开头的数据，则最坏情况时间复杂度为O(n),平均情况时间复杂度为O(n)。<br>实际上，在某些特殊场景下，我们并不一定非得追求数组中数据的连续性。如果我们将多次删除操作集中在一起执行，删除的效率就会提高很多！<br>例如，数组a[10]中存储了8个元素：a,b,c,d,e,f,g,h。现在要依次删除a,b,c三个元素。<br>为避免多次数据搬移，我们可以先记录下已经删除的数据。每次的删除操作并不是真正的搬移数据，只是记录数据已经被删除。当数组没有更多空间存储数据时，再触发一次真正的删除操作，这样就大大减少了删除操作导致的数据搬移。  </p>
 <h2 id="解答开篇问题"><a href="#解答开篇问题" class="headerlink" title="解答开篇问题"></a>解答开篇问题</h2><p>从数组储存的内存模型来看，“下标”最确切的定义应该是“偏移”，根据前面讲到的寻址公式，如果数组从1开始计数，那么我们计算数组元素a[i]的内存地址就会变成：  </p>
-<center><strong>a[i]_address=base_address+i×data_type_size</strong></center><br>对比两个公式，从1开始编号，每次随机访问数组元素都多了一次减法运算，对于CPU来说，就是多了一次减法指令。数组作为非常基础的数据结构，通过下标随机访问数组元素又是非常基础的操作，效率的优化就要尽可能做到极致。<br>数组选择从0开始，而不是从1开始，最主要的原因可能是历史原因。<br><br>## 相关思考题目<br><br>### JVM的标记清楚垃圾回收算法的核心理念<br><br>大多数主流虚拟机采用可达性分析算法来判断对象是否存活，在标记阶段，会遍历所有GC ROOTS，将所有GC ROOTS可达的对象标记为存活。只有当标记工作完成后，清理工作才会开始。<br><strong>不足：</strong><br><br>- 效率问题。标记和清理效率都不高，但是当知道只有少量垃圾产生时效率较高。<br>- 空间问题。会产生不连续的内存空间碎片。<br><br>### 二维数组的内存寻址公式<br><br>假设二维数组大小为m*n,则a[i][j]的地址为：<br><center><strong>a[i][j]_address=base_address+(i×m+j)×data_type_size</strong></center>
+<center><strong>a[i]_address=base_address+i×data_type_size</strong></center><br>对比两个公式，从1开始编号，每次随机访问数组元素都多了一次减法运算，对于CPU来说，就是多了一次减法指令。数组作为非常基础的数据结构，通过下标随机访问数组元素又是非常基础的操作，效率的优化就要尽可能做到极致。<br>数组选择从0开始，而不是从1开始，最主要的原因可能是历史原因。<br><br>##  相关思考题目<br><br>### JVM的标记清楚垃圾回收算法的核心理念<br><br>大多数主流虚拟机采用可达性分析算法来判断对象是否存活，在标记阶段，会遍历所有GC ROOTS，将所有GC ROOTS可达的对象标记为存活。只有当标记工作完成后，清理工作才会开始。<br><strong>不足：</strong><br><br>- 效率问题。标记和清理效率都不高，但是当知道只有少量垃圾产生时效率较高。<br>- 空间问题。会产生不连续的内存空间碎片。<br><br><br>### 二维数组的内存寻址公式<br><br>假设二维数组大小为m*n,则a[i][j]的地址为：<br><center><strong>a[i][j]_address=base_address+(i×m+j)×data_type_size</strong></center>  
+
+
+
+
+
       
     </div>
     
@@ -445,8 +450,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/21/newCoder/newCoder-把数组排成最小的数/" rel="next" title="newCoder——把数组排成最小的数">
-                <i class="fa fa-chevron-left"></i> newCoder——把数组排成最小的数
+              <a href="/2019/03/20/操作系统1-概述/" rel="next" title="数据结构与算法(一)">
+                <i class="fa fa-chevron-left"></i> 数据结构与算法(一)
               </a>
             
           </div>
@@ -455,8 +460,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/21/newCoder/newCoder-二维数组中的查找/" rel="prev" title="newCoder——二维数组中的查找">
-                newCoder——二维数组中的查找 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/21/newCoder/newCoder-把数组排成最小的数/" rel="prev" title="newCoder——把数组排成最小的数">
+                newCoder——把数组排成最小的数 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
