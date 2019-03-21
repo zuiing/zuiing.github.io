@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="笔记,数组,">
+  <meta name="keywords" content="笔记,复杂度分析,">
 
 
 
@@ -81,21 +81,24 @@
 
 
 
-<meta name="description" content="前言在每一种编程语言中，基本都会有数组这种数据类型。但它不仅仅是一种编程语言中的数据类型，还是一种最基础的数据结构。大部分编程语言中，数组都是从0开始编号的，但你是否下意识的想过，为什么数组要从0开始编号，而不是从1开始呢？  从1开始不是更符合人类的思维习惯吗？   如何实现随机访问？数组(Array)是一种线性表数据结构，它用一组连续的内存空间，来存储一组具有相同类型的数据。  接下来分两个角">
-<meta name="keywords" content="笔记,数组">
+<meta name="description" content="数据结构与算法概念理解从广义上讲，数据结构就是指一组数据的存储结构。算法就是操作数据的一组方法。狭义上讲，就是指某些著名的数据结构和算法。    10个数据结构：数组、链表、栈、队列、散列表、二叉树、堆、跳表、图、Trie树   10个算法：递归、排序、二分查找、搜索、哈希算法、贪心算法、回溯算法、分治算法、动态规划、字符串匹配算法。    上面最常用、最基础的20个数据结构与算法，要学习它们的”">
+<meta name="keywords" content="笔记,复杂度分析">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据结构与算法——数组：为什么很多编程语言中数组都从0开始编号？">
-<meta property="og:url" content="http://yoursite.com/2019/03/21/数据结构与算法_数组/index.html">
+<meta property="og:title" content="数据结构与算法——复杂度分析">
+<meta property="og:url" content="http://yoursite.com/2019/03/20/数据结构与算法/数据结构与算法_复杂度分析/index.html">
 <meta property="og:site_name" content="Zoe的成长历程">
-<meta property="og:description" content="前言在每一种编程语言中，基本都会有数组这种数据类型。但它不仅仅是一种编程语言中的数据类型，还是一种最基础的数据结构。大部分编程语言中，数组都是从0开始编号的，但你是否下意识的想过，为什么数组要从0开始编号，而不是从1开始呢？  从1开始不是更符合人类的思维习惯吗？   如何实现随机访问？数组(Array)是一种线性表数据结构，它用一组连续的内存空间，来存储一组具有相同类型的数据。  接下来分两个角">
+<meta property="og:description" content="数据结构与算法概念理解从广义上讲，数据结构就是指一组数据的存储结构。算法就是操作数据的一组方法。狭义上讲，就是指某些著名的数据结构和算法。    10个数据结构：数组、链表、栈、队列、散列表、二叉树、堆、跳表、图、Trie树   10个算法：递归、排序、二分查找、搜索、哈希算法、贪心算法、回溯算法、分治算法、动态规划、字符串匹配算法。    上面最常用、最基础的20个数据结构与算法，要学习它们的”">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/03/21/数据结构与算法_数组/img/linerList.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/03/21/数据结构与算法_数组/img/noneLinerList.jpg">
-<meta property="og:updated_time" content="2019-03-21T01:09:32.696Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/数据结构与算法/数据结构与算法_复杂度分析/struct_alogorithm.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/数据结构与算法/数据结构与算法_复杂度分析/O.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/数据结构与算法/数据结构与算法_复杂度分析/O1.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/数据结构与算法/数据结构与算法_复杂度分析/O2.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/数据结构与算法/数据结构与算法_复杂度分析/O3.jpg">
+<meta property="og:updated_time" content="2019-03-21T04:57:24.621Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据结构与算法——数组：为什么很多编程语言中数组都从0开始编号？">
-<meta name="twitter:description" content="前言在每一种编程语言中，基本都会有数组这种数据类型。但它不仅仅是一种编程语言中的数据类型，还是一种最基础的数据结构。大部分编程语言中，数组都是从0开始编号的，但你是否下意识的想过，为什么数组要从0开始编号，而不是从1开始呢？  从1开始不是更符合人类的思维习惯吗？   如何实现随机访问？数组(Array)是一种线性表数据结构，它用一组连续的内存空间，来存储一组具有相同类型的数据。  接下来分两个角">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/21/数据结构与算法_数组/img/linerList.jpg">
+<meta name="twitter:title" content="数据结构与算法——复杂度分析">
+<meta name="twitter:description" content="数据结构与算法概念理解从广义上讲，数据结构就是指一组数据的存储结构。算法就是操作数据的一组方法。狭义上讲，就是指某些著名的数据结构和算法。    10个数据结构：数组、链表、栈、队列、散列表、二叉树、堆、跳表、图、Trie树   10个算法：递归、排序、二分查找、搜索、哈希算法、贪心算法、回溯算法、分治算法、动态规划、字符串匹配算法。    上面最常用、最基础的20个数据结构与算法，要学习它们的”">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/20/数据结构与算法/数据结构与算法_复杂度分析/struct_alogorithm.jpg">
 
 
 
@@ -125,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/21/数据结构与算法_数组/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/20/数据结构与算法/数据结构与算法_复杂度分析/">
 
 
 
 
 
-  <title>数据结构与算法——数组：为什么很多编程语言中数组都从0开始编号？ | Zoe的成长历程</title>
+  <title>数据结构与算法——复杂度分析 | Zoe的成长历程</title>
   
 
 
@@ -300,7 +303,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/数据结构与算法_数组/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/20/数据结构与算法/数据结构与算法_复杂度分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zoe">
@@ -317,7 +320,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">数据结构与算法——数组：为什么很多编程语言中数组都从0开始编号？</h1>
+          <h1 class="post-title" itemprop="name headline">数据结构与算法——复杂度分析</h1>
         
 
         <div class="post-meta">
@@ -329,8 +332,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-21T00:00:00+08:00">
-                2019-03-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-20T19:59:40+08:00">
+                2019-03-20
               </time>
             
 
@@ -394,26 +397,64 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在每一种编程语言中，基本都会有数组这种数据类型。但它不仅仅是一种编程语言中的数据类型，还是一种最基础的数据结构。大部分编程语言中，数组都是从0开始编号的，但你是否下意识的想过，<strong>为什么数组要从0开始编号，而不是从1开始呢？</strong>  从1开始不是更符合人类的思维习惯吗？  </p>
-<h2 id="如何实现随机访问？"><a href="#如何实现随机访问？" class="headerlink" title="如何实现随机访问？"></a>如何实现随机访问？</h2><p><strong>数组(Array)是一种线性表数据结构，它用一组连续的内存空间，来存储一组具有相同类型的数据。</strong>  接下来分两个角度来理解。  </p>
+        <h2 id="数据结构与算法概念理解"><a href="#数据结构与算法概念理解" class="headerlink" title="数据结构与算法概念理解"></a>数据结构与算法概念理解</h2><p>从广义上讲，数据结构就是指一组数据的存储结构。算法就是操作数据的一组方法。<br>狭义上讲，就是指某些著名的数据结构和算法。  </p>
+<ul>
+<li>10个数据结构：数组、链表、栈、队列、散列表、二叉树、堆、跳表、图、Trie树  </li>
+<li>10个算法：递归、排序、二分查找、搜索、哈希算法、贪心算法、回溯算法、分治算法、动态规划、字符串匹配算法。  </li>
+</ul>
+<p><strong>上面最常用、最基础的20个数据结构与算法，要学习它们的”来历”、”特点”、”适合解决什么问题”以及”实际的应用场景”。</strong></p>
+<p>下面放一张数据结构和算法的知识图谱：<br><img src="/2019/03/20/数据结构与算法/数据结构与算法_复杂度分析/struct_alogorithm.jpg" alt="数据结构与算法知识点"><br><strong>数据结构是为算法服务的，算法要作用在特定的数据结构之上。</strong>  那么接下来就开始学习一个数据结构与算法中最重要的概念——复杂度分析。  </p>
+<h2 id="复杂度分析-上-——如何分析、统计算法的执行效率和资源消耗"><a href="#复杂度分析-上-——如何分析、统计算法的执行效率和资源消耗" class="headerlink" title="复杂度分析(上)——如何分析、统计算法的执行效率和资源消耗"></a>复杂度分析(上)——如何分析、统计算法的执行效率和资源消耗</h2><h3 id="事后统计法"><a href="#事后统计法" class="headerlink" title="事后统计法"></a>事后统计法</h3><p>把代码跑一边，通过统计、监控就能得到算法执行的时间和占用的内存大小。但是这种统计法有非常大的局限性。  </p>
 <ol>
-<li><strong>第一个是线性表</strong>  线性表就是数据拍成向一条线一样的结构。每个线性表上的数据最多只有前和后两个方向。除了数组，链表、队列、栈也是线性表结构。<br><img src="/2019/03/21/数据结构与算法_数组/img/linerList.jpg" alt="线性表">  </li>
+<li>测试结果非常依赖测试环境  </li>
+<li>测试结果受数据规模的影响很大，比如对同一个算法，待排序的数据有序度不一样，排序的时间会有河大的差别。极端情况下，如果数据已经是有序的，那排序算法不需要做任何操作执行时间非常短。此外，测试数据规模小，测试结果无法真实的反应算法的性能。比如对于小规模的数据排序，插入排序可能回避快排要块！  </li>
 </ol>
-<p>与之对应的是<strong>非线性表</strong>  。如二叉树、堆、图等，在非线性表中，数据之间并不是简单的前后关系。<br><img src="/2019/03/21/数据结构与算法_数组/img/noneLinerList.jpg" alt="非线性表">  </p>
-<ol start="2">
-<li><p><strong>第二个是连续的内存空间和相同类型的数据。</strong>  因为这两个限制它才有了随机访问的特性，但也让数组的删除、插入变得非常低效，为了保证连续性，就需要做大量的数据搬移工作。  </p>
-</li>
-<li><p><strong>数组是如何实现根据下标随机访问数组元素的呢？</strong><br>拿一个长度为10的int类型的数组int[] a=new int[10]来举例。计算机给数组a分配一块连续内存空间1000-1039，其中内存块的首地址为base_address=1000。计算机通过地址来访问内存中的数据，当计算机需要访问数组中的某个元素时，它会首先通过下面的寻址公式，计算出该元素存储的内存地址：<br><center><strong>a[i]_address=base_address+i×data_type_size</strong></center>  </p>
-<blockquote>
-<p>面试的时候，经常会问数组和链表的区别，很多人回答说“链表适合插入删除，时间复杂度为O(1)；数组适合查找，查找时间为O(1)”。<br>这种描述是不准确的。数组是适合查找，但是查找的时间复杂度并不为O(1).即使是排好序的数组，用二分查找，时间的复杂度也是O(logn)，所以正确的描述应该是<strong>数组支持随机访问，根据下标随机访问的时间复杂度为O(1)。</strong>  </p>
-</blockquote>
+<h3 id="大O表示法"><a href="#大O表示法" class="headerlink" title="大O表示法"></a>大O表示法</h3><ol>
+<li>大O时间复杂度表示法<br><em>T(n)=O(f(n))</em><br>其中T(n)表示代码执行的时间，n表示数据规模大小，f(n)表示每行代码执行的次数总和。公式中的O表示代码的执行时间T(n)与f(n)表达式成正比。  </li>
+<li>时间复杂度分析  <ul>
+<li>只关注循环执行次数最多的一段代码  </li>
+<li>加法法则：总复杂度等于量级最大的那段代码的复杂度  </li>
+<li>乘法法则：嵌套代码的复杂度等于嵌套内外代码复杂度的乘积  </li>
+</ul>
 </li>
 </ol>
-<h2 id="低效的插入和删除"><a href="#低效的插入和删除" class="headerlink" title="低效的插入和删除"></a>低效的插入和删除</h2><p>数组为了保证内存数据的连续性，会导致插入、删除操作比较低效。现在我们来讨论一下，究竟为什么会导致低效？又有哪些改进方法？  </p>
-<h3 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h3><p>假设数组长度为n，现在需要将一个数据插入到数组中的第k个位置，须将k~n这部分的元素都顺序的往后挪一位，平均情况时间复杂度为O(n)。<br>如果数组中的数据是有序的，我们在某个位置插入一个新元素时，就必须安装刚才的方法搬移k之后的数据。但是，如果数组中存储的数据并没有任何规律，数组只是被当作一个存储数据的集合，，在这种情况下，要将某个元素插入到第k个位置，为避免大规模的数据搬移，有一个简单的办法就是<strong>直接将第k为的数据搬移到数组元素的最后，把新的元素直接放到第k个位置。</strong><br>这种处理技巧，在特性场景下，在第k个位置插入一个元素的时间复杂度就会降到O(1)。这个处理思想在快排中也会用到。  </p>
-<h3 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h3><p>和插入类似，如果删除数组末尾的数据，最好情况时间复杂度为O(1),如果删除开头的数据，则最坏情况时间复杂度为O(n),平均情况时间复杂度为O(n)。<br>实际上，在某些特殊场景下，我们并不一定非得追求数组中数据的连续性。如果我们将多次删除操作集中在一起执行，删除的效率就会提高很多！<br>例如，数组a[10]中存储了8个元素：a,b,c,d,e,f,g,h。现在要依次删除a,b,c三个元素。<br>为避免多次数据搬移，我们可以先记录下已经删除的数据。每次的删除操作并不是真正的搬移数据，只是记录数据已经被删除。当数组没有更多空间存储数据时，再触发一次真正的删除操作，这样就大大减少了删除操作导致的数据搬移。  </p>
-<h2 id="解答开篇问题"><a href="#解答开篇问题" class="headerlink" title="解答开篇问题"></a>解答开篇问题</h2><p>从数组储存的内存模型来看，“下标”最确切的定义应该是“偏移”，根据前面讲到的寻址公式，如果数组从1开始计数，那么我们计算数组元素a[i]的内存地址就会变成：  </p>
-<center><strong>a[i]_address=base_address+i×data_type_size</strong></center><br>对比两个公式，从1开始编号，每次随机访问数组元素都多了一次减法运算，对于CPU来说，就是多了一次减法指令。数组作为非常基础的数据结构，通过下标随机访问数组元素又是非常基础的操作，效率的优化就要尽可能做到极致。<br>数组选择从0开始，而不是从1开始，最主要的原因可能是历史原因。<br><br>## 相关思考题目<br><br>### JVM的标记清楚垃圾回收算法的核心理念<br><br>大多数主流虚拟机采用可达性分析算法来判断对象是否存活，在标记阶段，会遍历所有GC ROOTS，将所有GC ROOTS可达的对象标记为存活。只有当标记工作完成后，清理工作才会开始。<br><strong>不足：</strong><br><br>- 效率问题。标记和清理效率都不高，但是当知道只有少量垃圾产生时效率较高。<br>- 空间问题。会产生不连续的内存空间碎片。<br><br>### 二维数组的内存寻址公式<br><br>假设二维数组大小为m*n,则a[i][j]的地址为：<br><center><strong>a[i][j]_address=base_address+(i×m+j)×data_type_size</strong></center>
+<h3 id="几种常见时间复杂度示例分析"><a href="#几种常见时间复杂度示例分析" class="headerlink" title="几种常见时间复杂度示例分析"></a>几种常见时间复杂度示例分析</h3><p>对于复杂度量级，可以粗略的分为<strong>多项式量级</strong> 和<strong>非多项式量级</strong> 。如下图：<br><img src="/2019/03/20/数据结构与算法/数据结构与算法_复杂度分析/O.jpg" alt="复杂度量级">  </p>
+<ol>
+<li><p>O(1)<br>代码执行的时间不随n的增大而增大。算法中不存在循环递归语句，即使有千万行代码，其时间复杂度也是O(1)。  </p>
+</li>
+<li><p>O(logn)、O(nlogn)  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int i=1;</span><br><span class="line"><span class="keyword">while</span>(i&lt;=n)&#123;</span><br><span class="line">	i*=2;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>归并排序、快速排序的时间复杂度就是O(nlogn)。  </p>
+<ol start="3">
+<li>O(m+n)、O(m*n)<br>代码的复杂度由两个数据的规模来决定。  </li>
+</ol>
+<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>常见的空间复杂度就是O(1)、O(n)、O(n^2)。  </p>
+<h2 id="复杂度分析-下-——浅析最好、最坏、平均、均摊时间复杂度"><a href="#复杂度分析-下-——浅析最好、最坏、平均、均摊时间复杂度" class="headerlink" title="复杂度分析(下)——浅析最好、最坏、平均、均摊时间复杂度"></a>复杂度分析(下)——浅析最好、最坏、平均、均摊时间复杂度</h2><h3 id="最好、最坏时间复杂度"><a href="#最好、最坏时间复杂度" class="headerlink" title="最好、最坏时间复杂度"></a>最好、最坏时间复杂度</h3><p>例如，在一个无序数组中查找变量x。如果数组中第一个元素就是要查找的变量x，那就不需要遍历剩下的n-1个数据了，最好时间复杂度为O(1)。但如果数组中不存在x，那就要把数组遍历一遍，最坏时间复杂度为O(n)。  </p>
+<h3 id="平均情况时间复杂度"><a href="#平均情况时间复杂度" class="headerlink" title="平均情况时间复杂度"></a>平均情况时间复杂度</h3><p>依然分析查找变量x的例子：<br>要查找的变量x在数组中的位置，有n+1中情况：在数组的0~n-1为之中和不在数组中。我们把每种情况下，查找需要遍历的元素个数累加起来，然后除以n+1，就可以得到需要遍历的元素个数的平均值。<br><img src="/2019/03/20/数据结构与算法/数据结构与算法_复杂度分析/O1.jpg" alt="平均时间复杂度"><br>上面的推导存在一个问题就是没有把各种情况发生的概率考虑进去。假设变量x在或不在数组中的概率都为1/2，要查找的数据出现在0~n-1这n个位置的概率也是一样的，为1/n。<br><img src="/2019/03/20/数据结构与算法/数据结构与算法_复杂度分析/O2.jpg" alt="平均时间复杂度">  </p>
+<h3 id="均摊时间复杂度"><a href="#均摊时间复杂度" class="headerlink" title="均摊时间复杂度"></a>均摊时间复杂度</h3><pre><code>
+// array 表示一个长度为 n 的数组
+// 代码中的 array.length 就等于 n
+int[] array = new int[n];
+int count = 0;
+
+void insert(int val) {
+   if (count == array.length) {
+      int sum = 0;
+      for (int i = 0; i &lt; array.length; ++i) {
+         sum = sum + array[i];
+      }
+      array[0] = sum;
+      count = 1;
+   }
+
+   array[count] = val;
+   ++count;
+}
+
+</code></pre><p>假设数组的长度为n，根据数据插入的位置的不同，可以分为n种情况，每种情况的时间复杂度都是O(1)。此外还有一种额外的情况，就是在数组没有空间时间时插入一个数据，这时时间复杂度为O(n)。而且，这n+1种情况发生的概率一样，都是1/(n+1)。所以根据加权平均的计算方法，求得的平均时间复杂度就是：<br><img src="/2019/03/20/数据结构与算法/数据结构与算法_复杂度分析/O3.jpg" alt="均摊时间复杂度"><br>对于insert()函数来说，O(1)时间的插入和O(n)时间的插入出现的频率是非常有规律的，而且有一定的前后时序关系，一个O(n)插入之后紧跟着n-1个O(1)的插入操作，循环往复。  </p>
+
       
     </div>
     
@@ -432,7 +473,7 @@
           
             <a href="/tags/笔记/" rel="tag"># 笔记</a>
           
-            <a href="/tags/数组/" rel="tag"># 数组</a>
+            <a href="/tags/复杂度分析/" rel="tag"># 复杂度分析</a>
           
         </div>
       
@@ -445,8 +486,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/21/newCoder/newCoder-二维数组中的查找/" rel="next" title="newCoder——二维数组中的查找">
-                <i class="fa fa-chevron-left"></i> newCoder——二维数组中的查找
+              <a href="/2019/03/20/myFirstBlog/" rel="next" title="使用Hexo & GitPage 搭建博客">
+                <i class="fa fa-chevron-left"></i> 使用Hexo & GitPage 搭建博客
               </a>
             
           </div>
@@ -454,6 +495,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/20/操作系统1-概述/" rel="prev" title="数据结构与算法(一)">
+                数据结构与算法(一) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -594,7 +639,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何实现随机访问？"><span class="nav-number">2.</span> <span class="nav-text">如何实现随机访问？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#低效的插入和删除"><span class="nav-number">3.</span> <span class="nav-text">低效的插入和删除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#插入操作"><span class="nav-number">3.1.</span> <span class="nav-text">插入操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除操作"><span class="nav-number">3.2.</span> <span class="nav-text">删除操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解答开篇问题"><span class="nav-number">4.</span> <span class="nav-text">解答开篇问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构与算法概念理解"><span class="nav-number">1.</span> <span class="nav-text">数据结构与算法概念理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂度分析-上-——如何分析、统计算法的执行效率和资源消耗"><span class="nav-number">2.</span> <span class="nav-text">复杂度分析(上)——如何分析、统计算法的执行效率和资源消耗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事后统计法"><span class="nav-number">2.1.</span> <span class="nav-text">事后统计法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大O表示法"><span class="nav-number">2.2.</span> <span class="nav-text">大O表示法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几种常见时间复杂度示例分析"><span class="nav-number">2.3.</span> <span class="nav-text">几种常见时间复杂度示例分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空间复杂度"><span class="nav-number">2.4.</span> <span class="nav-text">空间复杂度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂度分析-下-——浅析最好、最坏、平均、均摊时间复杂度"><span class="nav-number">3.</span> <span class="nav-text">复杂度分析(下)——浅析最好、最坏、平均、均摊时间复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最好、最坏时间复杂度"><span class="nav-number">3.1.</span> <span class="nav-text">最好、最坏时间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#平均情况时间复杂度"><span class="nav-number">3.2.</span> <span class="nav-text">平均情况时间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#均摊时间复杂度"><span class="nav-number">3.3.</span> <span class="nav-text">均摊时间复杂度</span></a></li></ol></li></ol></div>
             
 
           </div>
