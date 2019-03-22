@@ -73,6 +73,29 @@
   </entry>
   
   <entry>
+    <title>数据结构与算法——数组：为什么很多编程语言中数组都从0开始编号？</title>
+    <link href="http://yoursite.com/2019/03/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95_%E6%95%B0%E7%BB%84/"/>
+    <id>http://yoursite.com/2019/03/21/数据结构与算法/数据结构与算法_数组/</id>
+    <published>2019-03-20T16:00:00.000Z</published>
+    <updated>2019-03-22T04:57:31.848Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在每一种编程语言中，基本都会有数组这种数据类型。但它不仅仅是一种编程语言中的数据类型，还是一种最基础的数据结构。大部分编程语言中，数组都是从0开始编号的，但你是否下意识的想过，&lt;strong&gt;为什么数组要从0开始编号，而不是从1开始呢？&lt;/strong&gt;  从1开始不是更符合人类的思维习惯吗？  &lt;/p&gt;
+&lt;h2 id=&quot;如何实现随机访问？&quot;&gt;&lt;a href=&quot;#如何实现随机访问？&quot; class=&quot;headerlink&quot; title=&quot;如何实现随机访问？&quot;&gt;&lt;/a&gt;如何实现随机访问？&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;数组(Array)是一种线性表数据结构，它用一组连续的内存空间，来存储一组具有相同类型的数据。&lt;/strong&gt;  接下来分两个角度来理解。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Struct&amp;Alogorithms" scheme="http://yoursite.com/categories/Struct-Alogorithms/"/>
+    
+    
+      <category term="笔记" scheme="http://yoursite.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="数组" scheme="http://yoursite.com/tags/%E6%95%B0%E7%BB%84/"/>
+    
+  </entry>
+  
+  <entry>
     <title>剑指offer——二进制中1的个数 &amp; 整数中1出现的次数</title>
     <link href="http://yoursite.com/2019/03/21/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0%20&amp;%20%E6%95%B4%E6%95%B0%E4%B8%AD1%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/"/>
     <id>http://yoursite.com/2019/03/21/剑指offer/剑指offer-二进制中1的个数 &amp; 整数中1出现的次数/</id>
@@ -94,29 +117,6 @@
       <category term="二进制" scheme="http://yoursite.com/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
       <category term="数1" scheme="http://yoursite.com/tags/%E6%95%B01/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据结构与算法——数组：为什么很多编程语言中数组都从0开始编号？</title>
-    <link href="http://yoursite.com/2019/03/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95_%E6%95%B0%E7%BB%84/"/>
-    <id>http://yoursite.com/2019/03/21/数据结构与算法/数据结构与算法_数组/</id>
-    <published>2019-03-20T16:00:00.000Z</published>
-    <updated>2019-03-22T04:57:31.848Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在每一种编程语言中，基本都会有数组这种数据类型。但它不仅仅是一种编程语言中的数据类型，还是一种最基础的数据结构。大部分编程语言中，数组都是从0开始编号的，但你是否下意识的想过，&lt;strong&gt;为什么数组要从0开始编号，而不是从1开始呢？&lt;/strong&gt;  从1开始不是更符合人类的思维习惯吗？  &lt;/p&gt;
-&lt;h2 id=&quot;如何实现随机访问？&quot;&gt;&lt;a href=&quot;#如何实现随机访问？&quot; class=&quot;headerlink&quot; title=&quot;如何实现随机访问？&quot;&gt;&lt;/a&gt;如何实现随机访问？&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;数组(Array)是一种线性表数据结构，它用一组连续的内存空间，来存储一组具有相同类型的数据。&lt;/strong&gt;  接下来分两个角度来理解。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Struct&amp;Alogorithms" scheme="http://yoursite.com/categories/Struct-Alogorithms/"/>
-    
-    
-      <category term="笔记" scheme="http://yoursite.com/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="数组" scheme="http://yoursite.com/tags/%E6%95%B0%E7%BB%84/"/>
     
   </entry>
   
