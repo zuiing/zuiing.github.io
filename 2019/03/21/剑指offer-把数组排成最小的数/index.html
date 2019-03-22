@@ -85,16 +85,16 @@
 <meta name="keywords" content="牛客刷题,数组,sort函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="剑指offer——把数组排成最小的数">
-<meta property="og:url" content="http://yoursite.com/2019/03/21/剑指offer/剑指offer-把数组排成最小的数/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/21/剑指offer-把数组排成最小的数/index.html">
 <meta property="og:site_name" content="Zoe的成长历程">
 <meta property="og:description" content="题目描述输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。时间限制：1秒 空间限制：32768K  解题思路 将数组中的整数数组转换成字符串数组； 自定义一个比较大小的函数，比较两个字符串s1和s2大小的时候，先将它们拼起来，比较s1+s2和s2和s1哪个大，如果s1+s2">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/03/21/剑指offer/剑指offer-把数组排成最小的数/sort_cmp.JPG">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/剑指offer-把数组排成最小的数/sort_cmp.JPG">
 <meta property="og:updated_time" content="2019-03-22T02:57:57.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指offer——把数组排成最小的数">
 <meta name="twitter:description" content="题目描述输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。时间限制：1秒 空间限制：32768K  解题思路 将数组中的整数数组转换成字符串数组； 自定义一个比较大小的函数，比较两个字符串s1和s2大小的时候，先将它们拼起来，比较s1+s2和s2和s1哪个大，如果s1+s2">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/21/剑指offer/剑指offer-把数组排成最小的数/sort_cmp.JPG">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/21/剑指offer-把数组排成最小的数/sort_cmp.JPG">
 
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/21/剑指offer/剑指offer-把数组排成最小的数/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/21/剑指offer-把数组排成最小的数/">
 
 
 
@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/剑指offer/剑指offer-把数组排成最小的数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/剑指offer-把数组排成最小的数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zoe">
@@ -405,7 +405,7 @@
 <blockquote>
 <p>./solution.h:8:36: error: reference to non-static member function must be called<br>sort(str.begin(),str.end(),myCompare);</p>
 </blockquote>
-<p><strong>2. 深究STL的sort()函数</strong><br>以前在自定义比较函数时一直都有个疑问，当什么情况下会进行升序排列、什么情况下又进行降序排列呢？传入的两个参数应该如何进行比较？在这里推荐直接看C++<a href="http://www.cplusplus.com/reference/algorithm/sort/" target="_blank" rel="noopener">技术文档</a><br><img src="/2019/03/21/剑指offer/剑指offer-把数组排成最小的数/sort_cmp.JPG" alt="sort函数技术文档">  </p>
+<p><strong>2. 深究STL的sort()函数</strong><br>以前在自定义比较函数时一直都有个疑问，当什么情况下会进行升序排列、什么情况下又进行降序排列呢？传入的两个参数应该如何进行比较？在这里推荐直接看C++<a href="http://www.cplusplus.com/reference/algorithm/sort/" target="_blank" rel="noopener">技术文档</a><br><img src="/2019/03/21/剑指offer-把数组排成最小的数/sort_cmp.JPG" alt="sort函数技术文档">  </p>
 <p>comp函数返回值：返回一个bool类型的值，这个值表示了在上升序列中第一个参数是否位于第二个参数之前。  </p>
 <ul>
 <li>如果comp返回true，sort根据返回值将第一个参数排在第二个参数前面；</li>
@@ -447,8 +447,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/21/剑指offer/剑指offer-数1类题目/" rel="next" title="剑指offer——二进制中1的个数 & 整数中1出现的次数">
-                <i class="fa fa-chevron-left"></i> 剑指offer——二进制中1的个数 & 整数中1出现的次数
+              <a href="/2019/03/21/剑指offer/剑指offer-二维数组中的查找/" rel="next" title="剑指offer——二维数组中的查找">
+                <i class="fa fa-chevron-left"></i> 剑指offer——二维数组中的查找
               </a>
             
           </div>
@@ -456,10 +456,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/21/剑指offer/剑指offer-二维数组中的查找/" rel="prev" title="剑指offer——二维数组中的查找">
-                剑指offer——二维数组中的查找 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
