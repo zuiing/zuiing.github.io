@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-22T05:58:05.604Z</updated>
+  <updated>2019-03-22T06:33:08.097Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/03/22/MarkDown%E8%AF%AD%E6%B3%95%E5%B0%8F%E7%BB%93/"/>
     <id>http://yoursite.com/2019/03/22/MarkDown语法小结/</id>
     <published>2019-03-22T05:54:23.000Z</published>
-    <updated>2019-03-22T05:58:05.604Z</updated>
+    <updated>2019-03-22T06:33:08.097Z</updated>
     
     <summary type="html">
     
@@ -47,7 +47,7 @@
     <link href="http://yoursite.com/2019/03/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E9%80%92%E5%BD%92/"/>
     <id>http://yoursite.com/2019/03/22/数据结构与算法/数据结构与算法-递归/</id>
     <published>2019-03-22T05:20:53.000Z</published>
-    <updated>2019-03-22T06:22:16.747Z</updated>
+    <updated>2019-03-22T06:32:28.415Z</updated>
     
     <summary type="html">
     
@@ -232,19 +232,19 @@
     <link href="http://yoursite.com/2019/03/20/%E4%BD%BF%E7%94%A8Hexo%E5%8F%8AGitPage%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     <id>http://yoursite.com/2019/03/20/使用Hexo及GitPage搭建博客/</id>
     <published>2019-03-20T01:09:28.000Z</published>
-    <updated>2019-03-22T05:11:18.942Z</updated>
+    <updated>2019-03-22T06:31:43.037Z</updated>
     
     <summary type="html">
     
       &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;刚开始使用GitHub，看到别人在git上搭建的博客很简洁优美，简直就是一片净土，于是自己也来试试！在搭建的过程中遇到了一些问题，再此做个记录。也算是自己的第一篇文章 :)    &lt;/p&gt;
-&lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;Git Pages本来是用于介绍托管在GitHub上的项目，不过，由于它的空间免费稳定，非常适合搭建一个博客。也可以认为是用户编写的、托管在GitHub上的静态网页。&lt;br&gt;目前有两大静态博客主流框架：&lt;a href=&quot;https://jekyllrb.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Jekyll&lt;/a&gt;和&lt;a href=&quot;https://hexo.io/zh-cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;hexo&lt;/a&gt;。但是看到网上很多人吹捧hexo，于是直接放弃Jekyll，开始了hexo+GitHub搭建博客的第一步（在搭建的过程中，发现使用jekyll很简单，等会儿会提到我是如何偶遇它的）。hexo是一个快速、简洁且高效的博客框架，使用markdown解析文章，使用Node.js渲染界面( &lt;a href=&quot;https://hexo.io/themes/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo Themes&lt;/a&gt;上有很多主题以及各种功能，可参考博客&lt;a href=&quot;https://blog.csdn.net/u011475210/article/details/79023429&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;我的个人博客之旅：从jekyll到hexo&lt;/a&gt;)。  &lt;/p&gt;
+&lt;h2 id=&quot;1-概述&quot;&gt;&lt;a href=&quot;#1-概述&quot; class=&quot;headerlink&quot; title=&quot;1.概述&quot;&gt;&lt;/a&gt;1.概述&lt;/h2&gt;&lt;p&gt;Git Pages本来是用于介绍托管在GitHub上的项目，不过，由于它的空间免费稳定，非常适合搭建一个博客。也可以认为是用户编写的、托管在GitHub上的静态网页。&lt;br&gt;目前有两大静态博客主流框架：&lt;a href=&quot;https://jekyllrb.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Jekyll&lt;/a&gt;和&lt;a href=&quot;https://hexo.io/zh-cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;hexo&lt;/a&gt;。但是看到网上很多人吹捧hexo，于是直接放弃Jekyll，开始了hexo+GitHub搭建博客的第一步（在搭建的过程中，发现使用jekyll很简单，等会儿会提到我是如何偶遇它的）。hexo是一个快速、简洁且高效的博客框架，使用markdown解析文章，使用Node.js渲染界面( &lt;a href=&quot;https://hexo.io/themes/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo Themes&lt;/a&gt;上有很多主题以及各种功能，可参考博客&lt;a href=&quot;https://blog.csdn.net/u011475210/article/details/79023429&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;我的个人博客之旅：从jekyll到hexo&lt;/a&gt;)。  &lt;/p&gt;
     
     </summary>
     
-      <category term="Node" scheme="http://yoursite.com/categories/Node/"/>
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="笔记" scheme="http://yoursite.com/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="Node" scheme="http://yoursite.com/tags/Node/"/>
     
       <category term="hexo&amp;GitPage" scheme="http://yoursite.com/tags/hexo-GitPage/"/>
     
