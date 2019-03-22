@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-22T03:15:27.524Z</updated>
+  <updated>2019-03-21T09:48:35.609Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,34 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>剑指offer——把数组排成最小的数</title>
-    <link href="http://yoursite.com/2019/03/21/%E5%89%91%E6%8C%87offer-%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0/"/>
-    <id>http://yoursite.com/2019/03/21/剑指offer-把数组排成最小的数/</id>
-    <published>2019-03-20T16:00:00.000Z</published>
-    <updated>2019-03-22T03:15:27.524Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。&lt;br&gt;时间限制：1秒 空间限制：32768K &lt;/p&gt;
-&lt;h2 id=&quot;解题思路&quot;&gt;&lt;a href=&quot;#解题思路&quot; class=&quot;headerlink&quot; title=&quot;解题思路&quot;&gt;&lt;/a&gt;解题思路&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;将数组中的整数数组转换成字符串数组；&lt;/li&gt;
-&lt;li&gt;自定义一个比较大小的函数，比较两个字符串s1和s2大小的时候，先将它们拼起来，比较s1+s2和s2和s1哪个大，如果s1+s2大，说明s2应该放前面，根据这个规则将所有的字符换排序；&lt;/li&gt;
-&lt;li&gt;拼接所有的字符串数组中的元素。&lt;/li&gt;&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="剑指offer" scheme="http://yoursite.com/categories/%E5%89%91%E6%8C%87offer/"/>
-    
-    
-      <category term="牛客刷题" scheme="http://yoursite.com/tags/%E7%89%9B%E5%AE%A2%E5%88%B7%E9%A2%98/"/>
-    
-      <category term="数组" scheme="http://yoursite.com/tags/%E6%95%B0%E7%BB%84/"/>
-    
-      <category term="sort函数" scheme="http://yoursite.com/tags/sort%E5%87%BD%E6%95%B0/"/>
-    
-  </entry>
   
   <entry>
     <title>剑指offer——二维数组中的查找</title>
@@ -96,11 +68,39 @@
   </entry>
   
   <entry>
+    <title>剑指offer——把数组排成最小的数</title>
+    <link href="http://yoursite.com/2019/03/21/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer-%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0/"/>
+    <id>http://yoursite.com/2019/03/21/剑指offer/剑指offer-把数组排成最小的数/</id>
+    <published>2019-03-20T16:00:00.000Z</published>
+    <updated>2019-03-22T04:46:24.086Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。&lt;br&gt;时间限制：1秒 空间限制：32768K &lt;/p&gt;
+&lt;h2 id=&quot;解题思路&quot;&gt;&lt;a href=&quot;#解题思路&quot; class=&quot;headerlink&quot; title=&quot;解题思路&quot;&gt;&lt;/a&gt;解题思路&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;将数组中的整数数组转换成字符串数组；&lt;/li&gt;
+&lt;li&gt;自定义一个比较大小的函数，比较两个字符串s1和s2大小的时候，先将它们拼起来，比较s1+s2和s2和s1哪个大，如果s1+s2大，说明s2应该放前面，根据这个规则将所有的字符换排序；&lt;/li&gt;
+&lt;li&gt;拼接所有的字符串数组中的元素。&lt;/li&gt;&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="剑指offer" scheme="http://yoursite.com/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="牛客刷题" scheme="http://yoursite.com/tags/%E7%89%9B%E5%AE%A2%E5%88%B7%E9%A2%98/"/>
+    
+      <category term="数组" scheme="http://yoursite.com/tags/%E6%95%B0%E7%BB%84/"/>
+    
+      <category term="sort函数" scheme="http://yoursite.com/tags/sort%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>剑指offer——二进制中1的个数 &amp; 整数中1出现的次数</title>
     <link href="http://yoursite.com/2019/03/21/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer-%E6%95%B01%E7%B1%BB%E9%A2%98%E7%9B%AE/"/>
     <id>http://yoursite.com/2019/03/21/剑指offer/剑指offer-数1类题目/</id>
     <published>2019-03-20T16:00:00.000Z</published>
-    <updated>2019-03-21T14:35:33.192Z</updated>
+    <updated>2019-03-22T04:45:41.391Z</updated>
     
     <summary type="html">
     
@@ -178,7 +178,7 @@
     <link href="http://yoursite.com/2019/03/20/myFirstBlog/"/>
     <id>http://yoursite.com/2019/03/20/myFirstBlog/</id>
     <published>2019-03-20T01:09:28.000Z</published>
-    <updated>2019-03-21T04:48:26.365Z</updated>
+    <updated>2019-03-22T04:52:26.277Z</updated>
     
     <summary type="html">
     
@@ -193,6 +193,32 @@
       <category term="笔记" scheme="http://yoursite.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="hexo&amp;GitPage" scheme="http://yoursite.com/tags/hexo-GitPage/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2019/03/19/hello-world/"/>
+    <id>http://yoursite.com/2019/03/19/hello-world/</id>
+    <published>2019-03-19T04:04:45.979Z</published>
+    <updated>2019-03-20T11:36:11.971Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="leetcode刷题" scheme="http://yoursite.com/categories/leetcode%E5%88%B7%E9%A2%98/"/>
+    
+    
+      <category term="start" scheme="http://yoursite.com/tags/start/"/>
     
   </entry>
   
