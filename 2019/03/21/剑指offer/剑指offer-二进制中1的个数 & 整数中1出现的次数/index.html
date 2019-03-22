@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Zoe的成长历程">
 <meta property="og:description" content="题目描述：二进制中1的个数输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。   解法一基本思路：  先判断整数二进制表示中最右边是不是为1，如果是则计数器自增1；接着把输入的整数右移一位，继续判断二进制表示中最右边是否为1，直到整个数变为0为止。代码如下所示，case通过率0.00%，超时引起的，是因为如果输入的是负数，右移时，为保证移位后是一个负数，因此移位后的最高为会设1.如果">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-22T05:03:07.578Z">
+<meta property="og:updated_time" content="2019-03-22T05:19:53.666Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指offer——二进制中1的个数 &amp; 整数中1出现的次数">
 <meta name="twitter:description" content="题目描述：二进制中1的个数输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。   解法一基本思路：  先判断整数二进制表示中最右边是不是为1，如果是则计数器自增1；接着把输入的整数右移一位，继续判断二进制表示中最右边是否为1，直到整个数变为0为止。代码如下所示，case通过率0.00%，超时引起的，是因为如果输入的是负数，右移时，为保证移位后是一个负数，因此移位后的最高为会设1.如果">
@@ -403,7 +403,7 @@
 <p>负数：-4&gt;&gt;2 (-4的二进制为4的原码取反再加1，如下)右移两位，高位补1<br>(1111 1111 1111 1111 1111 1111 1111 1100)&gt;&gt;(1111 1111 1111 1111 1111 1111 1111 1111)<br>根据上述得到的补码求出源码才是我们所求的结果，保留符号位，然后按位取反再加1，为(100000 0000 0000 0000 0000 0000 0000 01),结果为-1，即-4/(2^2)。  </p>
 <h4 id="2-无符号右移-gt-gt-gt-无论正负，高位均补0"><a href="#2-无符号右移-gt-gt-gt-无论正负，高位均补0" class="headerlink" title="2.无符号右移&gt;&gt;&gt;(无论正负，高位均补0)"></a>2.无符号右移&gt;&gt;&gt;(无论正负，高位均补0)</h4><p>正数：4&gt;&gt;&gt;2 与4&gt;&gt;2的运算结果相同，结果也是1  </p>
 <p>负数：-4&gt;&gt;&gt;2<br>(1111 1111 1111 1111 1111 1111 1111 1100)&gt;&gt;&gt;(0011 1111 1111 1111 1111 1111 1111 1111)<br>结果为1073741823  </p>
-<h3 id="3-左移-lt-lt-不区分有符号和无符号"><a href="#3-左移-lt-lt-不区分有符号和无符号" class="headerlink" title="3.左移&lt;&lt;(不区分有符号和无符号)"></a>3.左移&lt;&lt;(不区分有符号和无符号)</h3><p>分析num&lt;&lt;n  </p>
+<h4 id="3-左移-lt-lt-不区分有符号和无符号"><a href="#3-左移-lt-lt-不区分有符号和无符号" class="headerlink" title="3.左移&lt;&lt;(不区分有符号和无符号)"></a>3.左移&lt;&lt;(不区分有符号和无符号)</h4><p>分析num&lt;&lt;n  </p>
 <ul>
 <li>相当于num(num的二进制)向左移动n位；</li>
 <li>左边(高位)溢出部分直接舍弃；右边(低位)移入部分全部补0；</li>
@@ -569,7 +569,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -591,7 +591,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -631,7 +631,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述：二进制中1的个数"><span class="nav-number">1.</span> <span class="nav-text">题目描述：二进制中1的个数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解法一"><span class="nav-number">1.1.</span> <span class="nav-text">解法一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解法二"><span class="nav-number">1.2.</span> <span class="nav-text">解法二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解法三"><span class="nav-number">1.3.</span> <span class="nav-text">解法三</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tips-位运算左移右移"><span class="nav-number">1.4.</span> <span class="nav-text">Tips:位运算左移右移</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-有符号右移-gt-gt-（若正数，高位补0，若负数，高位补1）"><span class="nav-number">1.4.1.</span> <span class="nav-text">1.有符号右移&gt;&gt;（若正数，高位补0，若负数，高位补1）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-无符号右移-gt-gt-gt-无论正负，高位均补0"><span class="nav-number">1.4.2.</span> <span class="nav-text">2.无符号右移&gt;&gt;&gt;(无论正负，高位均补0)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-左移-lt-lt-不区分有符号和无符号"><span class="nav-number">1.5.</span> <span class="nav-text">3.左移&lt;&lt;(不区分有符号和无符号)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述：整数中1出现的次数"><span class="nav-number">2.</span> <span class="nav-text">题目描述：整数中1出现的次数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解法一：暴力解决"><span class="nav-number">2.1.</span> <span class="nav-text">解法一：暴力解决</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解法二：找规律"><span class="nav-number">2.2.</span> <span class="nav-text">解法二：找规律</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述：二进制中1的个数"><span class="nav-number">1.</span> <span class="nav-text">题目描述：二进制中1的个数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解法一"><span class="nav-number">1.1.</span> <span class="nav-text">解法一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解法二"><span class="nav-number">1.2.</span> <span class="nav-text">解法二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解法三"><span class="nav-number">1.3.</span> <span class="nav-text">解法三</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tips-位运算左移右移"><span class="nav-number">1.4.</span> <span class="nav-text">Tips:位运算左移右移</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-有符号右移-gt-gt-（若正数，高位补0，若负数，高位补1）"><span class="nav-number">1.4.1.</span> <span class="nav-text">1.有符号右移&gt;&gt;（若正数，高位补0，若负数，高位补1）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-无符号右移-gt-gt-gt-无论正负，高位均补0"><span class="nav-number">1.4.2.</span> <span class="nav-text">2.无符号右移&gt;&gt;&gt;(无论正负，高位均补0)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-左移-lt-lt-不区分有符号和无符号"><span class="nav-number">1.4.3.</span> <span class="nav-text">3.左移&lt;&lt;(不区分有符号和无符号)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述：整数中1出现的次数"><span class="nav-number">2.</span> <span class="nav-text">题目描述：整数中1出现的次数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解法一：暴力解决"><span class="nav-number">2.1.</span> <span class="nav-text">解法一：暴力解决</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解法二：找规律"><span class="nav-number">2.2.</span> <span class="nav-text">解法二：找规律</span></a></li></ol></li></ol></div>
             
 
           </div>
