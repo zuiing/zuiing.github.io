@@ -293,6 +293,333 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/ComputerVision/OpenCV-ImageProcessing/3-Mathematical morphology/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zoe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zoe的成长历程">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/25/ComputerVision/OpenCV-ImageProcessing/3-Mathematical morphology/" itemprop="url">3.数学形态学运算</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-25T21:07:56+08:00">
+                2019-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+		
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="数学形态学运算–腐蚀、膨胀、开运算、闭运算"><a href="#数学形态学运算–腐蚀、膨胀、开运算、闭运算" class="headerlink" title="数学形态学运算–腐蚀、膨胀、开运算、闭运算"></a>数学形态学运算–腐蚀、膨胀、开运算、闭运算</h2><p>数学形态学操作可以分为二值形态学和灰度形态学，灰度形态学由二值形态学扩展而来，数学形态学有两个基本的运算，腐蚀和膨胀，而腐蚀和膨胀又形成了开运算和闭运算。  </p>
+<h2 id="二值形态学-通常用于二值图像"><a href="#二值形态学-通常用于二值图像" class="headerlink" title="二值形态学-通常用于二值图像"></a>二值形态学-通常用于二值图像</h2><h3 id="腐蚀膨胀的作用："><a href="#腐蚀膨胀的作用：" class="headerlink" title="腐蚀膨胀的作用："></a>腐蚀膨胀的作用：</h3><ol>
+<li>消除噪声</li>
+<li>分割出独立的图像元素，在图像中连接相邻的元素</li>
+<li>寻找图像中明显的极大值区域或者极小值区域</li>
+<li>求出图像的梯度</li>
+</ol>
+<p><strong>膨胀–</strong> 是图像中的高亮部分进行膨胀，效果图拥有比原图更大的高亮区域；<br><strong>腐蚀–</strong> 是原图中的高亮部分被腐蚀，效果图拥有比原图更小的高亮区域。<br>从数学的角度来说腐蚀和膨胀操作就是将图像与核进行卷积，核可以是任意形状和大小的，核大则周围对其影响大，变化大，核小则周围对齐影响小，变化小。  </p>
+<p><img src="/2019/03/25/ComputerVision/OpenCV-ImageProcessing/3-Mathematical morphology/3-Mathematicalmorphology/result.JPG" alt="二值形态学"></p>
+<h2 id="更加高级的形态学变换"><a href="#更加高级的形态学变换" class="headerlink" title="更加高级的形态学变换"></a>更加高级的形态学变换</h2><ol>
+<li>开运算–先腐蚀再膨胀，可以用来去掉目标外的孤立点，消除小物体，在纤细处分离物体，并且在平滑较大物体的边界的同时不明显改变其面积。  </li>
+<li>闭运算–先膨胀再腐蚀，能够去掉目标内的孔，排除小型黑洞。</li>
+<li>形态学梯度–就是膨胀图与俯视图之差，用于保留物体的边缘轮廓。</li>
+<li>顶帽–原图像与开运算之差，用于分离比邻近点亮一些的斑块。</li>
+<li>黑帽–闭运算与原图像之差，用于分离比临近点暗一些的斑块。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">	Mat img = imread(&quot;alita.png&quot;);</span><br><span class="line">	Mat out1, out2,out3,out4,out5;</span><br><span class="line">	//MORPH_RECT表示矩形的卷积核，当然也可以选择椭圆形、交叉型的</span><br><span class="line">	Mat element = getStructuringElement(MORPH_RECT, Size(10, 10));</span><br><span class="line">	dilate(img, out1, element);</span><br><span class="line">	erode(img, out2, element);</span><br><span class="line"></span><br><span class="line">	//高级形态学处理，调用这个函数就可以了，具体选择哪种操作，直接修改第三个参数</span><br><span class="line">	morphologyEx(img, out3, MORPH_GRADIENT, element);</span><br><span class="line">	morphologyEx(img, out4, MORPH_TOPHAT, element);</span><br><span class="line">	morphologyEx(img, out5, MORPH_BLACKHAT, element);</span><br><span class="line"></span><br><span class="line">	imshow(&quot;原图&quot;, img);</span><br><span class="line">	imshow(&quot;膨胀操作&quot;, out1);</span><br><span class="line">	imshow(&quot;腐蚀操作&quot;, out2);</span><br><span class="line">	imshow(&quot;形态学梯度&quot;, out3);</span><br><span class="line">	imshow(&quot;顶帽&quot;, out4);</span><br><span class="line">	imshow(&quot;黑帽&quot;, out5);</span><br><span class="line">	waitKey(0);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/03/25/ComputerVision/OpenCV-ImageProcessing/3-Mathematical morphology/3-Mathematicalmorphology/result2.JPG" alt="二值形态学"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/ComputerVision/OpenCV-ImageProcessing/2-Filter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zoe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zoe的成长历程">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/25/ComputerVision/OpenCV-ImageProcessing/2-Filter/" itemprop="url">1.Filter</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-25T11:06:38+08:00">
+                2019-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+		
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="OpenCV基本滤波算法分类及作用"><a href="#OpenCV基本滤波算法分类及作用" class="headerlink" title="OpenCV基本滤波算法分类及作用"></a>OpenCV基本滤波算法分类及作用</h2><ol>
+<li>线性滤波<ul>
+<li>方框滤波：模糊图像</li>
+<li>均值滤波：模糊图像</li>
+<li>高斯滤波：信号的平滑处理，去除符合正态分布的噪声</li>
+</ul>
+</li>
+<li>非线性滤波<ul>
+<li>中值滤波：去除椒盐噪声</li>
+<li>双边滤波：保边去噪  </li>
+</ul>
+</li>
+</ol>
+<h2 id="OpenCV中的函数调用"><a href="#OpenCV中的函数调用" class="headerlink" title="OpenCV中的函数调用"></a>OpenCV中的函数调用</h2><h3 id="1-方框滤波"><a href="#1-方框滤波" class="headerlink" title="1.方框滤波"></a>1.方框滤波</h3><p>void boxFilter(InputArray src,OutputArray dst, int ddepth, Size ksize, Point anchor=Point(-1,-1), boolnormalize=true, int borderType=BORDER_DEFAULT )<br>用一个像素的领域像素值之和作为滤波结果，邻域即模板所覆盖的图像区域，此时模板的所有系数都为1. </p>
+<blockquote>
+<ul>
+<li>源图像可以是彩色图或者是灰度图,因为图像处理的时候,通道是分开来处理的</li>
+<li>目的图像的大小和通道数必须和源图像相同</li>
+<li>int类型的ddepth，输出图像的深度，-1代表使用原图深度，即src.depth()。</li>
+<li>Size类型（对Size类型稍后有讲解）的ksize，内核的大小</li>
+<li>Point类型的anchor，表示锚点（即被平滑的那个点），注意它有默认值Point(-1,-1)。如果这个点坐标是负值的话，就表示取核的中心为锚点，所以默认值Point(-1,-1)表示这个锚点在核的中心。</li>
+<li>bool类型的normalize，默认值为true，一个标识符，表示内核是否被其区域归一化（normalized）了。</li>
+<li>int类型的borderType，用于推断图像外部像素的某种边界模式。有默认值BORDER_DEFAULT，我们一般不去管它。</li>
+</ul>
+</blockquote>
+<p><img src="/2019/03/25/ComputerVision/OpenCV-ImageProcessing/2-Filter/boxFilter.JPG" alt="核"><br>其中f表示原图，h表示核，g表示目标图，当normalize=true的时候，方框滤波就变成了我们熟悉的均值滤波。也就是说，均值滤波是方框滤波归一化（normalized）后的特殊情况。其中，归一化就是把要处理的量都缩放到一个范围内,比如(0,1)，以便统一处理和直观量化.</p>
+<h3 id="2-均值滤波"><a href="#2-均值滤波" class="headerlink" title="2.均值滤波"></a>2.均值滤波</h3><p>void blur(InputArray src, OutputArray dst, Size ksize, Point anchor=Point(-1,-1), int borderType=BORDER_DEFAULT )<br>均值滤波就是方框滤波的一个特殊情况，blur函数内部中其实就是调用了一下boxFilter,均值滤波的特点就是不能很好的保护细节，在图像去噪的同时也破坏了图像的细节部分，从而使图像变得模糊，不能很好的去除噪点。</p>
+<blockquote>
+<ul>
+<li>src,输入图像。该函数对通道是独立处理的,且可以处理任意通道数的图片，但需要注意，待处理的图片深度应该为CV_8U, CV_16U, CV_16S, CV_32F 以及 CV_64F之一。</li>
+<li>dst，即目标图像，需要和源图片有一样的尺寸和类型。比如可以用Mat::Clone，以源图片为模板，来初始化得到如假包换的目标图。</li>
+<li>Size类型的ksize，内核的大小。一般这样写Size(w,h)来表示内核的大小(其中，w 为像素宽度,h为像素高度)。Size（3,3）就表示3x3的核大小，Size（5,5）就表示5x5的核大小</li>
+<li>Point类型的anchor，表示锚点（即被平滑的那个点），注意他有默认值Point(-1,-1)。如果这个点坐标是负值的话，就表示取核的中心为锚点，所以默认值Point(-1,-1)表示这个锚点在核的中心。</li>
+<li>int类型的borderType，用于推断图像外部像素的某种边界模式。有默认值BORDER_DEFAULT，一般不去管它。</li>
+</ul>
+</blockquote>
+<h3 id="3-高斯滤波"><a href="#3-高斯滤波" class="headerlink" title="3.高斯滤波"></a>3.高斯滤波</h3><p>void GaussianBlur(InputArray src, OutputArray dst, Size ksize, double sigmaX, double sigmaY=0, int borderType=BORDER_DEFAULT)<br>高斯滤波是一种线性平滑滤波，适用于消除高斯噪声，广泛应用于图像处理的减噪过程。通俗的讲，高斯滤波就是对整幅图像进行加权平均的过程，每一个像素点的值，都由其本身和邻域内的其他像素值经过加权平均后得到。高斯滤波的具体操作是：用一个模板（或称卷积、掩模）扫描图像中的每一个像素，用模板确定的邻域内像素的加权平均灰度值去替代模板中心像素点的值。<br>从数学的角度来看，图像的高斯模糊过程就是图像与正态分布做卷积。由于正态分布又叫作高斯分布，所以这项技术就叫作高斯模糊。  </p>
+<blockquote>
+<ul>
+<li>src，输入图像，即源图像，填Mat类的对象即可。它可以是单独的任意通道数的图片，但需要注意，图片深度应该为CV_8U,CV_16U, CV_16S, CV_32F 以及 CV_64F之一。</li>
+<li>dst，即目标图像，需要和源图片有一样的尺寸和类型。比如可以用Mat::Clone，以源图片为模板，来初始化得到如假包换的目标图。</li>
+<li>ksize，高斯内核的大小。其中ksize.width和ksize.height可以不同，但他们都必须为正数和奇数。或者，它们可以是零的，它们都是由sigma计算而来。</li>
+<li>sigmaX，表示高斯核函数在X方向的的标准偏差。</li>
+<li>sigmaY，表示高斯核函数在Y方向的的标准偏差。若sigmaY为零，就将它设为sigmaX，如果sigmaX和sigmaY都是0，那么就由ksize.width和ksize.height计算出来。</li>
+</ul>
+</blockquote>
+<p><img src="/2019/03/25/ComputerVision/OpenCV-ImageProcessing/2-Filter/filter.JPG" alt="滤波结果"></p>
+<h3 id="4-中值滤波"><a href="#4-中值滤波" class="headerlink" title="4.中值滤波"></a>4.中值滤波</h3><p>void medianBlur(InputArray src, OutputArray dst, int ksize)<br>基本思想就是用像素点的邻域灰度的中值来代替该像素点的灰度值，该方法在去除脉冲噪声、椒盐噪声的同时又能保留图像的细节，不会出现边缘模糊的情况。<br>中值滤波跟均值滤波的思想看起来很相似，只是一个取平均值，一个取中位数而已</p>
+<blockquote>
+<ul>
+<li>第一个参数，InputArray类型的src，函数的输入参数，填1、3或者4通道的Mat类型的图像；当ksize为3或者5的时候，图像深度需为CV_8U，CV_16U，或CV_32F其中之一，而对于较大孔径尺寸的图片，它只能是CV_8U。</li>
+<li>第二个参数，OutputArray类型的dst，需要和源图片有一样的尺寸和类型。</li>
+<li>第三个参数，int类型的ksize，孔径的线性尺寸（aperture linear size），注意这个参数必须是大于1的奇数，比如：3，5，7，9 …</li>
+</ul>
+</blockquote>
+<p>中值滤波与均值滤波的比较：均值滤波中噪声成分会被加入到平均计算，所以输出是受到噪声的影响的。但是中值滤波中，由于噪声成分很难选上，所以基本不影响输出。当然好的性能也需要付出一点代价的，中值滤波花费的时间是均值滤波的5倍以上</p>
+<h3 id="5-双边滤波"><a href="#5-双边滤波" class="headerlink" title="5.双边滤波"></a>5.双边滤波</h3><p>void bilateralFilter(InputArray src, OutputArray dst, int d,double sigmaColor,double sigmaSpace,int borderType=BORDER_DEFAULT )<br>双边滤波的最大特点就是做边缘保护。</p>
+<blockquote>
+<ul>
+<li>InputArray src: 输入图像，可以是Mat类型，图像必须是8位或浮点型单通道、三通道的图像。 </li>
+<li>OutputArray dst: 输出图像，和原图像有相同的尺寸和类型。<br>.- int d: 表示在过滤过程中每个像素邻域的直径范围。如果这个值是非正数，则函数会从第五个参数sigmaSpace计算该值。 </li>
+<li>double sigmaColor: 颜色空间过滤器的sigma值，这个参数的值越大，表明该像素邻域内有越宽广的颜色会被混合到一起，产生较大的半相等颜色区域。 </li>
+<li>double sigmaSpace: 坐标空间中滤波器的sigma值，如果该值较大，则意味着颜色相近的较远的像素将相互影响，从而使更大的区域中足够相似的颜色获取相同的颜色。当d&gt;0时，d指定了邻域大小且与sigmaSpace五官，否则d正比于sigmaSpace. </li>
+<li>int borderType=BORDER_DEFAULT: 用于推断图像外部像素的某种边界模式，有默认值BORDER_DEFAULT</li>
+</ul>
+</blockquote>
+<p><img src="/2019/03/25/ComputerVision/OpenCV-ImageProcessing/2-Filter/filter2.JPG" alt="滤波结果"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">int mainfilter()&#123;</span><br><span class="line">	Mat img = imread(&quot;alita.png&quot;);</span><br><span class="line">	Mat out1,out2,out3,out4,out5;</span><br><span class="line">	boxFilter(img, out1, -1, Size(3, 3));</span><br><span class="line">	blur(img, out2, Size(3, 3));</span><br><span class="line">	GaussianBlur(img, out3, Size(3, 3), 0, 0);</span><br><span class="line">	medianBlur(img, out4, 5);</span><br><span class="line">	bilateralFilter(img, out5, 25, 25 * 2, 25 / 2);</span><br><span class="line">	imshow(&quot;原图&quot;, img);</span><br><span class="line">	imshow(&quot;方框滤波&quot;, out1);</span><br><span class="line">	imshow(&quot;均值滤波&quot;, out2);</span><br><span class="line">	imshow(&quot;高斯滤波&quot;, out3);</span><br><span class="line">	imshow(&quot;中值滤波&quot;, out4);</span><br><span class="line">	imshow(&quot;双边滤波&quot;, out5);</span><br><span class="line">	waitKey(0);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/ComputerVision/OpenCV-ImageProcessing/1-imageBasicOperation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -367,7 +694,44 @@
         
           
             <h2 id="OpenCV-Mat类型定义和赋值"><a href="#OpenCV-Mat类型定义和赋值" class="headerlink" title="OpenCV Mat类型定义和赋值"></a>OpenCV Mat类型定义和赋值</h2><p>cv::Mat img(height,width,<type><br>例：cv::Mat M(480,640,CV_8UC3，Scalar(255,0,0)); 表示定义了一个480行640列的矩阵，矩阵的每个单元的由三个(C3:3 Channel)8位无符号整形(U Unsigned U8 8位)构成,Scalar(255,0,0)表示给每个单元赋值。  </type></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;opencv2\opencv.hpp&gt;</span></span><br><span class="line"><span class="comment">#include&lt;opencv2\highgui\highgui.hpp&gt;</span></span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">using namespace  cv;</span><br><span class="line"></span><br><span class="line">int main(int argc, char **argv)&#123;</span><br><span class="line">	//这些方式都是自己拥有独立的内存空间</span><br><span class="line">	Mat img1(3, 3, CV_8UC3, Scalar(255, 0, 0));</span><br><span class="line">	cout &lt;&lt; img1&lt;&lt;esndl;</span><br><span class="line"></span><br><span class="line">	int sz[3] = &#123; 2, 2, 2 &#125;;</span><br><span class="line">	Mat img2(3, 3, CV_8UC1, Scalar(200, 0, 255));//单通道的化只会赋值第一个值</span><br><span class="line">	cout &lt;&lt; img2 &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	Mat img3;</span><br><span class="line">	img3.create(4, 4, CV_8UC3);</span><br><span class="line">	cout &lt;&lt; img3 &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	Mat img4 = Mat::zeros(4, 4, CV_8UC3);</span><br><span class="line"></span><br><span class="line">	Mat img5 = img4.clone();</span><br><span class="line">	Mat img6;</span><br><span class="line">	img4.copyTo(img6);</span><br><span class="line">	//<span class="built_in">clone</span>和copyto函数，这是图像的深拷贝，相当于重新创建了一份一模一样的图像</span><br><span class="line"></span><br><span class="line">	//下面都是浅拷贝，指针指向同一个实例</span><br><span class="line">	Mat img7 = img6;</span><br><span class="line">	Mat img8(img6);</span><br><span class="line"></span><br><span class="line">	waitKey(0);</span><br><span class="line">	<span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;opencv2\opencv.hpp&gt;</span><br><span class="line">#include&lt;opencv2\highgui\highgui.hpp&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">using namespace  cv;</span><br><span class="line"></span><br><span class="line">int main(int argc, char **argv)&#123;</span><br><span class="line">	//这些方式都是自己拥有独立的内存空间</span><br><span class="line">	Mat img1(3, 3, CV_8UC3, Scalar(255, 0, 0));</span><br><span class="line">	cout &lt;&lt; img1&lt;&lt;esndl;</span><br><span class="line"></span><br><span class="line">	int sz[3] = &#123; 2, 2, 2 &#125;;</span><br><span class="line">	Mat img2(3, 3, CV_8UC1, Scalar(200, 0, 255));//单通道的化只会赋值第一个值</span><br><span class="line">	cout &lt;&lt; img2 &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	Mat img3;</span><br><span class="line">	img3.create(4, 4, CV_8UC3);</span><br><span class="line">	cout &lt;&lt; img3 &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	Mat img4 = Mat::zeros(4, 4, CV_8UC3);</span><br><span class="line"></span><br><span class="line">	Mat img5 = img4.clone();</span><br><span class="line">	Mat img6;</span><br><span class="line">	img4.copyTo(img6);</span><br><span class="line">	//clone和copyto函数，这是图像的深拷贝，相当于重新创建了一份一模一样的图像</span><br><span class="line"></span><br><span class="line">	//下面都是浅拷贝，指针指向同一个实例</span><br><span class="line">	Mat img7 = img6;</span><br><span class="line">	Mat img8(img6);</span><br><span class="line"></span><br><span class="line">	waitKey(0);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="图像二值化操作"><a href="#图像二值化操作" class="headerlink" title="图像二值化操作"></a>图像二值化操作</h2><h3 id="threshold-——-简单的阈值操作"><a href="#threshold-——-简单的阈值操作" class="headerlink" title="threshold —— 简单的阈值操作"></a>threshold —— 简单的阈值操作</h3><p>def threshold(src, dst,thresh, maxval,thresholdType)  </p>
+<ul>
+<li>thresh：Double类型的，具体的阈值 </li>
+<li>maxval：Double类型的，阈值的最大值  </li>
+<li>thresholdType: <blockquote>
+<ul>
+<li>THRESH_BINARY 二进制阈值化 -&gt; 大于阈值为1 小于阈值为0   </li>
+</ul>
+</blockquote>
+</li>
+<li>THRESH_BINARY_INV 反二进制阈值化 -&gt; 大于阈值为0 小于阈值为1 </li>
+<li>THRESH_TRUNC 截断阈值化 -&gt; 大于阈值为阈值，小于阈值不变 </li>
+<li>THRESH_TOZERO 阈值化为0 -&gt; 大于阈值的不变，小于阈值的全为0 </li>
+<li>THRESH_TOZERO_INV 反阈值化为0 -&gt; 大于阈值为0，小于阈值不变</li>
+</ul>
+<h3 id="adaptiveThreshold-——-自适应阈值操作"><a href="#adaptiveThreshold-——-自适应阈值操作" class="headerlink" title="adaptiveThreshold —— 自适应阈值操作"></a>adaptiveThreshold —— 自适应阈值操作</h3><p>def adaptiveThreshold(src,dst,maxValue,adaptiveMethod,thresholdType,blockSize,C)  </p>
+<ul>
+<li>maxval：Double类型的，阈值的最大值 </li>
+<li><p>adaptiveMethod： </p>
+<blockquote>
+<p>ADAPTIVE_THRESH_MEAN_C（通过平均的方法取得平均值)<br>ADAPTIVE_THRESH_GAUSSIAN_C(通过高斯取得高斯值) </p>
+</blockquote>
+</li>
+<li><p>thresholdType同上  </p>
+</li>
+<li>blockSize：Int类型的，这个值来决定像素的邻域块有多大（这里的blockSize的值要为奇数，否则会给出这样的提示：<br>Assertion failed (blockSize % 2 == 1 &amp;&amp; blockSize &gt; 1) in cv::adaptiveThreshold ）  </li>
+<li>C：偏移值调整量，计算adaptiveMethod用到的参数</li>
+</ul>
+<p><strong>总结：</strong> 在两种情况下，自适应阈值T(x, y)。通过计算每个像素周围bxb大小像素块的加权均值并减去常量C得到。其中，b由blockSize给出，大小必须为奇数；如果使用平均的方法，则所有像素周围的权值相同；如果使用高斯的方法，则（x,y）周围的像素的权值则根据其到中心点的距离通过高斯方程得到。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;opencv2\opencv.hpp&gt;</span><br><span class="line">#include&lt;opencv2\highgui\highgui.hpp&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">using namespace  cv;</span><br><span class="line"></span><br><span class="line">int main(int argc, char **argv)&#123;</span><br><span class="line">	Mat img = imread(&quot;groot.jpg&quot;, CV_LOAD_IMAGE_GRAYSCALE);//载入灰度图</span><br><span class="line">	if (img.empty())&#123;</span><br><span class="line">		cout &lt;&lt; &quot;read img falied!\n&quot;; return -1;</span><br><span class="line">	&#125;</span><br><span class="line">	//全局二值化</span><br><span class="line">	int th = 150;</span><br><span class="line">	Mat global;</span><br><span class="line">	threshold(img, global, th, 255, CV_THRESH_BINARY);</span><br><span class="line"></span><br><span class="line">	//局部二值化</span><br><span class="line">	int blockSize = 25;</span><br><span class="line">	int constValue = 10;</span><br><span class="line">	Mat local;</span><br><span class="line">	adaptiveThreshold(img, local, 255, CV_ADAPTIVE_THRESH_MEAN_C, CV_THRESH_BINARY, blockSize, constValue);</span><br><span class="line"></span><br><span class="line">	imshow(&quot;原图&quot;, img);</span><br><span class="line">	imshow(&quot;全局二值化&quot;, global);</span><br><span class="line">	imshow(&quot;局部二值化&quot;, local);</span><br><span class="line">	waitKey(0);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/2019/03/24/ComputerVision/OpenCV-ImageProcessing/1-imageBasicOperation/originThresHold.JPG" alt="原图"><br><img src="/2019/03/24/ComputerVision/OpenCV-ImageProcessing/1-imageBasicOperation/threasHold.JPG" alt="二值化图"></p>
+<h2 id="访问图片中的像素"><a href="#访问图片中的像素" class="headerlink" title="访问图片中的像素"></a>访问图片中的像素</h2><p>①指针访问：最快</p>
+<p>②迭代器iterator：较慢，非常安全，指针访问可能出现越界问题</p>
+<p>③动态地址计算：更慢，通过at()实现。适用于访问具体某个第i行，j列的像素，而<strong>不适用遍历像素</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include&lt;opencv2\opencv.hpp&gt;</span><br><span class="line">#include&lt;opencv2\highgui\highgui.hpp&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">using namespace  cv;</span><br><span class="line">void visitByPointer(Mat &amp;srcImg,Mat &amp;dstImg)&#123;</span><br><span class="line">	dstImg = srcImg.clone();</span><br><span class="line">	int rows = dstImg.rows;</span><br><span class="line">	int cols = dstImg.cols*dstImg.channels();</span><br><span class="line">	for (int i = 0; i &lt; rows; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		uchar *data = dstImg.ptr&lt;uchar&gt;(i);//获取第i行地址</span><br><span class="line">		for (int j = 0; j &lt; cols; j++)&#123;</span><br><span class="line">			data[j] += 10;</span><br><span class="line">			//add code 处理每一个像素</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">void visitByIterator(Mat &amp;srcImg,Mat &amp;dstImg)&#123;</span><br><span class="line">	dstImg = srcImg.clone();</span><br><span class="line">	const int chanels = dstImg.channels();</span><br><span class="line">	switch (chanels)</span><br><span class="line">	&#123;</span><br><span class="line">	case 1:&#123;</span><br><span class="line">			   Mat_&lt;uchar&gt;::iterator it = dstImg.begin&lt;uchar&gt;();</span><br><span class="line">			   Mat_&lt;uchar&gt;::iterator itend = dstImg.end&lt;uchar&gt;();</span><br><span class="line">			   for (; it != itend;it++)</span><br><span class="line">			   &#123;</span><br><span class="line">				   *it += 10;//处理每个像素</span><br><span class="line">			   &#125;break;</span><br><span class="line">	&#125;</span><br><span class="line">	case 3:&#123;</span><br><span class="line">			   Mat_&lt;Vec3d&gt;::iterator it3 = dstImg.begin&lt;Vec3d&gt;();</span><br><span class="line">			   Mat_&lt;Vec3d&gt;::iterator it3end = dstImg.end&lt;Vec3d&gt;();</span><br><span class="line">			   for (; it3 != it3end;it3++)</span><br><span class="line">			   &#123;</span><br><span class="line">				   (*it3)[0] += 10;</span><br><span class="line">				   (*it3)[1] -= 10;</span><br><span class="line">				   (*it3)[2] -= 10;</span><br><span class="line">			   &#125;break;</span><br><span class="line">	&#125;</span><br><span class="line">	default:</span><br><span class="line">		break;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">void visitByAt(Mat &amp;srcImg,Mat &amp;dstImg)&#123;</span><br><span class="line">	dstImg = srcImg.clone();</span><br><span class="line">	int rows = dstImg.rows;</span><br><span class="line">	int cols = dstImg.cols;</span><br><span class="line">	int channels = dstImg.channels();</span><br><span class="line">	switch (channels)</span><br><span class="line">	&#123;</span><br><span class="line">	case 1:&#123;</span><br><span class="line">			   for (int i = 0; i &lt; rows;i++)</span><br><span class="line">			   &#123;</span><br><span class="line">				   for (int j = 0; j &lt; cols;j++)</span><br><span class="line">				   &#123;</span><br><span class="line">					   dstImg.at&lt;uchar&gt;(i, j) += 10;</span><br><span class="line">				   &#125;</span><br><span class="line">			   &#125;break;</span><br><span class="line">	&#125;</span><br><span class="line">	case  3:&#123;</span><br><span class="line">				for (int i = 0; i &lt; rows; i++)</span><br><span class="line">				&#123;</span><br><span class="line">					for (int j = 0; j &lt; cols; j++)</span><br><span class="line">					&#123;</span><br><span class="line">						dstImg.at&lt;Vec3d&gt;(i, j)[0] += 10;</span><br><span class="line">						dstImg.at&lt;Vec3d&gt;(i, j)[1] -= 10;</span><br><span class="line">						dstImg.at&lt;Vec3d&gt;(i, j)[2] -= 10;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;break;</span><br><span class="line">	&#125;</span><br><span class="line">	default:</span><br><span class="line">		break;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, char **argv)&#123;</span><br><span class="line">	Mat img = imread(&quot;Lena.png&quot;);</span><br><span class="line">	Mat dstImg1,dstImg2,dstImg3;</span><br><span class="line">	visitByPointer(img, dstImg1);</span><br><span class="line">	visitByIterator(img, dstImg2);</span><br><span class="line">	//visitByAt(img, dstImg3);</span><br><span class="line"></span><br><span class="line">	imshow(&quot;原图&quot;, img);</span><br><span class="line">	imshow(&quot;指针访问&quot;, dstImg1);</span><br><span class="line">	imshow(&quot;迭代器访问&quot;, dstImg2);</span><br><span class="line">	//imshow(&quot;at访问&quot;, dstImg3);</span><br><span class="line"></span><br><span class="line">	waitKey(0);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/03/24/ComputerVision/OpenCV-ImageProcessing/1-imageBasicOperation/visitPixel.JPG" alt="访问像素操作">  </p>
+<h3 id="常用的数据结构"><a href="#常用的数据结构" class="headerlink" title="常用的数据结构"></a>常用的数据结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">int main(int argc,char** argv)&#123;</span><br><span class="line"></span><br><span class="line">	Mat m1(3, 3, CV_8UC3, Scalar(255, 0, 0));//其中宏的解释：CV_[位数][带符号与否][类型前缀]C[通道数]</span><br><span class="line">	cout &lt;&lt; m1 &lt;&lt; endl;//输出的就是3*9的矩阵</span><br><span class="line"></span><br><span class="line">	//或者利用IplImage指针来初始化，将IplImage*转化为Mat</span><br><span class="line">	IplImage* img = cvLoadImage(&quot;Lena.png&quot;);</span><br><span class="line">	Mat m2 = cvarrToMat(img);</span><br><span class="line">	//Mat转IplImage</span><br><span class="line">	IplImage img2 = IplImage(m2);</span><br><span class="line"></span><br><span class="line">	Mat m3;</span><br><span class="line">	m3.create(3, 3, CV_8UC(2));</span><br><span class="line">	cout &lt;&lt; m3 &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	//点的表示</span><br><span class="line">	Point p1;</span><br><span class="line">	p1.x = 1; p1.y = 1;</span><br><span class="line">	//或者</span><br><span class="line">	Point p2(1, 1);</span><br><span class="line"></span><br><span class="line">	//颜色的表示：Scalar(b,g,r)</span><br><span class="line">	Scalar(1, 1, 1)</span><br><span class="line">		;</span><br><span class="line">	//尺寸的表示：Size</span><br><span class="line">	Size(2,3);//宽和高</span><br><span class="line"></span><br><span class="line">	//矩形的表示：Rect，成员变量有x、y、width、height</span><br><span class="line">	Rect r1(0, 0, 100, 200);</span><br><span class="line">	Rect r2(10, 10, 100, 200);</span><br><span class="line">	Rect r3 = r1 | r2;//两个矩形求交集</span><br><span class="line">	Rect r4 = r1 &amp; r2;//两个矩形求并集</span><br><span class="line"></span><br><span class="line">	waitKey(0);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -972,158 +1336,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/剑指offer/剑指offer-二维数组中的查找/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zoe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/assets/img/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zoe的成长历程">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/21/剑指offer/剑指offer-二维数组中的查找/" itemprop="url">剑指offer——二维数组中的查找</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-21T00:00:00+08:00">
-                2019-03-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/剑指offer/" itemprop="url" rel="index">
-                    <span itemprop="name">剑指offer</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-		
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。<br>时间限制：1秒 空间限制：32768K </p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>利用二维数组从上到下、从左到右递增的规律，选取右上角或左下角的元素a[i][j]与target比较：  </p>
-<ul>
-<li>当target小于元素a[i][j]时，那么target必定在元素a[i][j]所在行的左边，即j–；</li>
-<li>当target大于元素a[i][j]时，那么target必定在元素a[i][j]所在列的下边，即i++。</li></ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/21/剑指offer/剑指offer-二维数组中的查找/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/剑指offer/剑指offer-把数组排成最小的数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1226,6 +1438,158 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/21/剑指offer/剑指offer-把数组排成最小的数/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/剑指offer/剑指offer-二维数组中的查找/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zoe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zoe的成长历程">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/21/剑指offer/剑指offer-二维数组中的查找/" itemprop="url">剑指offer——二维数组中的查找</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-21T00:00:00+08:00">
+                2019-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/剑指offer/" itemprop="url" rel="index">
+                    <span itemprop="name">剑指offer</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+		
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。<br>时间限制：1秒 空间限制：32768K </p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>利用二维数组从上到下、从左到右递增的规律，选取右上角或左下角的元素a[i][j]与target比较：  </p>
+<ul>
+<li>当target小于元素a[i][j]时，那么target必定在元素a[i][j]所在行的左边，即j–；</li>
+<li>当target大于元素a[i][j]时，那么target必定在元素a[i][j]所在列的下边，即i++。</li></ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/21/剑指offer/剑指offer-二维数组中的查找/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1412,299 +1776,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/剑指offer/剑指offer-二进制中1的个数 & 整数中1出现的次数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zoe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/assets/img/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zoe的成长历程">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/21/剑指offer/剑指offer-二进制中1的个数 & 整数中1出现的次数/" itemprop="url">剑指offer——二进制中1的个数 & 整数中1出现的次数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-21T00:00:00+08:00">
-                2019-03-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/剑指offer/" itemprop="url" rel="index">
-                    <span itemprop="name">剑指offer</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-		
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="题目描述：二进制中1的个数"><a href="#题目描述：二进制中1的个数" class="headerlink" title="题目描述：二进制中1的个数"></a>题目描述：二进制中1的个数</h2><p>输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。  </p>
-<h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><p><strong>基本思路：</strong>  先判断整数二进制表示中最右边是不是为1，如果是则计数器自增1；接着把输入的整数右移一位，继续判断二进制表示中最右边是否为1，直到整个数变为0为止。代码如下所示，case通过率0.00%，超时引起的，是因为如果输入的是负数，右移时，为保证移位后是一个负数，因此移位后的最高为会设1.如果一直做右移，那么这个数字最终会变为0xFFFFFFFF而陷入死循环。<br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/21/剑指offer/剑指offer-二进制中1的个数 & 整数中1出现的次数/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/20/操作系统1-概述/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zoe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/assets/img/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zoe的成长历程">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/20/操作系统1-概述/" itemprop="url">数据结构与算法(一)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-20T20:24:56+08:00">
-                2019-03-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OS/" itemprop="url" rel="index">
-                    <span itemprop="name">OS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-		
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="操作系统做了什么"><a href="#操作系统做了什么" class="headerlink" title="操作系统做了什么"></a>操作系统做了什么</h2><p>看不下去了！！！</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1757,7 +1828,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1779,7 +1850,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

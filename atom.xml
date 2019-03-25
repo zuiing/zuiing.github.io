@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-24T01:15:19.866Z</updated>
+  <updated>2019-03-25T14:07:05.357Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,63 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>3.数学形态学运算</title>
+    <link href="http://yoursite.com/2019/03/25/ComputerVision/OpenCV-ImageProcessing/3-Mathematical%20morphology/"/>
+    <id>http://yoursite.com/2019/03/25/ComputerVision/OpenCV-ImageProcessing/3-Mathematical morphology/</id>
+    <published>2019-03-25T13:07:56.000Z</published>
+    <updated>2019-03-25T14:07:05.357Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;数学形态学运算–腐蚀、膨胀、开运算、闭运算&quot;&gt;&lt;a href=&quot;#数学形态学运算–腐蚀、膨胀、开运算、闭运算&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="腐蚀" scheme="http://yoursite.com/tags/%E8%85%90%E8%9A%80/"/>
+    
+      <category term="膨胀" scheme="http://yoursite.com/tags/%E8%86%A8%E8%83%80/"/>
+    
+      <category term="开闭运算" scheme="http://yoursite.com/tags/%E5%BC%80%E9%97%AD%E8%BF%90%E7%AE%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>1.Filter</title>
+    <link href="http://yoursite.com/2019/03/25/ComputerVision/OpenCV-ImageProcessing/2-Filter/"/>
+    <id>http://yoursite.com/2019/03/25/ComputerVision/OpenCV-ImageProcessing/2-Filter/</id>
+    <published>2019-03-25T03:06:38.000Z</published>
+    <updated>2019-03-25T13:27:04.482Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;OpenCV基本滤波算法分类及作用&quot;&gt;&lt;a href=&quot;#OpenCV基本滤波算法分类及作用&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="图像滤波" scheme="http://yoursite.com/tags/%E5%9B%BE%E5%83%8F%E6%BB%A4%E6%B3%A2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>1.imageBasicOperation</title>
     <link href="http://yoursite.com/2019/03/24/ComputerVision/OpenCV-ImageProcessing/1-imageBasicOperation/"/>
     <id>http://yoursite.com/2019/03/24/ComputerVision/OpenCV-ImageProcessing/1-imageBasicOperation/</id>
     <published>2019-03-24T00:57:11.000Z</published>
-    <updated>2019-03-24T01:15:19.866Z</updated>
+    <updated>2019-03-25T03:08:12.189Z</updated>
     
     <summary type="html">
     
@@ -36,7 +88,9 @@
     </summary>
     
     
-      <category term="mat初始化" scheme="http://yoursite.com/tags/mat%E5%88%9D%E5%A7%8B%E5%8C%96/"/>
+      <category term="Mat初始化" scheme="http://yoursite.com/tags/Mat%E5%88%9D%E5%A7%8B%E5%8C%96/"/>
+    
+      <category term="访问像素" scheme="http://yoursite.com/tags/%E8%AE%BF%E9%97%AE%E5%83%8F%E7%B4%A0/"/>
     
   </entry>
   
@@ -150,34 +204,6 @@
   </entry>
   
   <entry>
-    <title>剑指offer——二维数组中的查找</title>
-    <link href="http://yoursite.com/2019/03/21/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/"/>
-    <id>http://yoursite.com/2019/03/21/剑指offer/剑指offer-二维数组中的查找/</id>
-    <published>2019-03-20T16:00:00.000Z</published>
-    <updated>2019-03-21T09:48:35.609Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。&lt;br&gt;时间限制：1秒 空间限制：32768K &lt;/p&gt;
-&lt;h2 id=&quot;解题思路&quot;&gt;&lt;a href=&quot;#解题思路&quot; class=&quot;headerlink&quot; title=&quot;解题思路&quot;&gt;&lt;/a&gt;解题思路&lt;/h2&gt;&lt;p&gt;利用二维数组从上到下、从左到右递增的规律，选取右上角或左下角的元素a[i][j]与target比较：  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;当target小于元素a[i][j]时，那么target必定在元素a[i][j]所在行的左边，即j–；&lt;/li&gt;
-&lt;li&gt;当target大于元素a[i][j]时，那么target必定在元素a[i][j]所在列的下边，即i++。&lt;/li&gt;&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="剑指offer" scheme="http://yoursite.com/categories/%E5%89%91%E6%8C%87offer/"/>
-    
-    
-      <category term="牛客刷题" scheme="http://yoursite.com/tags/%E7%89%9B%E5%AE%A2%E5%88%B7%E9%A2%98/"/>
-    
-      <category term="数组" scheme="http://yoursite.com/tags/%E6%95%B0%E7%BB%84/"/>
-    
-      <category term="元素查找" scheme="http://yoursite.com/tags/%E5%85%83%E7%B4%A0%E6%9F%A5%E6%89%BE/"/>
-    
-  </entry>
-  
-  <entry>
     <title>剑指offer——把数组排成最小的数</title>
     <link href="http://yoursite.com/2019/03/21/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer-%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0/"/>
     <id>http://yoursite.com/2019/03/21/剑指offer/剑指offer-把数组排成最小的数/</id>
@@ -202,6 +228,34 @@
       <category term="数组" scheme="http://yoursite.com/tags/%E6%95%B0%E7%BB%84/"/>
     
       <category term="sort函数" scheme="http://yoursite.com/tags/sort%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>剑指offer——二维数组中的查找</title>
+    <link href="http://yoursite.com/2019/03/21/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/"/>
+    <id>http://yoursite.com/2019/03/21/剑指offer/剑指offer-二维数组中的查找/</id>
+    <published>2019-03-20T16:00:00.000Z</published>
+    <updated>2019-03-21T09:48:35.609Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。&lt;br&gt;时间限制：1秒 空间限制：32768K &lt;/p&gt;
+&lt;h2 id=&quot;解题思路&quot;&gt;&lt;a href=&quot;#解题思路&quot; class=&quot;headerlink&quot; title=&quot;解题思路&quot;&gt;&lt;/a&gt;解题思路&lt;/h2&gt;&lt;p&gt;利用二维数组从上到下、从左到右递增的规律，选取右上角或左下角的元素a[i][j]与target比较：  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;当target小于元素a[i][j]时，那么target必定在元素a[i][j]所在行的左边，即j–；&lt;/li&gt;
+&lt;li&gt;当target大于元素a[i][j]时，那么target必定在元素a[i][j]所在列的下边，即i++。&lt;/li&gt;&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="剑指offer" scheme="http://yoursite.com/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="牛客刷题" scheme="http://yoursite.com/tags/%E7%89%9B%E5%AE%A2%E5%88%B7%E9%A2%98/"/>
+    
+      <category term="数组" scheme="http://yoursite.com/tags/%E6%95%B0%E7%BB%84/"/>
+    
+      <category term="元素查找" scheme="http://yoursite.com/tags/%E5%85%83%E7%B4%A0%E6%9F%A5%E6%89%BE/"/>
     
   </entry>
   
