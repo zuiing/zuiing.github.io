@@ -293,6 +293,154 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/LeetCode刷题/分治/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chris">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CHRIS有一个愿望">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/02/LeetCode刷题/分治/" itemprop="url">分治</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-02T13:14:28+08:00">
+                2019-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode刷题/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode刷题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+		
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="给表达式加括号-241-Different-Ways-to-Add-Parentheses-Medium"><a href="#给表达式加括号-241-Different-Ways-to-Add-Parentheses-Medium" class="headerlink" title="给表达式加括号 241.Different Ways to Add Parentheses(Medium)"></a>给表达式加括号 <a href="https://leetcode.com/problems/different-ways-to-add-parentheses/description/" target="_blank" rel="noopener">241.Different Ways to Add Parentheses(Medium)</a></h2><p>Input: “2-1-1”.<br>((2-1)-1) = 0<br>(2-(1-1)) = 2<br>Output : [0, 2]</p>
+<p>题目描述：给出一个可能含有加减乘的表达式，让我们在任意位置添加括号，求出所有可能的表达式的值。</p>
+<p>解题思路：以遇到的运算符为界，将表达式分为两部分，分别递归求解。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; diffWaysToCompute(string input) &#123;</span><br><span class="line">        vector&lt;int&gt; res;</span><br><span class="line">        for(int i=0;i&lt;input.size();i++)&#123;</span><br><span class="line">            if(input[i]==&apos;+&apos;||input[i]==&apos;-&apos;||input[i]==&apos;*&apos;)&#123;</span><br><span class="line">                vector&lt;int&gt; left=diffWaysToCompute(input.substr(0,i));//获得字符串input中从0开始长度为i的字符串</span><br><span class="line">                vector&lt;int&gt; right=diffWaysToCompute(input.substr(i+1));//默认时的长度是从开始到尾</span><br><span class="line">                for(int j=0;j&lt;left.size();j++)&#123;</span><br><span class="line">                    for(int k=0;k&lt;right.size();k++)&#123;</span><br><span class="line">                        if(input[i]==&apos;+&apos;) res.push_back(left[j]+right[k]);</span><br><span class="line">                        else if(input[i]==&apos;-&apos;) res.push_back(left[j]-right[k]);</span><br><span class="line">                        else res.push_back(left[j]*right[k]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;           </span><br><span class="line">        &#125;</span><br><span class="line">        //若res为空，说明传入的字符串为一个数字，直接将该数字存入结果即可</span><br><span class="line">        //c_str()函数返回一个指向正规C字符串的指针常量,atoi()的参数类型是const char*</span><br><span class="line">        if(res.empty()) res.push_back(atoi(input.c_str()));</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>上述解法中的递归函数的参数没用指针，这样的话每次调用都要拷贝string对象，如果用指针的化就是直接引用，在leetcode上测试两种方法消耗的内存没差，可能是因为传入的对象本身就不大。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; diffWaysToCompute(string input) &#123;</span><br><span class="line">        if(input.empty()) return &#123;&#125;;</span><br><span class="line">        return helper(input,0,input.size()-1);</span><br><span class="line">    &#125;</span><br><span class="line">private:</span><br><span class="line">    vector&lt;int&gt; helper(string&amp; input,int l,int r)&#123;</span><br><span class="line">        vector&lt;int&gt; res;</span><br><span class="line">        for(int i=l;i&lt;=r;i++)&#123;</span><br><span class="line">            if(input[i]==&apos;+&apos;||input[i]==&apos;-&apos;||input[i]==&apos;*&apos;)&#123;</span><br><span class="line">                vector&lt;int&gt; left=helper(input,l,i-1);//获得字符串input中从0开始长度为i的字符串</span><br><span class="line">                vector&lt;int&gt; right=helper(input,i+1,r);//默认时的长度是从开始到尾</span><br><span class="line">                for(int j=0;j&lt;left.size();j++)&#123;</span><br><span class="line">                    for(int k=0;k&lt;right.size();k++)&#123;</span><br><span class="line">                        if(input[i]==&apos;+&apos;) res.push_back(left[j]+right[k]);</span><br><span class="line">                        else if(input[i]==&apos;-&apos;) res.push_back(left[j]-right[k]);</span><br><span class="line">                        else res.push_back(left[j]*right[k]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;           </span><br><span class="line">        &#125;</span><br><span class="line">        if(res.empty()) res.push_back(atoi(input.substr(l,r-l+1).c_str()));</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/31/LeetCode刷题/贪心思想/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -400,6 +548,29 @@
 <p>解题思路：先计算最多能组成的不重叠区间个数，然后用区间总个数减去不重叠区间的个数。</p>
 <p>在每次选择中，区间的结尾最为重要，选择的区间结尾越小，留给后面的区间的空间越大，那么后面的区间个数也就越大。</p>
 <p>按区间的结尾进行排序，每次选择结尾最小并且和前一个区间不重叠的区间。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Definition for an interval.</span><br><span class="line"> * struct Interval &#123;</span><br><span class="line"> *     int start;</span><br><span class="line"> *     int end;</span><br><span class="line"> *     Interval() : start(0), end(0) &#123;&#125;</span><br><span class="line"> *     Interval(int s, int e) : start(s), end(e) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int eraseOverlapIntervals(vector&lt;Interval&gt;&amp; intervals) &#123;</span><br><span class="line">        if(intervals.size()==0) return 0;</span><br><span class="line">        sort(intervals.begin(),intervals.end(),[](Interval&amp; a,Interval&amp; b)&#123;return a.end&lt;b.end;&#125;);</span><br><span class="line">        int res=1;</span><br><span class="line">        int end=intervals[0].end;</span><br><span class="line">        for(int i=1;i&lt;intervals.size();i++)&#123;</span><br><span class="line">            if(intervals[i].start&lt;end)</span><br><span class="line">                continue;</span><br><span class="line">            end=intervals[i].end;</span><br><span class="line">            res++;</span><br><span class="line">        &#125;</span><br><span class="line">        return intervals.size()-res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="非递减数组665-Non-decreasing-Array-Easy"><a href="#非递减数组665-Non-decreasing-Array-Easy" class="headerlink" title="非递减数组665.Non-decreasing Array(Easy)"></a>非递减数组<a href="https://leetcode.com/problems/non-decreasing-array/description/" target="_blank" rel="noopener">665.Non-decreasing Array(Easy)</a></h2><p>Input: [4,2,3]<br>Output: True<br>Explanation: You could modify the first 4 to 1 to get a non-decreasing array.</p>
+<p>题目描述：最多有一次修改某个数字的机会，问是否能将数组变为非递减数组。</p>
+<p>解题思路：看下面三个例子，<br>4，2，3<br>-1，4，2，3<br>2，3，4，2，5<br>观察上面三个例子可以发现，当后面的数字小于前面的数字时，有时只需修改前面较大的数字(如前两个例子)，有时却要修改后面较小的数字(如第3个例子)，规律如下：<br><strong>判断较小的数字与再前面的数字的关系！</strong></p>
+<ul>
+<li>如果再前面的数字不存在，如第一个例子，4前面没有数字了，就直接修改前面的数字为当前的数字2；</li>
+<li>若再前面的数字存在，且小于当前数字时(-1&lt;2)，同样的，直接修改前面的数字为当前的数字2就好了；</li>
+<li>若再前面的数字存在，但大于当前数字时(3&gt;2)，就需要修改当前的数字为前面的数字；</li>
+<li>由于只有一次修改的机会，用一个变量flag，初始化为true，修改数字后变为false，当下次再需要修改时，若flag为false，就直接返回false；遍历结束后返回true。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool checkPossibility(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        bool flag=true;</span><br><span class="line">        for(int i=1;i&lt;nums.size();i++)&#123;            </span><br><span class="line">            if(nums[i]&lt;nums[i-1])&#123;</span><br><span class="line">                if(!flag) return false;</span><br><span class="line">                if(i==1||nums[i]&gt;=nums[i-2])</span><br><span class="line">                    nums[i-1]=nums[i];</span><br><span class="line">                else</span><br><span class="line">                    nums[i]=nums[i-1];</span><br><span class="line">                flag=false;</span><br><span class="line">            &#125;            </span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="买入和售出股票的最大收益"><a href="#买入和售出股票的最大收益" class="headerlink" title="买入和售出股票的最大收益"></a>买入和售出股票的最大收益</h2><h3 id="121-Best-Time-to-Buy-and-Sell-Stock-Easy"><a href="#121-Best-Time-to-Buy-and-Sell-Stock-Easy" class="headerlink" title="121.Best Time to Buy and Sell Stock(Easy)"></a><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/" target="_blank" rel="noopener">121.Best Time to Buy and Sell Stock(Easy)</a></h3><p>题目描述：只进行一次交易</p>
+<p>解题思路：记录前面的最小价格，将这个价格作为买入价格，然后将当前的价格作为售出价格，判断当前收益是否为最大收益。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxProfit(vector&lt;int&gt;&amp; prices) &#123;</span><br><span class="line">        int res=0,buy=INT_MAX;</span><br><span class="line">        for(int i=0;i&lt;prices.size();i++)&#123;</span><br><span class="line">            buy=min(buy,prices[i]);</span><br><span class="line">            res=max(res,prices[i]-buy);</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="122-Best-Time-to-Buy-and-Sell-Stock-II-Easy"><a href="#122-Best-Time-to-Buy-and-Sell-Stock-II-Easy" class="headerlink" title="122.Best Time to Buy and Sell Stock II(Easy)"></a><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/" target="_blank" rel="noopener">122.Best Time to Buy and Sell Stock II(Easy)</a></h3><p>题目描述：可以交易无数次，一次股票交易包括买入和卖出，多个交易之间不能交叉。</p>
+<p>解题思路：只需要从第二天开始，如果当前价格比昨天价格高，就把差值加入到收益，因为我们可以昨天买入，今天卖出，若明天价更高，还可以今天买入，明天卖出；以此类推。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxProfit(vector&lt;int&gt;&amp; prices) &#123;</span><br><span class="line">        int res=0;</span><br><span class="line">        for(int i=1;i&lt;prices.size();i++)&#123;</span><br><span class="line">            if(prices[i]&gt;prices[i-1])</span><br><span class="line">                res+=prices[i]-prices[i-1];</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>还有股票3问题，需要用到动态规划，就先不写啦！</p>
+<h2 id="子数组最大的和-53-Maximum-Subarray-Easy"><a href="#子数组最大的和-53-Maximum-Subarray-Easy" class="headerlink" title="子数组最大的和 53.Maximum Subarray(Easy)"></a>子数组最大的和 <a href="https://leetcode.com/problems/maximum-subarray/description/" target="_blank" rel="noopener">53.Maximum Subarray(Easy)</a></h2><p>For example, given the array [-2,1,-3,4,-1,2,1,-5,4],<br>the contiguous subarray [4,-1,2,1] has the largest sum = 6.</p>
+<h3 id="O-n-时间复杂度"><a href="#O-n-时间复杂度" class="headerlink" title="O(n)时间复杂度"></a><strong>O(n)时间复杂度</strong></h3><p>解题思路：定义两个变量res和curSum，res保存要返回的结果，curSum保存当前为止求出的数组之和的最大值；每遍历一个数字nums[i],比较curSum+nums[i]和nums[i]中的较大值存入curSum，然后再比较res和curSum的较大值并存入res，以此类推，最后返回res。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxSubArray(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int res=INT_MIN,curSum=0;</span><br><span class="line">        for(int num:nums)&#123;</span><br><span class="line">            curSum=max(curSum+num,num);</span><br><span class="line">            res=max(res,curSum);</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="O-logn-时间复杂度"><a href="#O-logn-时间复杂度" class="headerlink" title="O(logn)时间复杂度"></a><strong>O(logn)时间复杂度</strong></h3><p>解题思路：分治法求解，把数组分为两部分，分别求出左边和右边的最大数组之和；然后还要从中间向左右两边分别扫描，找出包含中间元素的最大数组之和；求出包含中间元素的最大值和左右两边得到的最大值中较大的那个。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxSubArray(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        if(nums.empty()) return 0;</span><br><span class="line">        return helper(nums,0,nums.size()-1);</span><br><span class="line">    &#125;</span><br><span class="line">private:</span><br><span class="line">    int helper(vector&lt;int&gt;&amp; nums,int l,int r)&#123;</span><br><span class="line">        if(l&gt;=r) return nums[l];</span><br><span class="line">        int m=l+(r-l)/2;</span><br><span class="line">        int lmax=helper(nums,l,m-1);</span><br><span class="line">        int rmax=helper(nums,m+1,r);</span><br><span class="line">        int mmax=nums[m],t=mmax;</span><br><span class="line">        for(int i=m-1;i&gt;=l;i--)&#123;</span><br><span class="line">            t+=nums[i];</span><br><span class="line">            mmax=max(mmax,t);</span><br><span class="line">        &#125;</span><br><span class="line">        t=mmax;</span><br><span class="line">        for(int i=m+1;i&lt;=r;i++)&#123;</span><br><span class="line">            t+=nums[i];</span><br><span class="line">            mmax=max(mmax,t);</span><br><span class="line">        &#125;</span><br><span class="line">        return max(mmax,max(lmax,rmax));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -743,6 +914,8 @@
 <p>题目描述：把归并结果存到第一个数组上。<br>解题思路：题目中说了num1数组有足够的空间，不用resize数组，已知混合之后的数组的大小，这样从nums1和nums2数组的末尾开始一个一个比较，把较大的数按顺序从后往前加入混合之后的数组末尾。需要三个变量i、j、k，分别指向nums1、nums2和混合数组的末尾。进行while循环，如果i和j都大于0，再看如果nums1[i]&gt;nums[j],说明要先把nums1[i]先加入混合数组的末尾，加入后k和i均自减1；反之把nums2[j]加入混合数组末尾，加入后k<br>和j均自减1。循环结束后，有可能i或j还大于0，若j大于0，则需要继续循环将nums2中的数组继续拷贝到nums1；若i大于0，那么就不用管了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    void merge(vector&lt;int&gt;&amp; nums1, int m, vector&lt;int&gt;&amp; nums2, int n) &#123;</span><br><span class="line">        int i=m-1,j=n-1,k=m+n-1;</span><br><span class="line">        while(i&gt;=0&amp;&amp;j&gt;=0)&#123;</span><br><span class="line">            if(nums1[i]&gt;nums2[j])</span><br><span class="line">                nums1[k--]=nums1[i--];</span><br><span class="line">            else</span><br><span class="line">                nums1[k--]=nums2[j--];</span><br><span class="line">        &#125;</span><br><span class="line">        while(j&gt;=0) nums1[k--]=nums2[j--];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="判断链表是否存在环-141-Linked-List-Circle"><a href="#判断链表是否存在环-141-Linked-List-Circle" class="headerlink" title="判断链表是否存在环 141.Linked List Circle"></a>判断链表是否存在环 <a href="https://leetcode.com/problems/linked-list-cycle/description/" target="_blank" rel="noopener">141.Linked List Circle</a></h2><p>使用快慢指针，一个指针移动一个节点，一个指针移动两个节点，若存在环，那么两指针一定相遇。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * struct ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool hasCycle(ListNode *head) &#123;</span><br><span class="line">        if(head==NULL||head-&gt;next==NULL) return false;</span><br><span class="line">        ListNode *slow=head,*fast=head;</span><br><span class="line">        while(fast-&gt;next!=NULL&amp;&amp;fast-&gt;next-&gt;next!=NULL)&#123;</span><br><span class="line">            slow=slow-&gt;next;</span><br><span class="line">            fast=fast-&gt;next-&gt;next;           </span><br><span class="line">            if(fast==slow) return true;        </span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="判断是否为子序列-392-Is-Subsequence-Medium"><a href="#判断是否为子序列-392-Is-Subsequence-Medium" class="headerlink" title="判断是否为子序列 392.Is Subsequence(Medium)"></a>判断是否为子序列 <a href="https://leetcode.com/problems/is-subsequence/description/" target="_blank" rel="noopener">392.Is Subsequence(Medium)</a></h2><p>s = “abc”, t = “ahbgdc”<br>Return true.</p>
+<p>解题思路：两个指针分别指向字符串s和t，如果字符相等，则i和j自增1，否则j<br>自增1，，看最后i是否等于s的长度；若等于说明s已经遍历完了，且字符都在t中出现过。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isSubsequence(string s, string t) &#123;</span><br><span class="line">        int i=0;</span><br><span class="line">        for(int j=0;i&lt;s.size()&amp;&amp;j&lt;t.size();j++)&#123;</span><br><span class="line">            if(s[i]==t[j])</span><br><span class="line">                i++;</span><br><span class="line">        &#125;</span><br><span class="line">        return i==s.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <h2 id="最长子序列-524-Longest-Word-in-Dictionary-through-Deleting"><a href="#最长子序列-524-Longest-Word-in-Dictionary-through-Deleting" class="headerlink" title="最长子序列 524.Longest Word in Dictionary through Deleting"></a>最长子序列 <a href="https://leetcode.com/problems/longest-word-in-dictionary-through-deleting/description/" target="_blank" rel="noopener">524.Longest Word in Dictionary through Deleting</a></h2><p>Input:<br>s = “abpcplea”, d = [“ale”,”apple”,”monkey”,”plea”]<br>Output:<br>“apple”</p>
 <p>题目描述：删除s中的一些字符，使得它构成的字符串列表d中的一个字符串，找出能构成的最长字符串。如果有多个相同长度的结果，返回字典序的最小字符串。<br>解题思路：判断s删除一些字符后，是否存在于字典中，用i、j分别表示字符串和单词中某个字母的位置；遍历给定字符串，若遍历到单词中的某个字母，则j自增1，如果没有，则继续往下遍历。这样如果最后i和单词长度相等，则说明单词中所有的字母都按顺序出现在字符串s中！<br>找出能构成的最长单词，需要遍历字典中的所有单词，找出长度最长的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    string findLongestWord(string s, vector&lt;string&gt;&amp; d) &#123;</span><br><span class="line">        string longestWord=&quot;&quot;;</span><br><span class="line">        for(string target:d)&#123;</span><br><span class="line">            int l1=longestWord.size(),l2=target.size();</span><br><span class="line">            if(l1&gt;l2||(l1==l2&amp;&amp;longestWord.compare(target)&lt;0))</span><br><span class="line">                continue;</span><br><span class="line">            if(isValid(s,target))</span><br><span class="line">                longestWord=target;</span><br><span class="line">        &#125;</span><br><span class="line">        return longestWord;</span><br><span class="line">    &#125;</span><br><span class="line">private:</span><br><span class="line">    bool isValid(string s,string target)&#123;</span><br><span class="line">        int i=0,j=0;</span><br><span class="line">        while(i&lt;s.size()&amp;&amp;j&lt;target.size())&#123;</span><br><span class="line">            if(s[i]==target[j])</span><br><span class="line">                j++;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        return j==target.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -1674,158 +1847,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/22/数据结构与算法/数据结构与算法-递归/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chris">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/assets/img/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CHRIS有一个愿望">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/22/数据结构与算法/数据结构与算法-递归/" itemprop="url">数据结构与算法_递归</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-22T13:20:53+08:00">
-                2019-03-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Struct-Alogorithms/" itemprop="url" rel="index">
-                    <span itemprop="name">Struct&Alogorithms</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-		
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-如何理解”递归”？"><a href="#1-如何理解”递归”？" class="headerlink" title="1.如何理解”递归”？"></a>1.如何理解”递归”？</h2><p>当你在电影院看电影时忘记自己是在第几排，电影院里面太黑看不清，没法数，于是就问前面的人他是第几排，你想只要在他的数字上加1，就知道自己是在哪一排了；但是前面的人也看不清啊，所以他也问他前面的人…就这样一排一排往前问，直到问到第一排的人，说我在第一排，然后再这样一排一排把数字传回来，于是你就知道答案了。<br>这就是一个非常标准的递归求解问题的分解过程，去的过程叫”递”，回来的过程叫”归”。基本上，所有的递归问题都可以用递推公式来表示。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">f(n)=f(n-1)+1 其中，f(1)=1</span><br></pre></td></tr></table></figure></p>
-<h2 id="2-递归需要满足的三个条件"><a href="#2-递归需要满足的三个条件" class="headerlink" title="2.递归需要满足的三个条件"></a>2.递归需要满足的三个条件</h2><h3 id="2-1-一个问题的解可以分解为几个子问题的解"><a href="#2-1-一个问题的解可以分解为几个子问题的解" class="headerlink" title="2.1 一个问题的解可以分解为几个子问题的解"></a>2.1 一个问题的解可以分解为几个子问题的解</h3><p>子问题就是数据规模更小的问题。比如，你要知道，“自己在哪一排”的问题，可以分解为“前一排的人在哪一排”这样一个子问题。</p>
-<h3 id="2-2-这个问题与分解之后的子问题，除了数据规模不同，求解思路完全一样"><a href="#2-2-这个问题与分解之后的子问题，除了数据规模不同，求解思路完全一样" class="headerlink" title="2.2 这个问题与分解之后的子问题，除了数据规模不同，求解思路完全一样"></a>2.2 这个问题与分解之后的子问题，除了数据规模不同，求解思路完全一样</h3><p>你在求解“自己在哪一排”的思路，和前一排的人求解“自己在哪一排”的思路是一模一样的。</p>
-<h3 id="2-3-存在递归终止条件"><a href="#2-3-存在递归终止条件" class="headerlink" title="2.3 存在递归终止条件"></a>2.3 存在递归终止条件</h3><p>写递归代码最关键的是<strong>写出递推公式，找到终止条件。</strong><br>举个例子：假如这里有n个台阶，每次可以跨1个台阶或2个台阶，请问走完这n个台阶有多少种走法？<br>可以这样思考：走到第n个台阶的走法有两类，第一类是从第n-1阶走了1个台阶，另一类是从n-2阶走了2个台阶。所以n个台阶的走法就等于:(走n-1阶的走法，再走1个台阶)+(走n-2阶的走法，再走2个台阶)，用公式表示就是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(n)=f(n-1)+f(n-2)</span><br></pre></td></tr></table></figure></p>
-<p>来看终止条件：当有一个台阶时，就只有一种走法 ，所以f(1)=1。如果递归终止条件只有f(1)=1一个，那f(2)就没法求解了，所以我们可以把f(2)=2作为另一个终止条件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f(1) = 1;</span><br><span class="line">f(2) = 2;</span><br><span class="line">f(n) = f(n-1)+f(n-2)</span><br></pre></td></tr></table></figure></p>
-<p>最终的递归代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int f(int n) &#123;</span><br><span class="line">  if (n == 1) return 1;</span><br><span class="line">  if (n == 2) return 2;</span><br><span class="line">  return f(n-1) + f(n-2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>总结：</strong>  <font color="#FF8F00">写递归代码的关键就是找到如何将大问题分解为小问题的规律，并且基于此写出递推公式，然后再推敲终止条件，最后将递推公式和终止条件翻译成代码。</font><br>编写递归代码的关键是，只要遇到递归，就把它抽象成一个递推公式，不用想一层层的调用关系，不要试图用人脑去分解递归的每个步骤。  </p>
-<h2 id="3-递归代码要警惕堆栈溢出"><a href="#3-递归代码要警惕堆栈溢出" class="headerlink" title="3.递归代码要警惕堆栈溢出"></a>3.递归代码要警惕堆栈溢出</h2><p>函数调用会使用栈来保存临时变量。每调用一个函数，都会将临时变量封装为栈帧压入内存栈，等函数执行完返回时，才出栈。系统栈或则虚拟机栈空间一般都不大，如果递归求解的数据规模很大，调用层次很深，一直压入栈，就会有堆栈溢出的风险。  </p>
-<h2 id="4-递归代码要警惕重复计算"><a href="#4-递归代码要警惕重复计算" class="headerlink" title="4.递归代码要警惕重复计算"></a>4.递归代码要警惕重复计算</h2><p>上述第二个递归例子，如果把整个过程分解一下，如图所示：<br><img src="/2019/03/22/数据结构与算法/数据结构与算法-递归/recursion.jpg" alt="递归分解"><br>从图中可以发现，计算f(5)时，要先计算f(4)和f(3),而计算f(4)时还需要计算f(3),因此f(3)被计算了很多次，这就是重复计算问题。<br>重复子问题可以用数组保存中间值的方法来优化，之后动态规划问题会用到这类思想。  </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1878,7 +1899,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1900,7 +1921,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
