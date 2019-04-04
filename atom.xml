@@ -316,34 +316,6 @@
   </entry>
   
   <entry>
-    <title>剑指offer——把数组排成最小的数</title>
-    <link href="http://yoursite.com/2019/03/21/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer-%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0/"/>
-    <id>http://yoursite.com/2019/03/21/剑指offer/剑指offer-把数组排成最小的数/</id>
-    <published>2019-03-20T16:00:00.000Z</published>
-    <updated>2019-03-22T04:46:24.086Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。&lt;br&gt;时间限制：1秒 空间限制：32768K &lt;/p&gt;
-&lt;h2 id=&quot;解题思路&quot;&gt;&lt;a href=&quot;#解题思路&quot; class=&quot;headerlink&quot; title=&quot;解题思路&quot;&gt;&lt;/a&gt;解题思路&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;将数组中的整数数组转换成字符串数组；&lt;/li&gt;
-&lt;li&gt;自定义一个比较大小的函数，比较两个字符串s1和s2大小的时候，先将它们拼起来，比较s1+s2和s2和s1哪个大，如果s1+s2大，说明s2应该放前面，根据这个规则将所有的字符换排序；&lt;/li&gt;
-&lt;li&gt;拼接所有的字符串数组中的元素。&lt;/li&gt;&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="剑指offer" scheme="http://yoursite.com/categories/%E5%89%91%E6%8C%87offer/"/>
-    
-    
-      <category term="牛客刷题" scheme="http://yoursite.com/tags/%E7%89%9B%E5%AE%A2%E5%88%B7%E9%A2%98/"/>
-    
-      <category term="数组" scheme="http://yoursite.com/tags/%E6%95%B0%E7%BB%84/"/>
-    
-      <category term="sort函数" scheme="http://yoursite.com/tags/sort%E5%87%BD%E6%95%B0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>剑指offer——二维数组中的查找</title>
     <link href="http://yoursite.com/2019/03/21/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/"/>
     <id>http://yoursite.com/2019/03/21/剑指offer/剑指offer-二维数组中的查找/</id>
@@ -372,16 +344,19 @@
   </entry>
   
   <entry>
-    <title>剑指offer——二进制中1的个数 &amp; 整数中1出现的次数</title>
-    <link href="http://yoursite.com/2019/03/21/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0%20&amp;%20%E6%95%B4%E6%95%B0%E4%B8%AD1%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/"/>
-    <id>http://yoursite.com/2019/03/21/剑指offer/剑指offer-二进制中1的个数 &amp; 整数中1出现的次数/</id>
+    <title>剑指offer——把数组排成最小的数</title>
+    <link href="http://yoursite.com/2019/03/21/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer-%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0/"/>
+    <id>http://yoursite.com/2019/03/21/剑指offer/剑指offer-把数组排成最小的数/</id>
     <published>2019-03-20T16:00:00.000Z</published>
-    <updated>2019-03-22T05:19:53.666Z</updated>
+    <updated>2019-03-22T04:46:24.086Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;题目描述：二进制中1的个数&quot;&gt;&lt;a href=&quot;#题目描述：二进制中1的个数&quot; class=&quot;headerlink&quot; title=&quot;题目描述：二进制中1的个数&quot;&gt;&lt;/a&gt;题目描述：二进制中1的个数&lt;/h2&gt;&lt;p&gt;输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。  &lt;/p&gt;
-&lt;h3 id=&quot;解法一&quot;&gt;&lt;a href=&quot;#解法一&quot; class=&quot;headerlink&quot; title=&quot;解法一&quot;&gt;&lt;/a&gt;解法一&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;基本思路：&lt;/strong&gt;  先判断整数二进制表示中最右边是不是为1，如果是则计数器自增1；接着把输入的整数右移一位，继续判断二进制表示中最右边是否为1，直到整个数变为0为止。代码如下所示，case通过率0.00%，超时引起的，是因为如果输入的是负数，右移时，为保证移位后是一个负数，因此移位后的最高为会设1.如果一直做右移，那么这个数字最终会变为0xFFFFFFFF而陷入死循环。&lt;br&gt;&lt;/p&gt;
+      &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。&lt;br&gt;时间限制：1秒 空间限制：32768K &lt;/p&gt;
+&lt;h2 id=&quot;解题思路&quot;&gt;&lt;a href=&quot;#解题思路&quot; class=&quot;headerlink&quot; title=&quot;解题思路&quot;&gt;&lt;/a&gt;解题思路&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;将数组中的整数数组转换成字符串数组；&lt;/li&gt;
+&lt;li&gt;自定义一个比较大小的函数，比较两个字符串s1和s2大小的时候，先将它们拼起来，比较s1+s2和s2和s1哪个大，如果s1+s2大，说明s2应该放前面，根据这个规则将所有的字符换排序；&lt;/li&gt;
+&lt;li&gt;拼接所有的字符串数组中的元素。&lt;/li&gt;&lt;/ul&gt;
     
     </summary>
     
@@ -390,9 +365,9 @@
     
       <category term="牛客刷题" scheme="http://yoursite.com/tags/%E7%89%9B%E5%AE%A2%E5%88%B7%E9%A2%98/"/>
     
-      <category term="二进制" scheme="http://yoursite.com/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
+      <category term="数组" scheme="http://yoursite.com/tags/%E6%95%B0%E7%BB%84/"/>
     
-      <category term="数1" scheme="http://yoursite.com/tags/%E6%95%B01/"/>
+      <category term="sort函数" scheme="http://yoursite.com/tags/sort%E5%87%BD%E6%95%B0/"/>
     
   </entry>
   
@@ -416,6 +391,31 @@
       <category term="笔记" scheme="http://yoursite.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="数组" scheme="http://yoursite.com/tags/%E6%95%B0%E7%BB%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>剑指offer——二进制中1的个数 &amp; 整数中1出现的次数</title>
+    <link href="http://yoursite.com/2019/03/21/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0%20&amp;%20%E6%95%B4%E6%95%B0%E4%B8%AD1%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/"/>
+    <id>http://yoursite.com/2019/03/21/剑指offer/剑指offer-二进制中1的个数 &amp; 整数中1出现的次数/</id>
+    <published>2019-03-20T16:00:00.000Z</published>
+    <updated>2019-03-22T05:19:53.666Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;题目描述：二进制中1的个数&quot;&gt;&lt;a href=&quot;#题目描述：二进制中1的个数&quot; class=&quot;headerlink&quot; title=&quot;题目描述：二进制中1的个数&quot;&gt;&lt;/a&gt;题目描述：二进制中1的个数&lt;/h2&gt;&lt;p&gt;输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。  &lt;/p&gt;
+&lt;h3 id=&quot;解法一&quot;&gt;&lt;a href=&quot;#解法一&quot; class=&quot;headerlink&quot; title=&quot;解法一&quot;&gt;&lt;/a&gt;解法一&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;基本思路：&lt;/strong&gt;  先判断整数二进制表示中最右边是不是为1，如果是则计数器自增1；接着把输入的整数右移一位，继续判断二进制表示中最右边是否为1，直到整个数变为0为止。代码如下所示，case通过率0.00%，超时引起的，是因为如果输入的是负数，右移时，为保证移位后是一个负数，因此移位后的最高为会设1.如果一直做右移，那么这个数字最终会变为0xFFFFFFFF而陷入死循环。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="剑指offer" scheme="http://yoursite.com/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="牛客刷题" scheme="http://yoursite.com/tags/%E7%89%9B%E5%AE%A2%E5%88%B7%E9%A2%98/"/>
+    
+      <category term="二进制" scheme="http://yoursite.com/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
+    
+      <category term="数1" scheme="http://yoursite.com/tags/%E6%95%B01/"/>
     
   </entry>
   
