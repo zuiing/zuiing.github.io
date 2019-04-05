@@ -293,6 +293,156 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/LeetCode刷题/哈希表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chris">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CHRIS有一个愿望">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/05/LeetCode刷题/哈希表/" itemprop="url">哈希表</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-05T17:08:03+08:00">
+                2019-04-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode刷题/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode刷题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+		
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="两数之和-1-Two-Sum-Easy"><a href="#两数之和-1-Two-Sum-Easy" class="headerlink" title="两数之和 1.Two Sum(Easy)"></a>两数之和 <a href="https://leetcode.com/problems/two-sum/description/" target="_blank" rel="noopener">1.Two Sum(Easy)</a></h2><p>解题思路：用map存储数组元素和索引的映射，在访问nums[i]时，判断map中是否存在target-nums[i],若存在说明target-nums[i]所在的索引和i就是要找的两个数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123;</span><br><span class="line">        unordered_map&lt;int,int&gt; record;</span><br><span class="line">        for(int i=0;i&lt;nums.size();i++)&#123;</span><br><span class="line">            int complement=target-nums[i];</span><br><span class="line">            if(record.find(complement)!=record.end())&#123;</span><br><span class="line">                int res[]=&#123;record[complement],i&#125;;</span><br><span class="line">                return vector&lt;int&gt; &#123;res,res+2&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            record[nums[i]]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        return vector&lt;int&gt; &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="是否包含重复值-217-Contains-Duplicate-Easy"><a href="#是否包含重复值-217-Contains-Duplicate-Easy" class="headerlink" title="是否包含重复值 217.Contains Duplicate(Easy)"></a>是否包含重复值 <a href="https://leetcode.com/problems/contains-duplicate/" target="_blank" rel="noopener">217.Contains Duplicate(Easy)</a></h2><p>解题思路：使用一个哈希表，遍历整个数组，如果哈希表里存在，返回true，否则将其放入哈希表中，遍历结束返回false。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool containsDuplicate(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        unordered_map&lt;int,int&gt; m;</span><br><span class="line">        for(int i=0;i&lt;nums[i].size();i++)&#123;</span><br><span class="line">            if(m.find(nums[i])!=m.end())</span><br><span class="line">                return true;</span><br><span class="line">            m[nums[i]]++;</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>解题思路：先将数组排序，然后比较相邻两个数字是否相等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool containsDuplicate(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        sort(nums.begin(),nums.end());</span><br><span class="line">        for(int i=1;i&lt;nums.size();i++)</span><br><span class="line">            if(nums[i]==nums[i-1]) return true;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="最长和谐子序列-594-Longest-Harmonious-Subsequence-Easy"><a href="#最长和谐子序列-594-Longest-Harmonious-Subsequence-Easy" class="headerlink" title="最长和谐子序列 594.Longest Harmonious Subsequence(Easy)"></a>最长和谐子序列 <a href="https://leetcode.com/problems/longest-harmonious-subsequence/description/" target="_blank" rel="noopener">594.Longest Harmonious Subsequence(Easy)</a></h2><p>Input: [1,3,2,2,5,2,3,7]<br>Output: 5<br>Explanation: The longest harmonious subsequence is [3,2,2,2,3].</p>
+<p>题目描述：题目给了一个数组，让找出最长的和谐子序列，和谐子序列就是序列中数组的最大最小值均为1。</p>
+<p>解题思路：由于只是求长度，并不需要返回具体的子序列。因此可以对数组排序，找出相差为1的两个数的总共出现个数就是一个和谐子序列的长度了。可以建立一个数字和其出现次数之间的映射，利用map的自动排序特性，遍历map的时候就是从小到大开始遍历，从第二个映射开始，每次和前面的映射比较，若二者差值刚好为1，那么就把两个数字出现次数相加并更新res。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/LeetCode刷题/链表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -590,7 +740,16 @@
 <h3 id="二叉树的路径和"><a href="#二叉树的路径和" class="headerlink" title="二叉树的路径和"></a>二叉树的路径和</h3><h4 id="判断路径和是否等于一个数-112-Path-Sum-Easy"><a href="#判断路径和是否等于一个数-112-Path-Sum-Easy" class="headerlink" title="判断路径和是否等于一个数  112.Path Sum(Easy)"></a>判断路径和是否等于一个数  <a href="https://leetcode.com/problems/path-sum/description/" target="_blank" rel="noopener">112.Path Sum(Easy)</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool hasPathSum(TreeNode* root, int sum) &#123;</span><br><span class="line">        if(!root) return false;</span><br><span class="line">        if(!root-&gt;left&amp;&amp;!root-&gt;right&amp;&amp;root-&gt;val==sum) return true;</span><br><span class="line">        return hasPathSum(root-&gt;left,sum-root-&gt;val)||hasPathSum(root-&gt;right,sum-root-&gt;val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h4 id="找出所有路径和等于一个数的路径-113-Path-Sum-II-Medium"><a href="#找出所有路径和等于一个数的路径-113-Path-Sum-II-Medium" class="headerlink" title="找出所有路径和等于一个数的路径 113.Path Sum II(Medium)"></a>找出所有路径和等于一个数的路径 <a href="https://leetcode.com/problems/path-sum-ii/" target="_blank" rel="noopener">113.Path Sum II(Medium)</a></h4><p>解题思路：使用深度优先搜索DFS，创建二维数组res和一位数组path，每当DFS搜索到新节点时，都要保存该节点；而且每当找出一条路径之后，都将path保存到res中；而且每当DFS搜索到子节点，发现不是路径和时，返回上一个结点时，需要把该节点从path中移除。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;vector&lt;int&gt;&gt; pathSum(TreeNode* root, int sum) &#123;</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt; res;</span><br><span class="line">        vector&lt;int&gt; path;</span><br><span class="line">        helper(root,sum,path,res);</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">private:</span><br><span class="line">    void helper(TreeNode *root,int sum,vector&lt;int&gt; &amp;path,vector&lt;vector&lt;int&gt;&gt; &amp;res)&#123;</span><br><span class="line">        if(!root) return;</span><br><span class="line">        path.push_back(root-&gt;val);</span><br><span class="line">        if(!root-&gt;left&amp;&amp;!root-&gt;right&amp;&amp;root-&gt;val==sum)</span><br><span class="line">            res.push_back(path);</span><br><span class="line">        helper(root-&gt;left,sum-root-&gt;val,path,res);</span><br><span class="line">        helper(root-&gt;right,sum-root-&gt;val,path,res);</span><br><span class="line">        path.pop_back();</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="统计路径和等于一个数的路径数量-437-Path-Sum-III-Easy"><a href="#统计路径和等于一个数的路径数量-437-Path-Sum-III-Easy" class="headerlink" title="统计路径和等于一个数的路径数量 437.Path Sum III(Easy)"></a>统计路径和等于一个数的路径数量 <a href="https://leetcode.com/problems/path-sum-iii/description/" target="_blank" rel="noopener">437.Path Sum III(Easy)</a></h4>
+<h4 id="统计路径和等于一个数的路径数量-437-Path-Sum-III-Easy"><a href="#统计路径和等于一个数的路径数量-437-Path-Sum-III-Easy" class="headerlink" title="统计路径和等于一个数的路径数量 437.Path Sum III(Easy)"></a>统计路径和等于一个数的路径数量 <a href="https://leetcode.com/problems/path-sum-iii/description/" target="_blank" rel="noopener">437.Path Sum III(Easy)</a></h4><p>题目描述：求二叉树的路径和等于一个给定值，这条路径不一定从根节点开始，也不一定以叶子节点结尾，可以是中间的任意一段，而且二叉树的节点值有正有负。</p>
+<p>解题思路：借助一个子函数求解以root开始的路径和等于给定值的数量，然后在pathSum函数中调用该函数即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int pathSum(TreeNode* root, int sum) &#123;</span><br><span class="line">        if(!root) return 0;</span><br><span class="line">        int res=pathSumStartWithNode(root,sum)+pathSum(root-&gt;left,sum)+pathSum(root-&gt;right,sum);</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">    int pathSumStartWithNode(TreeNode* node,int sum)&#123;</span><br><span class="line">        if(!node) return 0;</span><br><span class="line">        int res=0;</span><br><span class="line">        if(node-&gt;val==sum) res++;</span><br><span class="line">        res+=pathSumStartWithNode(node-&gt;left,sum-node-&gt;val)+pathSumStartWithNode(node-&gt;right,sum-node-&gt;val);</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>解题思路：还有另一种解法，依然使用递归，相当于先序遍历，对于每一个节点都有记录了一条从根节点到当前节点的路径，同时用一个变量curSum记录路径节点总和，然后看curSum和sum是否相等，相等的话res自增1，不等的话继续查看子路径和有没有满足的，做法就是每次去掉一个节点，看路径和是否等于给定值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int pathSum(TreeNode* root, int sum) &#123;</span><br><span class="line">        int res=0;</span><br><span class="line">        vector&lt;TreeNode*&gt; record;</span><br><span class="line">        helper(root,sum,0,record,res);</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">    void helper(TreeNode* node,int sum,int curSum,vector&lt;TreeNode*&gt;&amp; record,int&amp; res)&#123;</span><br><span class="line">        if(!node) return;</span><br><span class="line">        curSum+=node-&gt;val;</span><br><span class="line">        record.push_back(node);</span><br><span class="line">        if(curSum==sum) res++;</span><br><span class="line">        int tmp=curSum;</span><br><span class="line">        for(int i=0;i&lt;record.size()-1;i++)&#123;</span><br><span class="line">            tmp-=record[i]-&gt;val;</span><br><span class="line">            if(tmp==sum) res++;</span><br><span class="line">        &#125;</span><br><span class="line">        helper(node-&gt;left,sum,curSum,record,res);</span><br><span class="line">        helper(node-&gt;right,sum,curSum,record,res);</span><br><span class="line">        record.pop_back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="子树-572-Subtree-of-Another-Tree-Easy"><a href="#子树-572-Subtree-of-Another-Tree-Easy" class="headerlink" title="子树 572.Subtree of Another Tree(Easy)"></a>子树 <a href="https://leetcode.com/problems/subtree-of-another-tree/description/" target="_blank" rel="noopener">572.Subtree of Another Tree(Easy)</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Given tree s:</span><br><span class="line">     3</span><br><span class="line">    / \</span><br><span class="line">   4   5</span><br><span class="line">  / \</span><br><span class="line"> 1   2</span><br><span class="line"></span><br><span class="line">Given tree t:</span><br><span class="line">   4</span><br><span class="line">  / \</span><br><span class="line"> 1   2</span><br><span class="line"></span><br><span class="line">Return true, because t has the same structure and node values with a subtree of s.</span><br><span class="line"></span><br><span class="line">Given tree s:</span><br><span class="line"></span><br><span class="line">     3</span><br><span class="line">    / \</span><br><span class="line">   4   5</span><br><span class="line">  / \</span><br><span class="line"> 1   2</span><br><span class="line">    /</span><br><span class="line">   0</span><br><span class="line"></span><br><span class="line">Given tree t:</span><br><span class="line">   4</span><br><span class="line">  / \</span><br><span class="line"> 1   2</span><br><span class="line"></span><br><span class="line">Return false.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isSubtree(TreeNode* s, TreeNode* t) &#123;</span><br><span class="line">        if(!s) return false;</span><br><span class="line">        return isSame(s,t)||isSubtree(s-&gt;left,t)||isSubtree(s-&gt;right,t);</span><br><span class="line">    &#125;</span><br><span class="line">    bool isSame(TreeNode *s,TreeNode *t)&#123;</span><br><span class="line">        if(!s&amp;&amp;!t) return true;</span><br><span class="line">        if(!s||!t) return false;</span><br><span class="line">        if(s-&gt;val!=t-&gt;val) return false;</span><br><span class="line">        return isSame(s-&gt;left,t-&gt;left)&amp;&amp;isSame(s-&gt;right,t-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="判断对称树-101-Symmetric-Tree-Easy"><a href="#判断对称树-101-Symmetric-Tree-Easy" class="headerlink" title="判断对称树 101.Symmetric Tree(Easy)"></a>判断对称树 <a href="https://leetcode.com/problems/symmetric-tree/description/" target="_blank" rel="noopener">101.Symmetric Tree(Easy)</a></h3><p>解题思路：判断二叉树是否是对称树，那么对于每一个节点都要对称，t1和他t2是某节点的左右子节点，我们需要比较t1和t2的节点值是否相等，同时还要比较t1的左子节点和t2的右子节点、t1的右子节点和t2的左子节点是否相等。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isSymmetric(TreeNode* root) &#123;</span><br><span class="line">        if(!root) return true;</span><br><span class="line">        return isSymmetric(root-&gt;left,root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">    bool isSymmetric(TreeNode *t1,TreeNode *t2)&#123;</span><br><span class="line">        if(!t1&amp;&amp;!t2) return true;</span><br><span class="line">        if(!t1||!t2) return false;</span><br><span class="line">        if(t1-&gt;val!=t2-&gt;val) return false;</span><br><span class="line">        return isSymmetric(t1-&gt;left,t2-&gt;right)&amp;&amp;isSymmetric(t1-&gt;right,t2-&gt;left);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="最小深度-11-Minimum-Depth-of-Binary-Tree-Easy"><a href="#最小深度-11-Minimum-Depth-of-Binary-Tree-Easy" class="headerlink" title="最小深度 11.Minimum Depth of Binary Tree(Easy)"></a>最小深度 <a href="https://leetcode.com/problems/minimum-depth-of-binary-tree/description/" target="_blank" rel="noopener">11.Minimum Depth of Binary Tree(Easy)</a></h3><p>解题思路：用深度优先搜索DFS来做。首先判空，若当前节点不存在，直接返回0；然后求左右子节点的深度，若其中一个子节点为空，则将另一个子节点深度加1返回；若左右都存在，则将二者中的较小值加1返回即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int minDepth(TreeNode* root) &#123;</span><br><span class="line">        if(!root) return 0;</span><br><span class="line">        int left=minDepth(root-&gt;left);</span><br><span class="line">        int right=minDepth(root-&gt;right);</span><br><span class="line">        if(left==0||right==0) return left+right+1;</span><br><span class="line">        return min(left,right)+1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>未待完续…</p>
+
           
         
       
@@ -1788,144 +1947,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/随笔/路径中斜杠和反斜杠的区别/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chris">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/assets/img/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CHRIS有一个愿望">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/24/随笔/路径中斜杠和反斜杠的区别/" itemprop="url">路径中斜杠和反斜杠的区别</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T08:15:28+08:00">
-                2019-03-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-		
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li>Unix使用斜杠/ 作为路径分隔符，而web应用最新使用在Unix系统上面，所以目前所有的网络地址都采用斜杠/ 作为分隔符;</li>
-<li>Windows由于使用斜杠/作为DOS命令提示符的参数标志了，为了不混淆，所以采用反斜杠\作为路径分隔符。所以目前Windows系统上的文件目录结构都是用反斜杠\作为路径分隔符。随着发展，DOS系统已经被淘汰了，命令提示符用的很少，斜杠和反斜杠在大多数情况下可以互换。</li>
-</ol>
-<p><strong>总结:</strong></p>
-<blockquote>
-<ul>
-<li>浏览器地址栏网址使用斜杠/</li>
-<li>Windows文件目录结构地址使用反斜杠\</li>
-<li>出现heml url()属性中的路径，指定的路径是网络路径，所以必须用斜杠/</li>
-<li>出现在普通字符串中的路径，如果代表的是Windows文件路径，则使用斜杠和反斜杠是一样的，如果代表的是网络文件路径，则必须使用斜杠/</li>
-</ul>
-</blockquote>
-<ol start="3">
-<li>上面提到斜杠/是url地址中用到的分隔符；对应的，双斜杠//用在网络域名访问中，是协议和主机名或IP地址之间的分隔符，以双斜杠//开头的是一俩url是依赖协议的url表示形式，URL格式：协议://域名或IP/请求文件路径/文件名；<br>如百度的网址：<a href="https://www.baidu.com/" target="_blank" rel="noopener">https://www.baidu.com/</a>  。URL默认以斜杠/结尾，而没有给出文件名的情况下，URL引用路径中最后一个目录中的默认文件(通常对应于主页).</li>
-<li>反斜杠是Windows系统文件目录结构使用的分隔符，如：D:\allDream(用反斜杠也可以，但是双斜杠或双反斜杠不行)。<br>对应的，双反斜杠\在Windows里表示绝对地址的第一项，后面跟IP地址或计算机名，就是需要打开这个IP地址或计算机名对应主机的网络共享资源。  </li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1978,7 +1999,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2000,7 +2021,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
