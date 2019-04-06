@@ -293,6 +293,162 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/06/LeetCode刷题/字符串/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chris">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CHRIS有一个愿望">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/06/LeetCode刷题/字符串/" itemprop="url">字符串</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-06T09:52:06+08:00">
+                2019-04-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode刷题/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode刷题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+		
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="验证变位词-242-Valid-Anagram-Easy"><a href="#验证变位词-242-Valid-Anagram-Easy" class="headerlink" title="验证变位词 242.Valid Anagram(Easy)"></a>验证变位词 <a href="https://leetcode.com/problems/valid-anagram/description/" target="_blank" rel="noopener">242.Valid Anagram(Easy)</a></h2><p>s = “anagram”, t = “nagaram”, return true.<br>s = “rat”, t = “car”, return false.</p>
+<p>解题思路：可以用哈希表映射字符和出现次数，然后比较两个字符串出现的字符数量是否相等，由于本题的字符串只包含26个小写字符，因此可以用长度为26的数组对字符串出现的字符次数进行统计。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isAnagram(string s, string t) &#123;</span><br><span class="line">        if(s.size()!=t.size()) return false;</span><br><span class="line">        int m[26]=&#123;0&#125;;</span><br><span class="line">        for(int i=0;i&lt;s.size();i++) m[s[i]-&apos;a&apos;]++;</span><br><span class="line">        for(int i=0;i&lt;t.size();i++)&#123;</span><br><span class="line">            if(--m[t[i]-&apos;a&apos;]&lt;0) return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="最长回文串-409-Longest-Palindrome-Easy"><a href="#最长回文串-409-Longest-Palindrome-Easy" class="headerlink" title="最长回文串 409.Longest Palindrome(Easy)"></a>最长回文串 <a href="https://leetcode.com/problems/longest-palindrome/description/" target="_blank" rel="noopener">409.Longest Palindrome(Easy)</a></h2><p>Input : “abccccdd”<br>Output : 7<br>Explanation : One longest palindrome that can be built is “dccaccd”, whose length is 7.</p>
+<p>解题思路：题目给我们一个字符串，让找出可以组成的最长的回文串的长度，由于字符顺序可以打乱，所以问题就转化成了求偶数个字符的个数；回文串有两种形式，一种是左右完全对称的，比如noon，还有一种是以中间字符为中心左右对车，比如level，那么我们只需统计出所有偶数个字符的出现总和，然后如果有奇数个字符的话，就取出其最大偶数，然后最终的结果加1即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int longestPalindrome(string s) &#123;</span><br><span class="line">        int res=0;</span><br><span class="line">        bool odd=false;</span><br><span class="line">        unordered_map&lt;char,int&gt; m;</span><br><span class="line">        for(int i=0;i&lt;s.size();i++) m[s[i]]++;</span><br><span class="line">        for(auto it=m.begin();it!=m.end();it++)&#123;</span><br><span class="line">            res+=it-&gt;second;</span><br><span class="line">            if(it-&gt;second%2)&#123;</span><br><span class="line">                res-=1;</span><br><span class="line">                odd=true;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return odd?res+1:res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="同构字符串-205-Isomorphic-Strigns-Easy"><a href="#同构字符串-205-Isomorphic-Strigns-Easy" class="headerlink" title="同构字符串 205.Isomorphic Strigns(Easy)"></a>同构字符串 <a href="https://leetcode.com/problems/isomorphic-strings/description/" target="_blank" rel="noopener">205.Isomorphic Strigns(Easy)</a></h2><p>Given “egg”, “add”, return true.<br>Given “foo”, “bar”, return false.<br>Given “paper”, “title”, return true.</p>
+<p>题目描述：求同构字符串，就是说字符串中的每个字符可由另外一个字符替代，相同的字符一定要被同一个字符替代，且一个字符不能被多个字符替代，即不能出现一对多的映射。</p>
+<p>解题思路：根据一对一映射的特点，可以用两个哈希表分别记录原字符串和目标字符串中字符出现情况；由于ASCII码只有256个字符，因此可以用一个大小为256的数组来代替哈希表，并初始化为0；遍历数组，分别从源字符串和目标字符串取出一个字符，然后分别在两个哈希表中查找值，若不相等，返回false，若相等，将其值更新为i+1；由于初始值为0，所以更新值为i+1，这样当i=0时，映射为1，如果不加1，就没法区分第一个字符是否被更新了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isIsomorphic(string s, string t) &#123;</span><br><span class="line">        int ms[256]=&#123;0&#125;,mt[256]=&#123;0&#125;;</span><br><span class="line">        for(int i=0;i&lt;s.size();i++)&#123;</span><br><span class="line">            if(ms[s[i]]!=mt[t[i]]) return false;</span><br><span class="line">            ms[s[i]]=i+1;</span><br><span class="line">            mt[t[i]]=i+1;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="回文子字符串-647-Palindromic-Substrings-Medium"><a href="#回文子字符串-647-Palindromic-Substrings-Medium" class="headerlink" title="回文子字符串 647.Palindromic Substrings(Medium)"></a>回文子字符串 <a href="https://leetcode.com/problems/palindromic-substrings/description/" target="_blank" rel="noopener">647.Palindromic Substrings(Medium)</a></h2><p>Input: “aaa”<br>Output: 6<br>Explanation: Six palindromic strings: “a”, “a”, “a”, “aa”, “aa”, “aaa”.</p>
+<p>解题思路：以字符串的每个字符当作回文串中间的位置，然后向两边扩展，每成功匹配左右两个相等的字符，res自增1，然后比较下一对；注意会问字符串有奇数和偶数两种形式，如果是奇数长度，那么位置i就是中间那个字符的位置，所以左右两边都从i开始遍历；如果是偶数长度的，那么i是最中间两个字符的左边那个，右边的就是i+1，这样就能找到所有的回文子字符串啦！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int countSubstrings(string s) &#123;</span><br><span class="line">        if(s.size()==0) return 0;</span><br><span class="line">        int res=0;</span><br><span class="line">        for(int i=0;i&lt;s.size();i++)&#123;</span><br><span class="line">            helper(s,i,i,res);</span><br><span class="line">            helper(s,i,i+1,res);</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">    void helper(string &amp;s,int i,int j,int &amp;res)&#123;</span><br><span class="line">        while(i&gt;=0&amp;&amp;j&lt;=s.size()&amp;&amp;s[i]==s[j])&#123;</span><br><span class="line">            i--;j++;res++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="验证回文数字-9-Palindrome-Number-Easy"><a href="#验证回文数字-9-Palindrome-Number-Easy" class="headerlink" title="验证回文数字 9.Palindrome Number(Easy)"></a>验证回文数字 <a href="https://leetcode.com/problems/palindrome-number/description/" target="_blank" rel="noopener">9.Palindrome Number(Easy)</a></h2><p>解题思路：由于不能将<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isPalindrome(int x) &#123;</span><br><span class="line">        if(x&lt;0) return false;</span><br><span class="line">        int div=1;</span><br><span class="line">        while(x/div&gt;=10) div*=10;</span><br><span class="line">        while(x)&#123;</span><br><span class="line">            int left=x/div;</span><br><span class="line">            int right=x%10;</span><br><span class="line">            if(left!=right) return false;</span><br><span class="line">            x=(x%div)/10;</span><br><span class="line">            div/=100;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/LeetCode刷题/哈希表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -395,6 +551,10 @@
 <h2 id="最长和谐子序列-594-Longest-Harmonious-Subsequence-Easy"><a href="#最长和谐子序列-594-Longest-Harmonious-Subsequence-Easy" class="headerlink" title="最长和谐子序列 594.Longest Harmonious Subsequence(Easy)"></a>最长和谐子序列 <a href="https://leetcode.com/problems/longest-harmonious-subsequence/description/" target="_blank" rel="noopener">594.Longest Harmonious Subsequence(Easy)</a></h2><p>Input: [1,3,2,2,5,2,3,7]<br>Output: 5<br>Explanation: The longest harmonious subsequence is [3,2,2,2,3].</p>
 <p>题目描述：题目给了一个数组，让找出最长的和谐子序列，和谐子序列就是序列中数组的最大最小值均为1。</p>
 <p>解题思路：由于只是求长度，并不需要返回具体的子序列。因此可以对数组排序，找出相差为1的两个数的总共出现个数就是一个和谐子序列的长度了。可以建立一个数字和其出现次数之间的映射，利用map的自动排序特性，遍历map的时候就是从小到大开始遍历，从第二个映射开始，每次和前面的映射比较，若二者差值刚好为1，那么就把两个数字出现次数相加并更新res。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int findLHS(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        if(nums.size()==0) return 0;</span><br><span class="line">        int res=0;</span><br><span class="line">        map&lt;int,int&gt; m;</span><br><span class="line">        for(int i=0;i&lt;nums.size();i++)</span><br><span class="line">            m[nums[i]]++;</span><br><span class="line">        for(auto it=next(m.begin());it!=m.end();it++)&#123;</span><br><span class="line">            auto pre=prev(it);</span><br><span class="line">            if(it-&gt;first==pre-&gt;first+1)</span><br><span class="line">                res=max(res,it-&gt;second+pre-&gt;second);         </span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="最长连续序列-128-Longest-Consecutive-Sequence-Hard"><a href="#最长连续序列-128-Longest-Consecutive-Sequence-Hard" class="headerlink" title="最长连续序列 128.Longest Consecutive Sequence(Hard)"></a>最长连续序列 <a href="https://leetcode.com/problems/longest-consecutive-sequence/description/" target="_blank" rel="noopener">128.Longest Consecutive Sequence(Hard)</a></h2><p>Given [100, 4, 200, 1, 3, 2],<br>The longest consecutive elements sequence is [1, 2, 3, 4]. Return its length: 4.</p>
+<p>解题思路：要求最长连续序列，并给定了O(n)复杂度限制。思路就是使用一个set集合存入所有的数字，然后遍历数组中的每个数字，并分别用两个变量pre和next算出其前一个数和后一个数是否在集合中存在，如果pre在集合中，那么将pre移除集合，然后pre自减1，直到pre不在集合中，对next采用同样的方法处理，那么next-pre-1就是当前数字的最长连续序列，再更新res即可。这里需注意，当遍历数组中的数字时，要移除该数字，是为了避免重复计算。比如题目中的例子，在遍历到4的时候，会向下遍历3，2，1，如果都不移除数字的话，遍历到1的时候，还会遍历2，3，4。同样，遍历到3的时候，向上遍历4，向下遍历2，1。如果数组中有大量的连续数字的话，那么就有大量的重复计算，十分的不高效，因此要从HashSet中移除数字。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int longestConsecutive(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int res=0;</span><br><span class="line">        unordered_set&lt;int&gt; s(nums.begin(),nums.end());</span><br><span class="line">        for(int i=0;i&lt;nums.size();i++)&#123;</span><br><span class="line">            if(s.find(nums[i])==s.end()) continue;</span><br><span class="line">            s.erase(nums[i]);</span><br><span class="line">            int pre=nums[i]-1,next=nums[i]+1;</span><br><span class="line">            while(s.count(pre)) s.erase(pre--);</span><br><span class="line">            while(s.count(next)) s.erase(next++);</span><br><span class="line">            res=max(res,next-pre-1);</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1787,166 +1947,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/ComputerVision/OpenCV-ImageProcessing/1-imageBasicOperation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chris">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/assets/img/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CHRIS有一个愿望">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/24/ComputerVision/OpenCV-ImageProcessing/1-imageBasicOperation/" itemprop="url">1.imageBasicOperation</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T08:57:11+08:00">
-                2019-03-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-		
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="OpenCV-Mat类型定义和赋值"><a href="#OpenCV-Mat类型定义和赋值" class="headerlink" title="OpenCV Mat类型定义和赋值"></a>OpenCV Mat类型定义和赋值</h2><p>cv::Mat img(height,width,<type><br>例：cv::Mat M(480,640,CV_8UC3，Scalar(255,0,0)); 表示定义了一个480行640列的矩阵，矩阵的每个单元的由三个(C3:3 Channel)8位无符号整形(U Unsigned U8 8位)构成,Scalar(255,0,0)表示给每个单元赋值。  </type></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;opencv2\opencv.hpp&gt;</span><br><span class="line">#include&lt;opencv2\highgui\highgui.hpp&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">using namespace  cv;</span><br><span class="line"></span><br><span class="line">int main(int argc, char **argv)&#123;</span><br><span class="line">	//这些方式都是自己拥有独立的内存空间</span><br><span class="line">	Mat img1(3, 3, CV_8UC3, Scalar(255, 0, 0));</span><br><span class="line">	cout &lt;&lt; img1&lt;&lt;esndl;</span><br><span class="line"></span><br><span class="line">	int sz[3] = &#123; 2, 2, 2 &#125;;</span><br><span class="line">	Mat img2(3, 3, CV_8UC1, Scalar(200, 0, 255));//单通道的化只会赋值第一个值</span><br><span class="line">	cout &lt;&lt; img2 &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	Mat img3;</span><br><span class="line">	img3.create(4, 4, CV_8UC3);</span><br><span class="line">	cout &lt;&lt; img3 &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	Mat img4 = Mat::zeros(4, 4, CV_8UC3);</span><br><span class="line"></span><br><span class="line">	Mat img5 = img4.clone();</span><br><span class="line">	Mat img6;</span><br><span class="line">	img4.copyTo(img6);</span><br><span class="line">	//clone和copyto函数，这是图像的深拷贝，相当于重新创建了一份一模一样的图像</span><br><span class="line"></span><br><span class="line">	//下面都是浅拷贝，指针指向同一个实例</span><br><span class="line">	Mat img7 = img6;</span><br><span class="line">	Mat img8(img6);</span><br><span class="line"></span><br><span class="line">	waitKey(0);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="图像二值化操作"><a href="#图像二值化操作" class="headerlink" title="图像二值化操作"></a>图像二值化操作</h2><h3 id="threshold-——-简单的阈值操作"><a href="#threshold-——-简单的阈值操作" class="headerlink" title="threshold —— 简单的阈值操作"></a>threshold —— 简单的阈值操作</h3><p>def threshold(src, dst,thresh, maxval,thresholdType)  </p>
-<ul>
-<li>thresh：Double类型的，具体的阈值 </li>
-<li>maxval：Double类型的，阈值的最大值  </li>
-<li>thresholdType: <blockquote>
-<ul>
-<li>THRESH_BINARY 二进制阈值化 -&gt; 大于阈值为1 小于阈值为0   </li>
-</ul>
-</blockquote>
-</li>
-<li>THRESH_BINARY_INV 反二进制阈值化 -&gt; 大于阈值为0 小于阈值为1 </li>
-<li>THRESH_TRUNC 截断阈值化 -&gt; 大于阈值为阈值，小于阈值不变 </li>
-<li>THRESH_TOZERO 阈值化为0 -&gt; 大于阈值的不变，小于阈值的全为0 </li>
-<li>THRESH_TOZERO_INV 反阈值化为0 -&gt; 大于阈值为0，小于阈值不变</li>
-</ul>
-<h3 id="adaptiveThreshold-——-自适应阈值操作"><a href="#adaptiveThreshold-——-自适应阈值操作" class="headerlink" title="adaptiveThreshold —— 自适应阈值操作"></a>adaptiveThreshold —— 自适应阈值操作</h3><p>def adaptiveThreshold(src,dst,maxValue,adaptiveMethod,thresholdType,blockSize,C)  </p>
-<ul>
-<li>maxval：Double类型的，阈值的最大值 </li>
-<li><p>adaptiveMethod： </p>
-<blockquote>
-<p>ADAPTIVE_THRESH_MEAN_C（通过平均的方法取得平均值)<br>ADAPTIVE_THRESH_GAUSSIAN_C(通过高斯取得高斯值) </p>
-</blockquote>
-</li>
-<li><p>thresholdType同上  </p>
-</li>
-<li>blockSize：Int类型的，这个值来决定像素的邻域块有多大（这里的blockSize的值要为奇数，否则会给出这样的提示：<br>Assertion failed (blockSize % 2 == 1 &amp;&amp; blockSize &gt; 1) in cv::adaptiveThreshold ）  </li>
-<li>C：偏移值调整量，计算adaptiveMethod用到的参数</li>
-</ul>
-<p><strong>总结：</strong> 在两种情况下，自适应阈值T(x, y)。通过计算每个像素周围bxb大小像素块的加权均值并减去常量C得到。其中，b由blockSize给出，大小必须为奇数；如果使用平均的方法，则所有像素周围的权值相同；如果使用高斯的方法，则（x,y）周围的像素的权值则根据其到中心点的距离通过高斯方程得到。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;opencv2\opencv.hpp&gt;</span><br><span class="line">#include&lt;opencv2\highgui\highgui.hpp&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">using namespace  cv;</span><br><span class="line"></span><br><span class="line">int main(int argc, char **argv)&#123;</span><br><span class="line">	Mat img = imread(&quot;groot.jpg&quot;, CV_LOAD_IMAGE_GRAYSCALE);//载入灰度图</span><br><span class="line">	if (img.empty())&#123;</span><br><span class="line">		cout &lt;&lt; &quot;read img falied!\n&quot;; return -1;</span><br><span class="line">	&#125;</span><br><span class="line">	//全局二值化</span><br><span class="line">	int th = 150;</span><br><span class="line">	Mat global;</span><br><span class="line">	threshold(img, global, th, 255, CV_THRESH_BINARY);</span><br><span class="line"></span><br><span class="line">	//局部二值化</span><br><span class="line">	int blockSize = 25;</span><br><span class="line">	int constValue = 10;</span><br><span class="line">	Mat local;</span><br><span class="line">	adaptiveThreshold(img, local, 255, CV_ADAPTIVE_THRESH_MEAN_C, CV_THRESH_BINARY, blockSize, constValue);</span><br><span class="line"></span><br><span class="line">	imshow(&quot;原图&quot;, img);</span><br><span class="line">	imshow(&quot;全局二值化&quot;, global);</span><br><span class="line">	imshow(&quot;局部二值化&quot;, local);</span><br><span class="line">	waitKey(0);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果如下：<br><img src="/2019/03/24/ComputerVision/OpenCV-ImageProcessing/1-imageBasicOperation/originThresHold.JPG" alt="原图"><br><img src="/2019/03/24/ComputerVision/OpenCV-ImageProcessing/1-imageBasicOperation/threasHold.JPG" alt="二值化图"></p>
-<h2 id="访问图片中的像素"><a href="#访问图片中的像素" class="headerlink" title="访问图片中的像素"></a>访问图片中的像素</h2><p>①指针访问：最快</p>
-<p>②迭代器iterator：较慢，非常安全，指针访问可能出现越界问题</p>
-<p>③动态地址计算：更慢，通过at()实现。适用于访问具体某个第i行，j列的像素，而<strong>不适用遍历像素</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include&lt;opencv2\opencv.hpp&gt;</span><br><span class="line">#include&lt;opencv2\highgui\highgui.hpp&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">using namespace  cv;</span><br><span class="line">void visitByPointer(Mat &amp;srcImg,Mat &amp;dstImg)&#123;</span><br><span class="line">	dstImg = srcImg.clone();</span><br><span class="line">	int rows = dstImg.rows;</span><br><span class="line">	int cols = dstImg.cols*dstImg.channels();</span><br><span class="line">	for (int i = 0; i &lt; rows; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		uchar *data = dstImg.ptr&lt;uchar&gt;(i);//获取第i行地址</span><br><span class="line">		for (int j = 0; j &lt; cols; j++)&#123;</span><br><span class="line">			data[j] += 10;</span><br><span class="line">			//add code 处理每一个像素</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">void visitByIterator(Mat &amp;srcImg,Mat &amp;dstImg)&#123;</span><br><span class="line">	dstImg = srcImg.clone();</span><br><span class="line">	const int chanels = dstImg.channels();</span><br><span class="line">	switch (chanels)</span><br><span class="line">	&#123;</span><br><span class="line">	case 1:&#123;</span><br><span class="line">			   Mat_&lt;uchar&gt;::iterator it = dstImg.begin&lt;uchar&gt;();</span><br><span class="line">			   Mat_&lt;uchar&gt;::iterator itend = dstImg.end&lt;uchar&gt;();</span><br><span class="line">			   for (; it != itend;it++)</span><br><span class="line">			   &#123;</span><br><span class="line">				   *it += 10;//处理每个像素</span><br><span class="line">			   &#125;break;</span><br><span class="line">	&#125;</span><br><span class="line">	case 3:&#123;</span><br><span class="line">			   Mat_&lt;Vec3d&gt;::iterator it3 = dstImg.begin&lt;Vec3d&gt;();</span><br><span class="line">			   Mat_&lt;Vec3d&gt;::iterator it3end = dstImg.end&lt;Vec3d&gt;();</span><br><span class="line">			   for (; it3 != it3end;it3++)</span><br><span class="line">			   &#123;</span><br><span class="line">				   (*it3)[0] += 10;</span><br><span class="line">				   (*it3)[1] -= 10;</span><br><span class="line">				   (*it3)[2] -= 10;</span><br><span class="line">			   &#125;break;</span><br><span class="line">	&#125;</span><br><span class="line">	default:</span><br><span class="line">		break;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">void visitByAt(Mat &amp;srcImg,Mat &amp;dstImg)&#123;</span><br><span class="line">	dstImg = srcImg.clone();</span><br><span class="line">	int rows = dstImg.rows;</span><br><span class="line">	int cols = dstImg.cols;</span><br><span class="line">	int channels = dstImg.channels();</span><br><span class="line">	switch (channels)</span><br><span class="line">	&#123;</span><br><span class="line">	case 1:&#123;</span><br><span class="line">			   for (int i = 0; i &lt; rows;i++)</span><br><span class="line">			   &#123;</span><br><span class="line">				   for (int j = 0; j &lt; cols;j++)</span><br><span class="line">				   &#123;</span><br><span class="line">					   dstImg.at&lt;uchar&gt;(i, j) += 10;</span><br><span class="line">				   &#125;</span><br><span class="line">			   &#125;break;</span><br><span class="line">	&#125;</span><br><span class="line">	case  3:&#123;</span><br><span class="line">				for (int i = 0; i &lt; rows; i++)</span><br><span class="line">				&#123;</span><br><span class="line">					for (int j = 0; j &lt; cols; j++)</span><br><span class="line">					&#123;</span><br><span class="line">						dstImg.at&lt;Vec3d&gt;(i, j)[0] += 10;</span><br><span class="line">						dstImg.at&lt;Vec3d&gt;(i, j)[1] -= 10;</span><br><span class="line">						dstImg.at&lt;Vec3d&gt;(i, j)[2] -= 10;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;break;</span><br><span class="line">	&#125;</span><br><span class="line">	default:</span><br><span class="line">		break;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, char **argv)&#123;</span><br><span class="line">	Mat img = imread(&quot;Lena.png&quot;);</span><br><span class="line">	Mat dstImg1,dstImg2,dstImg3;</span><br><span class="line">	visitByPointer(img, dstImg1);</span><br><span class="line">	visitByIterator(img, dstImg2);</span><br><span class="line">	//visitByAt(img, dstImg3);</span><br><span class="line"></span><br><span class="line">	imshow(&quot;原图&quot;, img);</span><br><span class="line">	imshow(&quot;指针访问&quot;, dstImg1);</span><br><span class="line">	imshow(&quot;迭代器访问&quot;, dstImg2);</span><br><span class="line">	//imshow(&quot;at访问&quot;, dstImg3);</span><br><span class="line"></span><br><span class="line">	waitKey(0);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/03/24/ComputerVision/OpenCV-ImageProcessing/1-imageBasicOperation/visitPixel.JPG" alt="访问像素操作">  </p>
-<h3 id="常用的数据结构"><a href="#常用的数据结构" class="headerlink" title="常用的数据结构"></a>常用的数据结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">int main(int argc,char** argv)&#123;</span><br><span class="line"></span><br><span class="line">	Mat m1(3, 3, CV_8UC3, Scalar(255, 0, 0));//其中宏的解释：CV_[位数][带符号与否][类型前缀]C[通道数]</span><br><span class="line">	cout &lt;&lt; m1 &lt;&lt; endl;//输出的就是3*9的矩阵</span><br><span class="line"></span><br><span class="line">	//或者利用IplImage指针来初始化，将IplImage*转化为Mat</span><br><span class="line">	IplImage* img = cvLoadImage(&quot;Lena.png&quot;);</span><br><span class="line">	Mat m2 = cvarrToMat(img);</span><br><span class="line">	//Mat转IplImage</span><br><span class="line">	IplImage img2 = IplImage(m2);</span><br><span class="line"></span><br><span class="line">	Mat m3;</span><br><span class="line">	m3.create(3, 3, CV_8UC(2));</span><br><span class="line">	cout &lt;&lt; m3 &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	//点的表示</span><br><span class="line">	Point p1;</span><br><span class="line">	p1.x = 1; p1.y = 1;</span><br><span class="line">	//或者</span><br><span class="line">	Point p2(1, 1);</span><br><span class="line"></span><br><span class="line">	//颜色的表示：Scalar(b,g,r)</span><br><span class="line">	Scalar(1, 1, 1)</span><br><span class="line">		;</span><br><span class="line">	//尺寸的表示：Size</span><br><span class="line">	Size(2,3);//宽和高</span><br><span class="line"></span><br><span class="line">	//矩形的表示：Rect，成员变量有x、y、width、height</span><br><span class="line">	Rect r1(0, 0, 100, 200);</span><br><span class="line">	Rect r2(10, 10, 100, 200);</span><br><span class="line">	Rect r3 = r1 | r2;//两个矩形求交集</span><br><span class="line">	Rect r4 = r1 &amp; r2;//两个矩形求并集</span><br><span class="line"></span><br><span class="line">	waitKey(0);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1999,7 +1999,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2021,7 +2021,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
