@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="CHRIS有一个愿望">
 <meta property="og:description" content="质数的个数 204.Count Primes(Easy)解题思路：需要一个长度为n-1的bool类型的数组来记录每个数字是否被标记过，初始化为true；从2开始遍历到n-1，先找到第一个质数2，然后将其所有的倍数全部标记出来，然后到下一个质数，标记其所有质数，以此类推。 12345678910111213141516class Solution &amp;#123;public:    int count">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-09T12:25:53.579Z">
+<meta property="og:updated_time" content="2019-04-10T00:44:23.246Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数学">
 <meta name="twitter:description" content="质数的个数 204.Count Primes(Easy)解题思路：需要一个长度为n-1的bool类型的数组来记录每个数字是否被标记过，初始化为true；从2开始遍历到n-1，先找到第一个质数2，然后将其所有的倍数全部标记出来，然后到下一个质数，标记其所有质数，以此类推。 12345678910111213141516class Solution &amp;#123;public:    int count">
@@ -421,7 +421,7 @@
 <p>或者：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int minMoves2(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int res=0,mid=nums.size()/2;</span><br><span class="line">        sort(nums.begin(),nums.end());</span><br><span class="line">        for(int i=0;i&lt;nums.size();i++)&#123;</span><br><span class="line">            res+=abs(nums[i]-nums[mid]);</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>又或者：不需全部排序，用STL自带的nth_element求第n大值，并把它放在第n位置上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int minMoves2(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int res=0,mid=nums.size()/2;</span><br><span class="line">        nth_element(nums.begin(),nums.begin()+mid,nums.end());</span><br><span class="line">        for(int i=0;i&lt;nums.size();i++)&#123;</span><br><span class="line">            res+=abs(nums[i]-nums[mid]);</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <h3 id="补充：最佳开会地点-296-Best-Meeting-Point-Hard"><a href="#补充：最佳开会地点-296-Best-Meeting-Point-Hard" class="headerlink" title="补充：最佳开会地点 [296.Best Meeting Point(Hard)]"></a>补充：最佳开会地点 [296.Best Meeting Point(Hard)]</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">A group of two or more people wants to meet and minimize the total travel distance. You are given a 2D grid of values 0 or 1, where each 1 marks the home of someone in the group. The distance is calculated using Manhattan Distance, where distance(p1, p2) = |p2.x - p1.x| + |p2.y - p1.y|.</span><br><span class="line"></span><br><span class="line">For example, given three people living at (0,0), (0,4), and (2,2):</span><br><span class="line"></span><br><span class="line">1 - 0 - 0 - 0 - 1</span><br><span class="line">|   |   |   |   |</span><br><span class="line">0 - 0 - 0 - 0 - 0</span><br><span class="line">|   |   |   |   |</span><br><span class="line">0 - 0 - 1 - 0 - 0</span><br><span class="line">The point (0,2) is an ideal meeting point, as the total travel distance of 2+2+2=6 is minimal. So return 6.</span><br><span class="line"></span><br><span class="line">Hint:</span><br><span class="line">Try to solve it in one dimension first. How can this solution apply to the two dimension case?</span><br></pre></td></tr></table></figure>
-<p>解题思路：求最佳的开会地点，该地点需要到每个为1的点的曼哈顿距离之和最小，题目中给的提示是让我们先从一维的情况来分析，先看一维时有两个点A和B的情况，<br><figure class="highlight plain"><figcaption><span>```  </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">可以发现，只要开会位置P在[A,B]区间内，不管在哪，距离之和都是A和B之间的距离，如果P不在[A,B]之间，那么距离之和就会大于A和B之间的距离,再加上两个点C、D：  </span><br><span class="line">```___C___A___P___B___D___```  </span><br><span class="line">通过分析可以得出，P点的最佳位置就在[A,B]区间内，这样和四个点的距离之和就是AB距离加上CD距离。  </span><br><span class="line">因此只要给位置排好序，然后用最后一个坐标减去第一个坐标，倒数第二个坐标减去第二个坐标，直到中间为止,下面就直接贴大佬的代码好了。</span><br></pre></td></tr></table></figure></p>
+<p>解题思路：求最佳的开会地点，该地点需要到每个为1的点的曼哈顿距离之和最小，题目中给的提示是让我们先从一维的情况来分析，先看一维时有两个点A和B的情况，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">可以发现，只要开会位置P在[A,B]区间内，不管在哪，距离之和都是A和B之间的距离，如果P不在[A,B]之间，那么距离之和就会大于A和B之间的距离,再加上两个点C、D：  </span><br><span class="line">```___C___A___P___B___D___```  </span><br><span class="line">通过分析可以得出，P点的最佳位置就在[A,B]区间内，这样和四个点的距离之和就是AB距离加上CD距离。  </span><br><span class="line">因此只要给位置排好序，然后用最后一个坐标减去第一个坐标，倒数第二个坐标减去第二个坐标，直到中间为止,下面就直接贴大佬的代码好了。</span><br></pre></td></tr></table></figure></p>
 <pre><code>class Solution {
 public:
     int minTotalDistance(vector&lt;vector&lt;int&gt;&gt;&amp; grid) {
@@ -444,7 +444,7 @@ public:
         return res;
     }
 };
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 多数投票问题</span><br><span class="line">## 求众数 [169.Majority Element(Easy)](https://leetcode.com/problems/majority-element/description/)</span><br><span class="line"></span><br><span class="line">解题思路：摩尔投票法Moore Voting；先将第一个数假设为过半数，然后把计数器加1，比较下一个数和次数是否相等，若相等则计数器加1，反之则减1.然后看此时计数器的值，若为0，则将下一个值设为候选过半数。</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 多数投票问题</span><br><span class="line">## 求众数 [169.Majority Element(Easy)](https://leetcode.com/problems/majority-element/description/)</span><br><span class="line"></span><br><span class="line">解题思路：摩尔投票法Moore Voting；先将第一个数假设为过半数，然后把计数器加1，比较下一个数和次数是否相等，若相等则计数器加1，反之则减1.然后看此时计数器的值，若为0，则将下一个值设为候选过半数。</span><br></pre></td></tr></table></figure>
 <pre><code>class Solution {
 public:
     int majorityElement(vector&lt;int&gt;&amp; nums) {
@@ -499,7 +499,7 @@ public:
         return false;
     }
 };
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">又或者：找数学规律求解，完全平方数就是一系列奇数之和：  </span><br><span class="line">1 = 1  </span><br><span class="line">4 = 1 + 3  </span><br><span class="line">9 = 1 + 3 + 5  </span><br><span class="line">16 = 1 + 3 + 5 + 7  </span><br><span class="line">25 = 1 + 3 + 5 + 7 + 9  </span><br><span class="line">36 = 1 + 3 + 5 + 7 + 9 + 11  </span><br><span class="line">....  </span><br><span class="line">1+3+...+(2n-1) = (2n-1 + 1)n/2 = n*n</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">又或者：找数学规律求解，完全平方数就是一系列奇数之和：  </span><br><span class="line">1 = 1  </span><br><span class="line">4 = 1 + 3  </span><br><span class="line">9 = 1 + 3 + 5  </span><br><span class="line">16 = 1 + 3 + 5 + 7  </span><br><span class="line">25 = 1 + 3 + 5 + 7 + 9  </span><br><span class="line">36 = 1 + 3 + 5 + 7 + 9 + 11  </span><br><span class="line">....  </span><br><span class="line">1+3+...+(2n-1) = (2n-1 + 1)n/2 = n*n</span><br></pre></td></tr></table></figure>
 <pre><code>class Solution {
 public:
     bool isPerfectSquare(int num) {        
@@ -521,7 +521,7 @@ public:
         return n==1;
     }
 };
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">或者：由于输入的是int，整数范围是0~2^31，在该范围内允许的最大的3的次方数是3^19=1162261467,那么只要看这个数能够被n整数即可。</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">或者：由于输入的是int，整数范围是0~2^31，在该范围内允许的最大的3的次方数是3^19=1162261467,那么只要看这个数能够被n整数即可。</span><br></pre></td></tr></table></figure>
 <pre><code>class Solution {
 public:
     bool isPowerOfThree(int n) {
@@ -544,7 +544,7 @@ public:
         return res;
     }
 };
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">或者：不需要使用单独的数组，直接将乘积累积存入res中，先从前往后遍历，再从后往前遍历，需要用到一个临时变量right，初始化为1。</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">或者：不需要使用单独的数组，直接将乘积累积存入res中，先从前往后遍历，再从后往前遍历，需要用到一个临时变量right，初始化为1。</span><br></pre></td></tr></table></figure>
 <pre><code>class Solution {
 public:
     vector&lt;int&gt; productExceptSelf(vector&lt;int&gt;&amp; nums) {
@@ -570,7 +570,8 @@ public:
         return max(t,nums[n-1]*nums[n-2]*nums[n-3]);
     }
 };
-</code></pre><p><code>`</code><br>或者：找出3个最大的数和两个最小的数，来比较两种情况下的乘积，时间复杂度为O(n).</p>
+</code></pre><p><code>`</code></p>
+<p>或者：找出3个最大的数和两个最小的数，来比较两种情况下的乘积，时间复杂度为O(n).</p>
 
       
     </div>
@@ -612,6 +613,10 @@ public:
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/15/LeetCode刷题/搜索/" rel="prev" title="搜索">
+                搜索 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -690,7 +695,7 @@ public:
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -712,7 +717,7 @@ public:
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
