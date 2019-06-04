@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="LeetCode刷题,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="还没想好取什么名字诶" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="原理1.基本原理0s表示一串0，1s表示一串1；1234x ^ 0s = x      x &amp;amp; 0s = 0      x | 0s = xx ^ 1s = ~x     x &amp;amp; 1s = x      x | 1s = 1sx ^ x = 0       x &amp;amp; x = x       x | x = x  利用x ^ 1s = ~x 的特点，可以将位级表示翻转；利用x">
+<meta name="keywords" content="LeetCode刷题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="位运算">
+<meta property="og:url" content="http://yoursite.com/2019/05/01/LeetCode刷题/位运算/index.html">
+<meta property="og:site_name" content="还没想好取什么名字诶">
+<meta property="og:description" content="原理1.基本原理0s表示一串0，1s表示一串1；1234x ^ 0s = x      x &amp;amp; 0s = 0      x | 0s = xx ^ 1s = ~x     x &amp;amp; 1s = x      x | 1s = 1sx ^ x = 0       x &amp;amp; x = x       x | x = x  利用x ^ 1s = ~x 的特点，可以将位级表示翻转；利用x">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-02T15:08:01.612Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="位运算">
+<meta name="twitter:description" content="原理1.基本原理0s表示一串0，1s表示一串1；1234x ^ 0s = x      x &amp;amp; 0s = 0      x | 0s = xx ^ 1s = ~x     x &amp;amp; 1s = x      x | 1s = 1sx ^ x = 0       x &amp;amp; x = x       x | x = x  利用x ^ 1s = ~x 的特点，可以将位级表示翻转；利用x">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/01/LeetCode刷题/位运算/">
+
+
+
+
+
+  <title>位运算 | 还没想好取什么名字诶</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">还没想好取什么名字诶</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每天都要开心哦 ^_^</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/01/LeetCode刷题/位运算/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chris">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="还没想好取什么名字诶">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">位运算</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-01T16:56:52+08:00">
+                2019-05-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode刷题/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode刷题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+		
+		  <span class="post-meta-divider">|</span>
+		  <span id="busuanzi_value_page_pv"></span>次阅读
+		
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="1-基本原理"><a href="#1-基本原理" class="headerlink" title="1.基本原理"></a>1.基本原理</h3><p>0s表示一串0，1s表示一串1；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">x ^ 0s = x      x &amp; 0s = 0      x | 0s = x</span><br><span class="line">x ^ 1s = ~x     x &amp; 1s = x      x | 1s = 1s</span><br><span class="line">x ^ x = 0       x &amp; x = x       x | x = x</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>利用x ^ 1s = ~x 的特点，可以将位级表示翻转；利用x ^ x = 0 的特点，可以将三个数中重复的两个数去除，只留下另一个数；</li>
+<li>利用x &amp; 0s = 0 和x &amp; 1s = x 的特点，可以实现掩码操作；一个数num与mask：00111100 进行位与操作，只保留num中与mask的1部分相对应的位；</li>
+<li>利用x | 0s = x 和x | 1s = 1s 的特点，可以实现设值操作；一个数num与mask：00111100 进行位或操作，将num中与mask中的1部分相对应的都设置为1。</li>
+</ul>
+<p>位与运算技巧：</p>
+<ul>
+<li>n&amp;(n-1)去除n的位级表示中最低的那一位；例如对于二进制表示 10110100，减去 1 得到 10110011，这两个数相与得到 10110000；</li>
+<li>n&amp;(-n)得到n的位级表示中最低的那一位；-n得到n的反码加1，对于二进制表示10110100，-n得到01001100，相与得到00000100；</li>
+<li>n-n&amp;(~n+1)去除n的位级表示中最高的那一位。</li>
+</ul>
+<p>移位运算：</p>
+<ul>
+<li><blockquote>
+<blockquote>
+<p>n为算术右移，相当于除以2^n;</p>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>n为无符号右移，左边会补0；</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li>&lt;&lt;n为算术左移，相当于乘以x^n.</li>
+</ul>
+<h3 id="1-mask计算"><a href="#1-mask计算" class="headerlink" title="1.mask计算"></a>1.mask计算</h3><p>要获得11111111，将0取反即可，~0；</p>
+<p>要得到只有第i位为1的mask，将1左移i-1位即可，1&lt;&lt;(i-1);例如1&lt;&lt;4得到第5位为1的mask：00010000；</p>
+<p>得到1到i位为1的mask，1&lt;&lt;i-1即可，例如将 1&lt;&lt;4-1 = 00010000-1 = 00001111；</p>
+<p>得到1到i位为9的mask，只需将1到i位为1的mask取反，即~(1&lt;&lt;i-1).</p>
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><h3 id="汉明距离-461-Hamming-Distance-Easy"><a href="#汉明距离-461-Hamming-Distance-Easy" class="headerlink" title="汉明距离 461.Hamming Distance(Easy)"></a>汉明距离 <a href="https://leetcode.com/problems/hamming-distance/" target="_blank" rel="noopener">461.Hamming Distance(Easy)</a></h3><p>解题思路：求两个数字之间的汉明距离，即其二进制数对应位不同的个数，那么最直接了当的做法就是按位分别取出两个数对应位上的数并异或；异或的性质就是相同的为0，不同的为1，只需要把1的数目累加起来就是汉明距离了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int hammingDistance(int x, int y) &#123;</span><br><span class="line">        int z=x^y,res=0;</span><br><span class="line">        while(z)&#123;</span><br><span class="line">            res++;</span><br><span class="line">            z&amp;=(z-1);</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="单独的数字-136-Single-Number-Easy"><a href="#单独的数字-136-Single-Number-Easy" class="headerlink" title="单独的数字 136.Single Number(Easy)"></a>单独的数字 <a href="https://leetcode.com/problems/single-number/description/" target="_blank" rel="noopener">136.Single Number(Easy)</a></h3><p>Input: [4,1,2,1,2]<br>Output: 4</p>
+<p>Note:Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
+<p>解题思路：两个相同的数字异或为0，根据这个特点，把数组中的所有数组异或起来，则没对相同的数字都会得0，然后最后剩下的数字就是那个只有一次的数字。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int singleNumber(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int res=0;</span><br><span class="line">        for(auto num:nums)</span><br><span class="line">            res^=num;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="单独的数字II-137-Single-NumberII-Medium"><a href="#单独的数字II-137-Single-NumberII-Medium" class="headerlink" title="单独的数字II 137.Single NumberII(Medium)"></a>单独的数字II <a href="https://leetcode.com/problems/single-number-ii/" target="_blank" rel="noopener">137.Single NumberII(Medium)</a></h3><p>Input: [2,2,3,2]<br>Output: 3</p>
+<p>解题思路：建立一个32位的数字，统计每一位上1出现的个数，如果某一位上为1的话，如果该整数出现了三次，对3取余为0，把每个数的对应位都加起来对3取余，最终剩下来的就是单独的数字。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int singleNumber(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int res=0;</span><br><span class="line">        for(int i=0;i&lt;32;i++)&#123;</span><br><span class="line">            int sum=0;</span><br><span class="line">            for(auto num:nums)</span><br><span class="line">                sum+=(num&gt;&gt;i)&amp;1;</span><br><span class="line">            res|=(sum%3)&lt;&lt;i;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="单独的数字III-260-Single-Nummber-Medium"><a href="#单独的数字III-260-Single-Nummber-Medium" class="headerlink" title="单独的数字III 260.Single Nummber(Medium)"></a>单独的数字III <a href="https://leetcode.com/problems/single-number-iii/description/" target="_blank" rel="noopener">260.Single Nummber(Medium)</a></h3><p>Input:  [1,2,1,3,2,5]<br>Output: [3,5]</p>
+<p>解题思路：首先把原数组全部异或起来，会得到一个数字，这个数字是两个不相同的数字异或的结果，我们取出其中任意一位为’1’的位，为方便起见，用diff&amp;(-diff)取出最低位为’1’的位；接下来想啊，如果如果两个相同的数字异或，每一位都会是0，而不同的数字为1，一定会有对应位不同，一个0一个1，这样异或为1；例如3和5二进制为11和101，从低往高看，最开始产生不同的是第二位，那么我们用第二位来和数组中每个数字相与，根据结果的不同，一定可以把3和5分开，而其他数字由于是成对出现，所以区分开来也是成对的，最终异或为0，不会对3和5产生影响，分别将两个小组中的数字异或起来，就可以得到最终结果啦。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; singleNumber(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int diff=accumulate(nums.begin(),nums.end(),0,bit_xor&lt;int&gt;());</span><br><span class="line">        diff&amp;=(-diff);</span><br><span class="line">        vector&lt;int&gt; res(2,0);</span><br><span class="line">        for(auto num:nums)&#123;</span><br><span class="line">            if(diff&amp;num) res[0]^=num;</span><br><span class="line">            else res[1]^=num;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="丢失的数字-268-Missing-Number-Easy"><a href="#丢失的数字-268-Missing-Number-Easy" class="headerlink" title="丢失的数字 268.Missing Number(Easy)"></a>丢失的数字 <a href="https://leetcode.com/problems/missing-number/description/" target="_blank" rel="noopener">268.Missing Number(Easy)</a></h3><p>Input: [3,0,1]<br>Output: 2</p>
+<p>题目描述：题目给我们n个数字，是0~n之间的数但是有一个数字去掉了，让寻找这个数，要求线性时间复杂度和常数级的空间复杂度；</p>
+<p>解题思路：用等差数列求和公式求出0~n之间所有数字之和，然后遍历数组求出给定数字的累加和，然后做减法，差值就是丢失的数字。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int missingNumber(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int sum=0,n=nums.size();</span><br><span class="line">        for(auto num:nums)&#123;</span><br><span class="line">            sum+=num;</span><br><span class="line">        &#125;</span><br><span class="line">        return 0.5*n*(n+1)-sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>接替思路：使用Bit Manipulate来解，既然0~n之间少了一个数，那么将这个少了一个数的数字和0~n之间完整的数组异或一下，那么相同的数字都变为0了，剩下的就是少了的那个数字了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int missingNumber(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int res=0;</span><br><span class="line">        for(int i=0;i&lt;nums.size();i++)&#123;</span><br><span class="line">            res^=(i+1)^nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="翻转比特位-190-Reverse-Bites-Easy"><a href="#翻转比特位-190-Reverse-Bites-Easy" class="headerlink" title="翻转比特位 190.Reverse Bites(Easy)"></a>翻转比特位 <a href="https://leetcode.com/problems/reverse-bits/description/" target="_blank" rel="noopener">190.Reverse Bites(Easy)</a></h3><p>Input: 00000010100101000001111010011100<br>Output: 00111001011110000010100101000000<br>Explanation: The input binary string 00000010100101000001111010011100 represents the unsigned integer 43261596, so return 964176192 which its binary representation is 00111001011110000010100101000000.</p>
+<p>接替思路：只需要把要翻转的数从右往左一位位取出来，如果取出来的是1，将结果res左移一位加1，否则直接将res左移一位，然后将n右移一位即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    uint32_t reverseBits(uint32_t n) &#123;</span><br><span class="line">        int res=0;</span><br><span class="line">        for(int i=0;i&lt;32;i++)&#123;</span><br><span class="line">            if(n&amp;1) res=(res&lt;&lt;1)+1;</span><br><span class="line">            else res&lt;&lt;=1;</span><br><span class="line">            n&gt;&gt;=1;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">//简化代码</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    uint32_t reverseBits(uint32_t n) &#123;</span><br><span class="line">        int res=0;</span><br><span class="line">        for(int i=0;i&lt;32;i++)&#123;</span><br><span class="line">            res=(res&lt;&lt;1)|(n&amp;1);</span><br><span class="line">            n&gt;&gt;=1;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="不用额外变量交换两个变量"><a href="#不用额外变量交换两个变量" class="headerlink" title="不用额外变量交换两个变量"></a>不用额外变量交换两个变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">a=a^b;</span><br><span class="line">b=a^b;</span><br><span class="line">a=a^b;</span><br></pre></td></tr></table></figure>
+<h3 id="判断2的次方数-231-Power-of-Two-Easy"><a href="#判断2的次方数-231-Power-of-Two-Easy" class="headerlink" title="判断2的次方数 231.Power of Two(Easy)"></a>判断2的次方数 <a href="https://leetcode.com/problems/power-of-two/description/" target="_blank" rel="noopener">231.Power of Two(Easy)</a></h3><p>接替思路：2的次方数都只有一个1，剩下的都是0，所以只要每次判断最低位是否为1，然后向右移位，最后统计1的个数即可判断是否为2的次方数；或者还有一个技巧，如果一个数是2的次方数，根据上面的分析，那么它的二进制位最高位为1，其他为0，那么如果减去1的话，则最高位会降一位，其余为0的位现在都变为1，把两数相与，就会得到0，利用这个性质，只需一行代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isPowerOfTwo(int n) &#123;</span><br><span class="line">        return (n&gt;0)&amp;&amp;(!(n&amp;(n-1)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="判断4的次方数-342-Power-of-Four-Easy"><a href="#判断4的次方数-342-Power-of-Four-Easy" class="headerlink" title="判断4的次方数 342.Power of Four(Easy)"></a>判断4的次方数 <a href="https://leetcode.com/problems/power-of-four/" target="_blank" rel="noopener">342.Power of Four(Easy)</a></h3><p>接替思路：判断一个数是否是4的次方数，最直接的方法就是不停地除以4，看最后结果是否为1；另一种方法就是先根据num&amp;(num-1)判断一个数是否为2的次方数，二进制表示下，只有最高位为1，那么由于是2的次方数，不一定是4的次方数，比如8，所以还需要加上其他的限定条件，仔细观察可以发现，4的次方数的最高位的1都是奇数位，只要与上一个数 (0x55555555) &lt;==&gt; 1010101010101010101010101010101,如果得到的数还是本身，则可以确定是4的次方数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isPowerOfFour(int num) &#123;</span><br><span class="line">        while(num&amp;&amp;(num%4==0))&#123;</span><br><span class="line">            num/=4;</span><br><span class="line">        &#125;</span><br><span class="line">        return num==1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isPowerOfFour(int num) &#123;</span><br><span class="line">        return (num&gt;0)&amp;&amp;!(num&amp;(num-1))&amp;&amp;(num&amp;0x55555555);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="有交替位的二进制数-693-Binary-Number-with-Alternaing-Bits-Easy"><a href="#有交替位的二进制数-693-Binary-Number-with-Alternaing-Bits-Easy" class="headerlink" title="有交替位的二进制数 693.Binary Number with Alternaing Bits(Easy)"></a>有交替位的二进制数 <a href="https://leetcode.com/problems/binary-number-with-alternating-bits/description/" target="_blank" rel="noopener">693.Binary Number with Alternaing Bits(Easy)</a></h3><p>Input: 10<br>Output: True<br>Explanation:The binary representation of 10 is: 1010.</p>
+<p>Input: 11<br>Output: False<br>Explanation:The binary representation of 11 is: 1011.</p>
+<p>解题思路：最直接的方法就是一位一位检查，用一个变量bit来记录上一个位置的值，初始化为-1，然后用与1的方法获取最低位的值，如果是1，那么当此时bit已经是1的话，则返回false，否则bit赋为1；同理，如果是0，那么当此时bit已经是0的化，返回false，否则bit赋为0，如果while循环退出，返回true。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool hasAlternatingBits(int n) &#123;</span><br><span class="line">        int bit=-1;</span><br><span class="line">        while(n)&#123;</span><br><span class="line">            if(n&amp;1)&#123;</span><br><span class="line">                if(bit==1) return false;</span><br><span class="line">                bit=1;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                if(bit==0) return false;</span><br><span class="line">                bit=0;</span><br><span class="line">            &#125;</span><br><span class="line">            n&gt;&gt;=1;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>解题思路：下面这种写法更加简洁，不需要哟管if条件来判断，而是通过异或1的方式将0和1互换，while循环的条件是最低位等于d，而d在0和1之间不停切换，n每次也往右平移一位，循环退出后，若n为0，则返回true，否则返回false。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool hasAlternatingBits(int n) &#123;</span><br><span class="line">        int d=n&amp;1;</span><br><span class="line">        while((n&amp;1)==d)&#123;</span><br><span class="line">            d^=1;</span><br><span class="line">            n&gt;&gt;=1;</span><br><span class="line">        &#125;</span><br><span class="line">        return n==0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>解题思路：巧妙解法，利用0和1交替的特性，进行错位相加，从而组成全1的二进制数，然后用一个检测全1的二进制数的技巧，即与上加1后的数，因为全1的二进制数加1就会进一位，并且除了最高为其余为全是0，跟原数相与后会变为0；比如n是10101，那么n&gt;&gt;1就是1010，二者相加就是11111，再加1就是100000，二者相‘与’就是0。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">	class Solution &#123;</span><br><span class="line">	public:</span><br><span class="line">	    bool hasAlternatingBits(int n) &#123;</span><br><span class="line">	        int a=n+(n&gt;&gt;1);</span><br><span class="line">	        return ((a+1)&amp;a)==0;</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;;</span><br><span class="line">runtime error: signed integer overflow: 2147483647 + 1 cannot be represented in type &apos;int&apos;</span><br></pre></td></tr></table></figure>
+<h3 id="求一个数的补码-476-Number-Complement-Easy"><a href="#求一个数的补码-476-Number-Complement-Easy" class="headerlink" title="求一个数的补码 476.Number Complement(Easy)"></a>求一个数的补码 <a href="https://leetcode.com/problems/number-complement/description/" target="_blank" rel="noopener">476.Number Complement(Easy)</a></h3><p>Input: 5<br>Output: 2<br>Explanation: The binary representation of 5 is 101 (no leading zero bits), and its complement is 010. So you need to output 2.</p>
+<p>解题思路：这道题给我们一个数，求其补数；需要做的就是每个位翻转一下，但是翻转的起始位置是从最高位的1开始的，前面的0不能被翻转，所以我们要从高往低遍历，如果遇到第一个1后，flag的值赋为true，然后就可以进行翻转了，翻转的方法就是对应位异或一个1；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int findComplement(int num) &#123;</span><br><span class="line">        bool flag=false;</span><br><span class="line">        for(int i=31;i&gt;=0;i--)&#123;</span><br><span class="line">            if(num&amp;(1&lt;&lt;i)) flag=true;</span><br><span class="line">            if(flag) num^=(1&lt;&lt;i);</span><br><span class="line">        &#125;</span><br><span class="line">        return num;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>解题思路：由于位操作~可以直接取反，但是如果直接对num取反的话就是每一位都翻转了，而最高位之前的0是不能翻转的，所以我们只要用一个mask来标记最高位1前面的所有0的位置，然后对mask取反后，与上对num取反的结果即可。需注意mask要定义成无符号类型，不然右移之后会变负数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int findComplement(int num) &#123;</span><br><span class="line">        unsigned int mask=UINT_MAX;</span><br><span class="line">        while(mask&amp;num) mask &lt;&lt;= 1;</span><br><span class="line">        return ~mask &amp; ~num;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="实现整数的加法-371-Sum-of-Two-Intergers-Easy"><a href="#实现整数的加法-371-Sum-of-Two-Intergers-Easy" class="headerlink" title="实现整数的加法 371.Sum of Two Intergers(Easy)"></a>实现整数的加法 <a href="https://leetcode.com/problems/sum-of-two-integers/description/" target="_blank" rel="noopener">371.Sum of Two Intergers(Easy)</a></h3><p>Example 1:</p>
+<p>Input: a = 1, b = 2<br>Output: 3</p>
+<p>Example 2:</p>
+<p>Input: a = -2, b = 3<br>Output: 1</p>
+<p>解题思路：实现两数相加，不能使用加号或其他数学运算符号，只能采用Bit Manipulation；在做加法的时候，每位相加会有进位carry产生，然后在下一位计算时需要加上进位一起运算，那么就要分为两部分，不考虑进位和只考虑进位的情况，然后递归调用该算法，直到进位为0；由于LeetCode不能对负数进行左移，也就是说最高位符号位必须为0才能左移，那么就在a和b相与之后，再与上一个最高位为0其余全1的数0xfffffff，这样就强制把最高位清零，然后再进行左移。当然也可以直接迭代实现！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int getSum(int a, int b) &#123;</span><br><span class="line">        return b==0?a:getSum((a^b),(a&amp;b)&lt;&lt;1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">runtime error: left shift of negative value -2147483648</span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int getSum(int a, int b) &#123;</span><br><span class="line">        return b==0?a:getSum((a^b),(a&amp;b&amp;0x7fffffff)&lt;&lt;1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串数组的最大乘积-318-Maximum-Product-of-Word-Lengths-Medium"><a href="#字符串数组的最大乘积-318-Maximum-Product-of-Word-Lengths-Medium" class="headerlink" title="字符串数组的最大乘积 318.Maximum Product of Word Lengths(Medium)"></a>字符串数组的最大乘积 <a href="https://leetcode.com/problems/maximum-product-of-word-lengths/description/" target="_blank" rel="noopener">318.Maximum Product of Word Lengths(Medium)</a></h3><p>Given [“abcw”, “baz”, “foo”, “bar”, “xtfn”, “abcdef”]<br>Return 16<br>The two words can be “abcw”, “xtfn”.</p>
+<p>解题思路：该题目给我们一个单词数组，让求两个没有相同字母的单词的长度之积的最大值；最直接的方法就是每两个单词进行比较，如果没有相同字母，则计算其长度之积，然后每次更新结果就可以找到最大值，但是时间复杂度太大；<br>另一种方法就是使用mask，题目中给的都是小写字母，可以使用一个int整数的后26位来对应26个字母，若为1，说明该对应位置的字母出现过，那么每个单词都可由一个int数字表示，两个单词没有共同字母的条件是这两个int数相与为0；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxProduct(vector&lt;string&gt;&amp; words) &#123;</span><br><span class="line">        int res=0;</span><br><span class="line">        vector&lt;int&gt; mask(words.size(),0);</span><br><span class="line">        for(int i=0;i&lt;words.size();i++)&#123;</span><br><span class="line">            for(auto c:words[i])</span><br><span class="line">                mask[i]|= 1&lt;&lt;(c-&apos;a&apos;);</span><br><span class="line">            for(int j=0;j&lt;i;j++)&#123;</span><br><span class="line">                if(!(mask[j]&amp;mask[i]))</span><br><span class="line">                    res=max(res,int(words[i].size() * words[j].size()));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="统计从0-n每个数的二进制表示中1的个数-338-Counting-Bits-Medium"><a href="#统计从0-n每个数的二进制表示中1的个数-338-Counting-Bits-Medium" class="headerlink" title="统计从0~n每个数的二进制表示中1的个数 338.Counting Bits(Medium)"></a>统计从0~n每个数的二进制表示中1的个数 <a href="https://leetcode.com/problems/counting-bits/description/" target="_blank" rel="noopener">338.Counting Bits(Medium)</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">0    0000    0</span><br><span class="line">-------------</span><br><span class="line">1    0001    1</span><br><span class="line">-------------</span><br><span class="line">2    0010    1</span><br><span class="line">3    0011    2</span><br><span class="line">-------------</span><br><span class="line">4    0100    1</span><br><span class="line">5    0101    2</span><br><span class="line">6    0110    2</span><br><span class="line">7    0111    3</span><br><span class="line">-------------</span><br><span class="line">8    1000    1</span><br><span class="line">9    1001    2</span><br><span class="line">10   1010    2</span><br><span class="line">11   1011    3</span><br><span class="line">12   1100    2</span><br><span class="line">13   1101    3</span><br><span class="line">14   1110    3</span><br><span class="line">15   1111    4</span><br></pre></td></tr></table></figure>
+<p>解题思路：找规律，规律是，从1开始，遇到偶数时，其1的个数和该偶数除以2得到的数字的1的个数相同，遇到奇数时，其1的个数等于该奇数除以2得到的数字的1的个数再加1.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; countBits(int num) &#123;</span><br><span class="line">        vector&lt;int&gt; res&#123;0&#125;;</span><br><span class="line">        for(int i=1;i&lt;=num;i++)&#123;</span><br><span class="line">            if(i%2==0) res.push_back(res[i/2]);</span><br><span class="line">            else res.push_back(res[i/2]+1);</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">i    bin    &apos;1&apos;  i&amp;(i-1)</span><br><span class="line">0    0000    0</span><br><span class="line">-----------------------</span><br><span class="line">1    0001    1    0000</span><br><span class="line">-----------------------</span><br><span class="line">2    0010    1    0000</span><br><span class="line">3    0011    2    0010</span><br><span class="line">-----------------------</span><br><span class="line">4    0100    1    0000</span><br><span class="line">5    0101    2    0100</span><br><span class="line">6    0110    2    0100</span><br><span class="line">7    0111    3    0110</span><br><span class="line">-----------------------</span><br><span class="line">8    1000    1    0000</span><br><span class="line">9    1001    2    1000</span><br><span class="line">10   1010    2    1000</span><br><span class="line">11   1011    3    1010</span><br><span class="line">12   1100    2    1000</span><br><span class="line">13   1101    3    1100</span><br><span class="line">14   1110    3    1100</span><br><span class="line">15   1111    4    1110</span><br></pre></td></tr></table></figure>
+<p>解题思路：利用更加巧妙的方法，i&amp;(i-1)这个本来是用来判断一个数是否是的次方数的快捷方法，比如8，二进制位1000，那么8&amp;(8-1)，只要为0就是2的指数，通过上述规律发现0~15的数字和其对应的i&amp;(i-1)值可以发现，每个i值都是i&amp;(i-1)对应的值加1。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; countBits(int num) &#123;</span><br><span class="line">        vector&lt;int&gt; res(num+1,0);</span><br><span class="line">        for(int i=1;i&lt;=num;i++)&#123;</span><br><span class="line">            res[i]=res[i&amp;(i-1)]+1;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode刷题/" rel="tag"># LeetCode刷题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/18/LeetCode刷题/动态规划/" rel="next" title="动态规划">
+                <i class="fa fa-chevron-left"></i> 动态规划
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/04/相关面试题/" rel="prev" title="相关面试题">
+                相关面试题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/assets/img/avatar.jpg" alt="Chris">
+            
+              <p class="site-author-name" itemprop="name">Chris</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-text">原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-基本原理"><span class="nav-text">1.基本原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-mask计算"><span class="nav-text">1.mask计算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例题"><span class="nav-text">例题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#汉明距离-461-Hamming-Distance-Easy"><span class="nav-text">汉明距离 461.Hamming Distance(Easy)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单独的数字-136-Single-Number-Easy"><span class="nav-text">单独的数字 136.Single Number(Easy)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单独的数字II-137-Single-NumberII-Medium"><span class="nav-text">单独的数字II 137.Single NumberII(Medium)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单独的数字III-260-Single-Nummber-Medium"><span class="nav-text">单独的数字III 260.Single Nummber(Medium)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#丢失的数字-268-Missing-Number-Easy"><span class="nav-text">丢失的数字 268.Missing Number(Easy)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#翻转比特位-190-Reverse-Bites-Easy"><span class="nav-text">翻转比特位 190.Reverse Bites(Easy)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不用额外变量交换两个变量"><span class="nav-text">不用额外变量交换两个变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断2的次方数-231-Power-of-Two-Easy"><span class="nav-text">判断2的次方数 231.Power of Two(Easy)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断4的次方数-342-Power-of-Four-Easy"><span class="nav-text">判断4的次方数 342.Power of Four(Easy)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有交替位的二进制数-693-Binary-Number-with-Alternaing-Bits-Easy"><span class="nav-text">有交替位的二进制数 693.Binary Number with Alternaing Bits(Easy)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#求一个数的补码-476-Number-Complement-Easy"><span class="nav-text">求一个数的补码 476.Number Complement(Easy)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现整数的加法-371-Sum-of-Two-Intergers-Easy"><span class="nav-text">实现整数的加法 371.Sum of Two Intergers(Easy)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串数组的最大乘积-318-Maximum-Product-of-Word-Lengths-Medium"><span class="nav-text">字符串数组的最大乘积 318.Maximum Product of Word Lengths(Medium)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#统计从0-n每个数的二进制表示中1的个数-338-Counting-Bits-Medium"><span class="nav-text">统计从0~n每个数的二进制表示中1的个数 338.Counting Bits(Medium)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chris</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+<div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv" style="display:none">
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style="display:none">
+    有<span id="busuanzi_value_site_uv"></span>人看过我的博客啦
+</span>
+</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

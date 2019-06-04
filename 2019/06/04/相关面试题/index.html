@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="面试题,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="还没想好取什么名字诶" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="拼多多1、 一个C++源文件从文本到可执行文件经历的过程对于C/C++编写的程序，从源代码到可执行文件，一般经过下面四个步骤：  预处理，产生.ii文件  编译，产生汇编文件(.s文件)  汇编，产生目标文件(.o或.obj文件)  链接, 产生可执行文件(.out或.exe文件)   2、#include 的顺序以及尖括号和双引号的区别 #include的顺序的区别：  头文件的引用顺序对于程序">
+<meta name="keywords" content="面试题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="相关面试题">
+<meta property="og:url" content="http://yoursite.com/2019/06/04/相关面试题/index.html">
+<meta property="og:site_name" content="还没想好取什么名字诶">
+<meta property="og:description" content="拼多多1、 一个C++源文件从文本到可执行文件经历的过程对于C/C++编写的程序，从源代码到可执行文件，一般经过下面四个步骤：  预处理，产生.ii文件  编译，产生汇编文件(.s文件)  汇编，产生目标文件(.o或.obj文件)  链接, 产生可执行文件(.out或.exe文件)   2、#include 的顺序以及尖括号和双引号的区别 #include的顺序的区别：  头文件的引用顺序对于程序">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/06/04/相关面试题/C:/Users/MSI1/AppData/Roaming/Typora/typora-user-images/1559648901822.png">
+<meta property="og:updated_time" content="2019-06-04T14:01:20.806Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="相关面试题">
+<meta name="twitter:description" content="拼多多1、 一个C++源文件从文本到可执行文件经历的过程对于C/C++编写的程序，从源代码到可执行文件，一般经过下面四个步骤：  预处理，产生.ii文件  编译，产生汇编文件(.s文件)  汇编，产生目标文件(.o或.obj文件)  链接, 产生可执行文件(.out或.exe文件)   2、#include 的顺序以及尖括号和双引号的区别 #include的顺序的区别：  头文件的引用顺序对于程序">
+<meta name="twitter:image" content="http://yoursite.com/2019/06/04/相关面试题/C:/Users/MSI1/AppData/Roaming/Typora/typora-user-images/1559648901822.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/04/相关面试题/">
+
+
+
+
+
+  <title>相关面试题 | 还没想好取什么名字诶</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">还没想好取什么名字诶</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每天都要开心哦 ^_^</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/04/相关面试题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chris">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="还没想好取什么名字诶">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">相关面试题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-04T18:54:30+08:00">
+                2019-06-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+		
+		  <span class="post-meta-divider">|</span>
+		  <span id="busuanzi_value_page_pv"></span>次阅读
+		
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="拼多多"><a href="#拼多多" class="headerlink" title="拼多多"></a>拼多多</h3><h4 id="1、-一个C-源文件从文本到可执行文件经历的过程"><a href="#1、-一个C-源文件从文本到可执行文件经历的过程" class="headerlink" title="1、 一个C++源文件从文本到可执行文件经历的过程"></a>1、 一个C++源文件从文本到可执行文件经历的过程</h4><p>对于C/C++编写的程序，从源代码到可执行文件，一般经过下面四个步骤：</p>
+<ol>
+<li><p>预处理，产生.ii文件</p>
+</li>
+<li><p>编译，产生汇编文件(.s文件)</p>
+</li>
+<li><p>汇编，产生目标文件(.o或.obj文件)</p>
+</li>
+<li><p>链接, 产生可执行文件(.out或.exe文件)</p>
+</li>
+</ol>
+<h4 id="2、-include-的顺序以及尖括号和双引号的区别"><a href="#2、-include-的顺序以及尖括号和双引号的区别" class="headerlink" title="2、#include 的顺序以及尖括号和双引号的区别"></a>2、#include 的顺序以及尖括号和双引号的区别</h4><ol>
+<li>#include的顺序的区别：</li>
+</ol>
+<p>头文件的引用顺序对于程序的编译还是有一定影响的。如果要在文件a.h中声明一个在文件b.h中定义的变量，而不引用b.h。那么要在a.c文件中引用b.h文件，并且要先引用b.h，后引用a.h,否则汇报变量类型未声明错误，也就是常见的某行少个“；”符号。</p>
+<ol start="2">
+<li>#include尖括号和双引号的区别：</li>
+</ol>
+<p>​    1）#include  &lt;&gt; ，认为该头文件是<strong>标准头文件</strong>。编译器将会在预定义的位置集查找该头文件，这些预定义的位置可以通过设置查找路径环境变量或者通过命令行选项来修改。使用的查找方式因编译器的不同而差别迥异。</p>
+<p>​    2）#include “”，认为它是<strong>非系统头文件</strong>，非系统头文件的查找通常开始于源文件所在的路径。查找范围大于&lt;&gt;。</p>
+<h4 id="3、进程和线程，为什么要有线程"><a href="#3、进程和线程，为什么要有线程" class="headerlink" title="3、进程和线程，为什么要有线程"></a>3、进程和线程，为什么要有线程</h4><ol>
+<li><p>和进程相比，它是一种非常”节俭”的多任务操作方式。在Linux系统下，启动一个新的进程必须分配给它独立的地址空间，建立众多的数据表来维护它的代码段、堆栈段和数据段，这是一种”昂贵”的多任务工作方式。（资源）</p>
+</li>
+<li><p>运行于一个进程中的多个线程，它们之间使用相同的地址空间，而且线程间彼此切换所需时间也远远小于进程间切换所需要的时间。据统计，一个进程的开销大约是一个线程开销的30倍左右。（切换效率）</p>
+</li>
+<li><p>线程间方便的通信机制。对不同进程来说，它们具有独立的数据空间，要进行数据的传递只能通过进程间通信的方式进行，这种方式不仅费时，而且很不方便。线程则不然，由于同一进程下的线程之间共享数据空间，所以一个线程的数据可以直接为其他线程所用，这不仅快捷，而且方便。（通信）</p>
+</li>
+</ol>
+<p>除以上优点外，多线程程序作为一种多任务、并发的工作方式，还有如下优点：</p>
+<ul>
+<li><p>使多CPU系统更加有效。操作系统会保证当线程数不大于CPU数目时，不同的线程运行于不同的CPU上。(CPU设计保证）</p>
+</li>
+<li><p>改善程序结构。一个既长又复杂的进程可以考虑分为多个线程，成为几个独立或半独立的运行部分，这样的程序才会利于理解和修改。（代码易维护）</p>
+</li>
+</ul>
+<h4 id="4、C-11有哪些新特性"><a href="#4、C-11有哪些新特性" class="headerlink" title="4、C++11有哪些新特性"></a>4、C++11有哪些新特性</h4><ol>
+<li><p>关键字及新语法：auto、nullptr、for</p>
+</li>
+<li><p>STL容器：std::array、std::forward_list、std::unordered_map、std::unordered_set</p>
+</li>
+<li><p>多线程：std::thread、std::atomic、std::condition_variable</p>
+</li>
+<li><p>智能指针内存管理：std::shared_ptr、std::weak_ptr</p>
+</li>
+<li><p>其他：std::function、std::bind和lamda表达式</p>
+</li>
+</ol>
+<h4 id="6、malloc的原理，brk系统调用干什么的，mmap呢"><a href="#6、malloc的原理，brk系统调用干什么的，mmap呢" class="headerlink" title="6、malloc的原理，brk系统调用干什么的，mmap呢"></a>6、malloc的原理，brk系统调用干什么的，mmap呢</h4><p>malloc的实现方案：</p>
+<ol>
+<li><p>malloc 函数的实质是它有一个将可用的内存块连接为一个长长的列表的所谓空闲链表。</p>
+</li>
+<li><p>调用 malloc函数时，它沿着连接表寻找一个大到足以满足用户请求所需要的内存块。 然后，将该内存块一分为二（一块的大小与用户申请的大小相等，另一块的大小就是剩下来的字节）。 接下来，将分配给用户的那块内存存储区域传给用户，并将剩下的那块（如果有的话）返回到连接表上。</p>
+</li>
+<li><p>调用 free 函数时，它将用户释放的内存块链接到空闲链表上。</p>
+</li>
+<li><p>到最后，空闲链会被切成很多的小内存片段，如果这时用户申请一个大的内存片段， 那么空闲链表上可能没有可以满足用户要求的片段了。于是，malloc（）函数请求延时，并开始在空闲链表上检查各内存片段，对它们进行内存整理，将相邻的小空闲块合并成较大的内存块。</p>
+</li>
+</ol>
+<p>brk和mmap：</p>
+<p>从操作系统角度来看，进程分配内存有两种方式，分别由两个系统调用完成：brk和mmap（不考虑共享内存）。</p>
+<ol>
+<li><p>brk是将数据段(.data)的最高地址指针_edata往高地址推；</p>
+</li>
+<li><p>mmap是在进程的虚拟地址空间中（堆和栈中间，称为文件映射区域的地方）找一块空闲的虚拟内存。</p>
+</li>
+</ol>
+<p>这两种方式分配的都是虚拟内存，没有分配物理内存。在第一次访问已分配的虚拟地址空间的时候，发生缺页中断，操作系统负责分配物理内存，然后建立虚拟内存和物理内存之间的映射关系。</p>
+<p>在标准C库中，提供了malloc/free函数分配释放内存，这两个函数底层是由brk，mmap，munmap这些系统调用实现的。</p>
+<h4 id="7、C-的内存管理方式，STL的allocator，最新版本默认使用的分配器"><a href="#7、C-的内存管理方式，STL的allocator，最新版本默认使用的分配器" class="headerlink" title="7、C++的内存管理方式，STL的allocator，最新版本默认使用的分配器"></a>7、C++的内存管理方式，STL的allocator，最新版本默认使用的分配器</h4><p>C++的内存管理方式：</p>
+<p>在c++中内存主要分为5个存储区：</p>
+<p><strong>栈（Stack）</strong>：局部变量，函数参数等存储在该区，由编译器自动分配和释放。栈属于计算机系统的数据结构，进栈出栈有相应的计算机指令支持，而且分配专门的寄存器存储栈的地址，效率分高，<strong>内存空间是连续的，但栈的内存空间有限</strong>。</p>
+<p><strong>堆(Heap)</strong>：需要程序员手动分配和释放（new,delete），属于动态分配方式。<strong>内存空间几乎没有限制，内存空间不连续，因此会产生内存碎片</strong>。操作系统有一个记录空间内存的链表，当收到内存申请时遍历链表，找到第一个空间大于申请空间的堆节点，将该节点分配给程序，并将该节点从链表中删除。一般，系统会在该内存空间的首地址处记录本次分配的内存大小，用于delete释放该内存空间。</p>
+<p><strong>全局/静态存储区</strong>:全局变量，静态变量分配到该区，到程序结束时自动释放，包括DATA段（全局初始化区）与BSS段（全局未初始化段）。其中，初始化的全局变量和静态变量存放在DATA段，未初始化的全局变量和静态变量存放在BSS段。BSS段特点：在程序执行前BSS段自动清零，所以未初始化的全局变量和静态变量在程序执行前已经成为0.</p>
+<p><strong>文字常量区</strong>：存放常量，而且不允许修改。程序结束后由系统释放。</p>
+<p><strong>程序代码区</strong>：存放程序的二进制代码</p>
+<p>SGI 版本STL的默认配置器std::alloc</p>
+<p>参见：《STL源码剖析》</p>
+<ol>
+<li><p>考虑到小型区块所可能造成的内存碎片问题，SGI设计了双层配置器。第一级配置器直接使用malloc()和free()；第二级则视情况采取不同的策略：当配置区块超过128bytes时，视为“足够大”，便调用第一级配置器；当配置区块小于128bytes时，视之为“过小”，为了降低额外负担，便采用memory pool（内存池）整理方式，而不再求助于第一级配置器。</p>
+</li>
+<li><p>内存池的核心：内存池和16个自由链表（各自管理8,16，…，128bytes的小额区块）。在分配一个小区块时，首先在所属自由链表中寻找，如果找到，直接抽出分配；若所属自由链表为空，则请求内存池为所属自由链表分配空间；默认情况下，为该自由链表分配20个区块，若内存池剩余容量不足，则分配可分配的最大容量；若内存池连一个区块都无法分配，则调用chunk_alloc为内存池分配一大块区块；若内存不足，则尝试调用malloc分配，否则返回bad_alloc异常。</p>
+</li>
+</ol>
+<h4 id="8、hash表的实现，包括STL中的哈希桶长度常数。"><a href="#8、hash表的实现，包括STL中的哈希桶长度常数。" class="headerlink" title="8、hash表的实现，包括STL中的哈希桶长度常数。"></a>8、hash表的实现，包括STL中的哈希桶长度常数。</h4><p>hash表的实现主要涉及两个问题：散列函数和碰撞处理。</p>
+<ol>
+<li><p>hash function （散列函数）。最常见的散列函数：f(x) = x % TableSize .</p>
+</li>
+<li><p>碰撞问题（不同元素的散列值相同）。解决碰撞问题的方法有许多种，包括线性探测、二次探测、开链等做法。SGL版本使用开链法，使用一个链表保存相同散列值的元素。</p>
+</li>
+</ol>
+<p>虽然开链法并不要求表格大小必须为质数，但SGI STL仍然以质数来设计表格大小，并且将28个质数（逐渐呈现大约两倍的关系）计算好，以备随时访问，同时提供一个函数，用来查询在这28个质数之中，“最接近某数并大于某数”的质数。</p>
+<h4 id="9、hash表如何rehash，怎么处理其中保存的资源"><a href="#9、hash表如何rehash，怎么处理其中保存的资源" class="headerlink" title="9、hash表如何rehash，怎么处理其中保存的资源"></a>9、hash表如何rehash，怎么处理其中保存的资源</h4><p>先想想为什么需要rehash:</p>
+<p>因为，当loadFactor（负载因子）&lt;=1时，hash表查找的期望复杂度为O(1). 因此，每次往hash表中添加元素时，我们必须保证是在loadFactor &lt;1的情况下，才能够添加。</p>
+<p>模仿C++的vector扩容方式，Hash表中每次发现loadFactor==1时，就开辟一个原来桶数组的两倍空间（称为新桶数组），然后把原来的桶数组中元素全部转移过来到新的桶数组中。注意这里转移是需要元素一个个重新哈希到新桶中的。</p>
+<h4 id="10、Redis的rehash怎么做的，为什么要渐进rehash，渐进rehash怎么实现的"><a href="#10、Redis的rehash怎么做的，为什么要渐进rehash，渐进rehash怎么实现的" class="headerlink" title="10、Redis的rehash怎么做的，为什么要渐进rehash，渐进rehash怎么实现的"></a>10、Redis的rehash怎么做的，为什么要渐进rehash，渐进rehash怎么实现的</h4><p>为了避免rehash对服务器造成影响，服务器不是一次将ht[0]里面的所有键值对全部rehash到ht[1]，而是分多次、渐进式地将ht[0]里面的键值对慢慢地rehash到ht[1].</p>
+<p>以下是哈希表渐进式 rehash 的详细步骤：</p>
+<p>为 ht[1] 分配空间， 让字典同时持有 ht[0] 和 ht[1] 两个哈希表。</p>
+<p>在字典中维持一个索引计数器变量 rehashidx ， 并将它的值设置为 0 ， 表示 rehash 工作正式开始。</p>
+<p>在 rehash 进行期间， 每次对字典执行添加、删除、查找或者更新操作时， 程序除了执行指定的操作以外， 还会顺带将 ht[0] 哈希表在 rehashidx 索引上的所有键值对 rehash 到 ht[1] ， 当 rehash 工作完成之后， 程序将 rehashidx 属性的值增一。</p>
+<p>随着字典操作的不断执行， 最终在某个时间点上， ht[0] 的所有键值对都会被 rehash 至 ht[1] ， 这时程序将 rehashidx 属性的值设为 -1 ， 表示 rehash 操作已完成。</p>
+<p>渐进式 rehash 的好处在于它采取分而治之的方式， 将 rehash 键值对所需的计算工作均滩到对字典的每个添加、删除、查找和更新操作上， 从而避免了集中式 rehash 而带来的庞大计算量。</p>
+<h4 id="11、TCP的模型，状态转移"><a href="#11、TCP的模型，状态转移" class="headerlink" title="11、TCP的模型，状态转移"></a>11、TCP的模型，状态转移</h4><p><strong>TCP四层模型：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">应用层</td>
+<td style="text-align:center">Telnet、FTP和e-mail等</td>
+</tr>
+<tr>
+<td style="text-align:center">传输层</td>
+<td style="text-align:center">TCP和UDP</td>
+</tr>
+<tr>
+<td style="text-align:center">网络层</td>
+<td style="text-align:center">IP、ICMP和IGMP</td>
+</tr>
+<tr>
+<td style="text-align:center">链路层</td>
+<td style="text-align:center">设备驱动程序及接口卡</td>
+</tr>
+</tbody>
+</table>
+<p><strong>状态转移：</strong></p>
+<p>熟悉三次握手 和 四次释放的TCP状态转移。</p>
+<p><img src="/2019/06/04/相关面试题/C:/Users\MSI1\AppData\Roaming\Typora\typora-user-images\1559648901822.png" alt="1559648901822"></p>
+<h4 id="12、ubuntu开机的时候系统做了什么"><a href="#12、ubuntu开机的时候系统做了什么" class="headerlink" title="12、ubuntu开机的时候系统做了什么"></a>12、ubuntu开机的时候系统做了什么</h4><ol>
+<li>加载BIOS</li>
+</ol>
+<p>BIOS程序首先检查，计算机硬件能否满足运行的基本条件，这叫做”硬件自检”。硬件自检完成后，BIOS把控制权转交给下一阶段的启动程序</p>
+<ol start="2">
+<li>读取MBR</li>
+</ol>
+<p>计算机读取该设备的第一个扇区，也就是读取最前面的512个字节。如果这512个字节的最后两个字节是0x55和0xAA，表明这个设备可以用于启动；如果不是，表明设备不能用于启动，控制权于是被转交给”启动顺序”中的下一个设备。</p>
+<ol start="3">
+<li>Bootloader</li>
+</ol>
+<p>在这种情况下，计算机读取”主引导记录”前面446字节的机器码之后，不再把控制权转交给某一个分区，而是运行事先安装的”启动管理器”（boot loader），由用户选择启动哪一个操作系统。</p>
+<p>Boot Loader 就是在操作系统内核运行之前运行的一段小程序。通过这段小程序，我们可以初始化硬件设备、建立内存空间的映射图，从而将系统的软硬件环境带到一个合适的状态，以便为最终调用操作系统内核做好一切准备。</p>
+<p>Boot Loader有若干种，其中Grub、Lilo和spfdisk是常见的Loader。Linux环境中，目前最流行的启动管理器是Grub。</p>
+<ol start="4">
+<li>加载内核</li>
+</ol>
+<p>内核的加载，内核加载后，接开始操作系统初始化，根据进程的优先级启动进程。</p>
+<h4 id="13、C-中struct和class的区别"><a href="#13、C-中struct和class的区别" class="headerlink" title="13、C++中struct和class的区别"></a>13、C++中struct和class的区别</h4><ol>
+<li><p>默认的访问控制：</p>
+<ul>
+<li><p>默认的继承访问权限：struct是public，class是private</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">struct A</span><br><span class="line">&#123;</span><br><span class="line">  char a;</span><br><span class="line">&#125;；</span><br><span class="line">struct B : A</span><br><span class="line">&#123;</span><br><span class="line">  char b;</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
+<p>这是B是public继承A的。</p>
+<p>如果都将上面的struct改成class，那么B是private继承A的。这就是默认的继承访问权限。所以我们在平时写继承的时候，通常会这样写： class B : public A</p>
+<p>当然，到底默认是<strong>public继承还是private继承，取决于子类而不是基类</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">struct A&#123;&#125;；class B : A&#123;&#125;; //private继承</span><br><span class="line">struct C : B&#123;&#125;； //public继承</span><br></pre></td></tr></table></figure>
+<font color="blue">struct作为数据结构的实现体，它默认的数据访问控制是public的，而class作为对象的实现体，它默认的成员变量访问控制是private的。</font>
+</li>
+</ul>
+<ol start="2">
+<li><p>初始化方面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">struct A //定义一个struct</span><br><span class="line">&#123;</span><br><span class="line">   char c1;</span><br><span class="line">   int n2;</span><br><span class="line">   double db3;</span><br><span class="line">&#125;;</span><br><span class="line">A a=&#123;&apos;p&apos;, 7, 3.1415926&#125;; //定义时直接赋值</span><br></pre></td></tr></table></figure>
+<p>将上面的struct改成class，会报错！尝试向struct中加入一个构造函数或虚函数，struct也不能用{}赋值了！</p>
+<p>以{}的方式来赋初值，只是用一个初始化列表来对数据进行按顺序的初始化，如上面写成A a={‘p’,7};则c1，n2被初始化，而db3没有。这样的简单的copy操作，只能发生在简单的数据结构上，而不应该放在对象上。<strong>加入一个构造函数或虚函数会使struct更体现出一种对象的特性，而使{}不再有效。</strong></p>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="14、如何防止C-头文件被重复引用"><a href="#14、如何防止C-头文件被重复引用" class="headerlink" title="14、如何防止C++头文件被重复引用"></a>14、如何防止C++头文件被重复引用</h4><pre><code>可以使用ifndef或者program once，都可以。但是两者有一些区别。从兼容性上说，ifndfe更好，有些老的编译器可能不支持program once；此外，对于2个名字不同的头文件，但内容相同，ifndef还是可以鉴别出来，防止重复，program once 不行。
+</code></pre><h4 id="15、内联函数和宏的区别"><a href="#15、内联函数和宏的区别" class="headerlink" title="15、内联函数和宏的区别"></a>15、内联函数和宏的区别</h4><ol>
+<li>内联函数的展开发生在编译期，而宏是在预处理阶段；</li>
+<li>内联函数本身是函数，而宏不是；</li>
+<li>最重要的一点：内联函数会对参数进行类型检查，而宏只是简单的替换，所以内联函数更加安全，所以往往宏需要对参数加括号，但是也不一定安全， 内联函数有自己明确的作用域或者访问权限，比如放在类里面的private，而宏是没有的。</li>
+</ol>
+<p>内联函数和普通函数相比可以<strong>加快程序运行的速度</strong>，因为不需要中断调用，在编译的时候内联函数可以<strong>直接被镶嵌到目标代码中</strong>。</p>
+<p>内联函数要做<strong>参数类型检查</strong>，这是内联函数跟宏相比的优势。</p>
+<p>inline是指嵌入代码，就是在调用函数的地方不是跳转，而是把代码直接写到那里去。<strong>对于短小的代码来说，inline可以带来一定的效率提升</strong>，而且和C时代的宏相比，inline更安全可靠。可是这个是<strong>以增加空间消耗为代价</strong>的。</p>
+<p>inline一般只用于如下情况：</p>
+<blockquote>
+<ul>
+<li>一个函数不断被重复调用；</li>
+<li>函数只有简单的几行，且函数不包含for、while、switch语句。</li>
+</ul>
+</blockquote>
+<h4 id="16、Linux下常用命令"><a href="#16、Linux下常用命令" class="headerlink" title="16、Linux下常用命令"></a>16、Linux下常用命令</h4><p>（1）ls -al 显示当前目录下的所有文件目录信息，包括隐藏的<br>（2）mkdir 创建文件夹<br>（3）cat 查看文件内容<br>（4）cp 拷贝<br>（5）rm -rf 删除文件（夹）下所有文件<br>（6）find 查找文件<br>（7）grep 正则匹配<br>（8）pwd 显示当前文件路径<br>（9）ln 创建文件连接 -s 软连接<br>（10）chmod 修改文件权限<br>（11）netstat -a |grep 查看网络状态<br>（12）top</p>
+<h3 id="腾讯相关面试题"><a href="#腾讯相关面试题" class="headerlink" title="腾讯相关面试题"></a>腾讯相关面试题</h3><h4 id="1、hash表使用开链，里面的链表过长说明了什么？"><a href="#1、hash表使用开链，里面的链表过长说明了什么？" class="headerlink" title="1、hash表使用开链，里面的链表过长说明了什么？"></a>1、hash表使用开链，里面的链表过长说明了什么？</h4><p>答：hash函数设计的不好，导致冲突严重，进而导致同一个“桶”内的链表数目增多。</p>
+<h4 id="2、C-不能被继承的类"><a href="#2、C-不能被继承的类" class="headerlink" title="2、C++不能被继承的类"></a>2、C++不能被继承的类</h4><ul>
+<li>使用C++11新增的final关键字，使得声明的类是一个最终类，无法被继承</li>
+<li>将构造函数放入到private里面，这样无法构造出子列对象</li>
+</ul>
+<h4 id="3、什么叫字长？"><a href="#3、什么叫字长？" class="headerlink" title="3、什么叫字长？"></a>3、什么叫字长？</h4><p>答：计算机在同一个时间能处理的一组二进制数成为计算机的一个字，这组二进制数的位数就是子长，所以现在计算机有16位、32位、64位等。</p>
+<h4 id="4、计算机的存储系统"><a href="#4、计算机的存储系统" class="headerlink" title="4、计算机的存储系统"></a>4、计算机的存储系统</h4><p>答：分为内存和外村，其中内存有主存、cache、寄存器等，外村分为磁盘、光盘等。</p>
+<h4 id="5、static关键字的作用、存放位置"><a href="#5、static关键字的作用、存放位置" class="headerlink" title="5、static关键字的作用、存放位置"></a>5、static关键字的作用、存放位置</h4><p>作用：</p>
+<ul>
+<li><p>static关键字有隔离隐藏的作用，比如多个cpp文件，如果将全局变量声明为static，那么该变量只对该文件可见；</p>
+</li>
+<li><p>变量声明为static，可以使得这个变量的生命期是整个程序结束；</p>
+</li>
+<li>c++类中的static声明的变量和函数表示都是属于类的属性，而不是对象的成员。</li>
+</ul>
+<p>存放位置：</p>
+<ul>
+<li>未初始化的放在bss段，初始化的放在data段。</li>
+</ul>
+<h4 id="6、堆和栈的区别"><a href="#6、堆和栈的区别" class="headerlink" title="6、堆和栈的区别"></a>6、堆和栈的区别</h4><ul>
+<li><p><strong>从管理方式上</strong><br>栈是由编译器自动管理，无需我们手动控制；<br>对于堆，开辟和释放工作由程序员控制，所以有内存泄漏等情况的发生。</p>
+</li>
+<li><p><strong>从申请大小上</strong><br>栈是由高地址向低地址扩展的，是一块连续的内存区域，所以栈的栈顶地址或者大小是一开始就分配好的。在使用过程中，比如递归调用层数过多，那么就有可能造成栈溢出，所以栈能获得的空间比较少；<br>堆是向高地址扩展的，是链表组织的方式，所以有可能是不连续的，他的大小只受限于有效的虚拟内存大小，所以堆能开辟的空间较大。</p>
+</li>
+<li><p><strong>从碎片问题上</strong><br>栈是没有碎片的情况，因为他有严格的出栈入栈，不会存在一个内存块从栈的中间位置弹出；<br>堆有碎片的情况，频繁的调用new/delete分配释放内存，必然会造成内存碎片。</p>
+</li>
+<li><p><strong>从分配方式上</strong></p>
+<p>堆都是动态分配的，栈大多是静态分配的，也可以动态分配，可以由alloc函数分配。</p>
+<p><strong>从分配效率上</strong><br>计算机会在底层对栈提供支持，比如有专门的寄存器分配，用来存放栈的地址，压栈出栈的指令等；<br>堆是由c/c++函数库提供的，机制比较复杂</p>
+</li>
+</ul>
+<h4 id="7、malloc和new的区别"><a href="#7、malloc和new的区别" class="headerlink" title="7、malloc和new的区别"></a>7、malloc和new的区别</h4><p>答：最大的区别在于malloc只是简单的分配了内存空间，而new在分配了内存空间之后调用了对象的构造函数。</p>
+<h4 id="8、引用和指针的区别"><a href="#8、引用和指针的区别" class="headerlink" title="8、引用和指针的区别"></a>8、引用和指针的区别</h4><ul>
+<li>引用是一个已有对象的别称，指针是一个地址，从非空性上说，引用不能为空，指针本身是个值，可以为空</li>
+<li>在编码的时候，对应用不需要判断，但是对于指针，必须对其非空性进行判断</li>
+<li>当指向的对象可能再发生变化的时候，往往用指针，而引用是一定固定的！</li>
+</ul>
+<h4 id="9、多态的实现原理-非懂"><a href="#9、多态的实现原理-非懂" class="headerlink" title="9、多态的实现原理(非懂)"></a>9、多态的实现原理(非懂)</h4><p>答：C++多态主要是通过虚函数表实现的</p>
+<font color="amber">C++多态的体现，主要是通过父类指针指向一个子类对象，此时调用的函数就是子类的函数，体现了多态性，因为在调用过程中，通过4个字节的虚表指针找到了虚函数表，此时由于实际对象是子类对象，那么其虚函数表是子类的虚函数表，对于同一个虚函数，子类的虚函数会覆盖掉符类的虚函数，构建出自己的虚函数表，所以此时通过虚表指针访问的虚函数就是子类的虚函数，这就是C++的多态的体现。</font>
+
+<h4 id="10、C-的内存模型"><a href="#10、C-的内存模型" class="headerlink" title="10、C++的内存模型"></a>10、C++的内存模型</h4><p>答：内存分为5个段，从低地址到高地址，依次是代码段、数据段、bss段、堆、栈。</p>
+<h4 id="11、滑动窗口的作用"><a href="#11、滑动窗口的作用" class="headerlink" title="11、滑动窗口的作用"></a>11、滑动窗口的作用</h4><p>答：主要就是为了实现流量控制，控制了发送包的速率，每次发送方只能发送滑动窗口内部的数据包，才能保证接收方不会因为发送过快造成流量淹没，数据包的堆是。它的大小是 拥塞窗口和通告窗口 二者的最小值。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面试题/" rel="tag"># 面试题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/01/LeetCode刷题/位运算/" rel="next" title="位运算">
+                <i class="fa fa-chevron-left"></i> 位运算
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/assets/img/avatar.jpg" alt="Chris">
+            
+              <p class="site-author-name" itemprop="name">Chris</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#拼多多"><span class="nav-text">拼多多</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、-一个C-源文件从文本到可执行文件经历的过程"><span class="nav-text">1、 一个C++源文件从文本到可执行文件经历的过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、-include-的顺序以及尖括号和双引号的区别"><span class="nav-text">2、#include 的顺序以及尖括号和双引号的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、进程和线程，为什么要有线程"><span class="nav-text">3、进程和线程，为什么要有线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、C-11有哪些新特性"><span class="nav-text">4、C++11有哪些新特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、malloc的原理，brk系统调用干什么的，mmap呢"><span class="nav-text">6、malloc的原理，brk系统调用干什么的，mmap呢</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、C-的内存管理方式，STL的allocator，最新版本默认使用的分配器"><span class="nav-text">7、C++的内存管理方式，STL的allocator，最新版本默认使用的分配器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8、hash表的实现，包括STL中的哈希桶长度常数。"><span class="nav-text">8、hash表的实现，包括STL中的哈希桶长度常数。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9、hash表如何rehash，怎么处理其中保存的资源"><span class="nav-text">9、hash表如何rehash，怎么处理其中保存的资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10、Redis的rehash怎么做的，为什么要渐进rehash，渐进rehash怎么实现的"><span class="nav-text">10、Redis的rehash怎么做的，为什么要渐进rehash，渐进rehash怎么实现的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11、TCP的模型，状态转移"><span class="nav-text">11、TCP的模型，状态转移</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12、ubuntu开机的时候系统做了什么"><span class="nav-text">12、ubuntu开机的时候系统做了什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13、C-中struct和class的区别"><span class="nav-text">13、C++中struct和class的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14、如何防止C-头文件被重复引用"><span class="nav-text">14、如何防止C++头文件被重复引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15、内联函数和宏的区别"><span class="nav-text">15、内联函数和宏的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16、Linux下常用命令"><span class="nav-text">16、Linux下常用命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#腾讯相关面试题"><span class="nav-text">腾讯相关面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、hash表使用开链，里面的链表过长说明了什么？"><span class="nav-text">1、hash表使用开链，里面的链表过长说明了什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、C-不能被继承的类"><span class="nav-text">2、C++不能被继承的类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、什么叫字长？"><span class="nav-text">3、什么叫字长？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、计算机的存储系统"><span class="nav-text">4、计算机的存储系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、static关键字的作用、存放位置"><span class="nav-text">5、static关键字的作用、存放位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、堆和栈的区别"><span class="nav-text">6、堆和栈的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、malloc和new的区别"><span class="nav-text">7、malloc和new的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8、引用和指针的区别"><span class="nav-text">8、引用和指针的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9、多态的实现原理-非懂"><span class="nav-text">9、多态的实现原理(非懂)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10、C-的内存模型"><span class="nav-text">10、C++的内存模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11、滑动窗口的作用"><span class="nav-text">11、滑动窗口的作用</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chris</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+<div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv" style="display:none">
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style="display:none">
+    有<span id="busuanzi_value_site_uv"></span>人看过我的博客啦
+</span>
+</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
