@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="还没想好取什么名字诶" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="Girl Who Code" type="application/atom+xml">
 
 
 
@@ -86,11 +86,11 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="相关面试题">
 <meta property="og:url" content="http://yoursite.com/2019/06/04/相关面试题/index.html">
-<meta property="og:site_name" content="还没想好取什么名字诶">
+<meta property="og:site_name" content="Girl Who Code">
 <meta property="og:description" content="拼多多1、 一个C++源文件从文本到可执行文件经历的过程对于C/C++编写的程序，从源代码到可执行文件，一般经过下面四个步骤：  预处理，产生.ii文件  编译，产生汇编文件(.s文件)  汇编，产生目标文件(.o或.obj文件)  链接, 产生可执行文件(.out或.exe文件)   2、#include 的顺序以及尖括号和双引号的区别 #include的顺序的区别：  头文件的引用顺序对于程序">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/06/04/相关面试题/C:/Users/MSI1/AppData/Roaming/Typora/typora-user-images/1559648901822.png">
-<meta property="og:updated_time" content="2019-06-04T14:01:20.806Z">
+<meta property="og:updated_time" content="2019-06-05T04:25:30.240Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="相关面试题">
 <meta name="twitter:description" content="拼多多1、 一个C++源文件从文本到可执行文件经历的过程对于C/C++编写的程序，从源代码到可执行文件，一般经过下面四个步骤：  预处理，产生.ii文件  编译，产生汇编文件(.s文件)  汇编，产生目标文件(.o或.obj文件)  链接, 产生可执行文件(.out或.exe文件)   2、#include 的顺序以及尖括号和双引号的区别 #include的顺序的区别：  头文件的引用顺序对于程序">
@@ -130,7 +130,7 @@
 
 
 
-  <title>相关面试题 | 还没想好取什么名字诶</title>
+  <title>相关面试题 | Girl Who Code</title>
   
 
 
@@ -160,7 +160,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">还没想好取什么名字诶</span>
+        <span class="site-title">Girl Who Code</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -308,7 +308,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="还没想好取什么名字诶">
+      <meta itemprop="name" content="Girl Who Code">
     </span>
 
     
@@ -541,8 +541,8 @@
 </ol>
 </li>
 </ol>
-<h4 id="14、如何防止C-头文件被重复引用"><a href="#14、如何防止C-头文件被重复引用" class="headerlink" title="14、如何防止C++头文件被重复引用"></a>14、如何防止C++头文件被重复引用</h4><pre><code>可以使用ifndef或者program once，都可以。但是两者有一些区别。从兼容性上说，ifndfe更好，有些老的编译器可能不支持program once；此外，对于2个名字不同的头文件，但内容相同，ifndef还是可以鉴别出来，防止重复，program once 不行。
-</code></pre><h4 id="15、内联函数和宏的区别"><a href="#15、内联函数和宏的区别" class="headerlink" title="15、内联函数和宏的区别"></a>15、内联函数和宏的区别</h4><ol>
+<h4 id="14、如何防止C-头文件被重复引用"><a href="#14、如何防止C-头文件被重复引用" class="headerlink" title="14、如何防止C++头文件被重复引用"></a>14、如何防止C++头文件被重复引用</h4><p>可以使用ifndef或者program once，都可以。但是两者有一些区别。从兼容性上说，ifndfe更好，有些老的编译器可能不支持program once；此外，对于2个名字不同的头文件，但内容相同，ifndef还是可以鉴别出来，防止重复，program once 不行。</p>
+<h4 id="15、内联函数和宏的区别"><a href="#15、内联函数和宏的区别" class="headerlink" title="15、内联函数和宏的区别"></a>15、内联函数和宏的区别</h4><ol>
 <li>内联函数的展开发生在编译期，而宏是在预处理阶段；</li>
 <li>内联函数本身是函数，而宏不是；</li>
 <li>最重要的一点：内联函数会对参数进行类型检查，而宏只是简单的替换，所以内联函数更加安全，所以往往宏需要对参数加括号，但是也不一定安全， 内联函数有自己明确的作用域或者访问权限，比如放在类里面的private，而宏是没有的。</li>
@@ -563,8 +563,8 @@
 <li>使用C++11新增的final关键字，使得声明的类是一个最终类，无法被继承</li>
 <li>将构造函数放入到private里面，这样无法构造出子列对象</li>
 </ul>
-<h4 id="3、什么叫字长？"><a href="#3、什么叫字长？" class="headerlink" title="3、什么叫字长？"></a>3、什么叫字长？</h4><p>答：计算机在同一个时间能处理的一组二进制数成为计算机的一个字，这组二进制数的位数就是子长，所以现在计算机有16位、32位、64位等。</p>
-<h4 id="4、计算机的存储系统"><a href="#4、计算机的存储系统" class="headerlink" title="4、计算机的存储系统"></a>4、计算机的存储系统</h4><p>答：分为内存和外村，其中内存有主存、cache、寄存器等，外村分为磁盘、光盘等。</p>
+<h4 id="3、什么叫字长？"><a href="#3、什么叫字长？" class="headerlink" title="3、什么叫字长？"></a>3、什么叫字长？</h4><p>答：计算机在同一时间能处理的一组二进制数成为计算机的一个字，这组二进制数的位数就是字长，所以现在计算机有16位、32位、64位等。</p>
+<h4 id="4、计算机的存储系统"><a href="#4、计算机的存储系统" class="headerlink" title="4、计算机的存储系统"></a>4、计算机的存储系统</h4><p>答：分为内存和外村，其中内存有主存、cache、寄存器等，外存分为磁盘、光盘等。</p>
 <h4 id="5、static关键字的作用、存放位置"><a href="#5、static关键字的作用、存放位置" class="headerlink" title="5、static关键字的作用、存放位置"></a>5、static关键字的作用、存放位置</h4><p>作用：</p>
 <ul>
 <li><p>static关键字有隔离隐藏的作用，比如多个cpp文件，如果将全局变量声明为static，那么该变量只对该文件可见；</p>
@@ -582,7 +582,7 @@
 </li>
 <li><p><strong>从申请大小上</strong><br>栈是由高地址向低地址扩展的，是一块连续的内存区域，所以栈的栈顶地址或者大小是一开始就分配好的。在使用过程中，比如递归调用层数过多，那么就有可能造成栈溢出，所以栈能获得的空间比较少；<br>堆是向高地址扩展的，是链表组织的方式，所以有可能是不连续的，他的大小只受限于有效的虚拟内存大小，所以堆能开辟的空间较大。</p>
 </li>
-<li><p><strong>从碎片问题上</strong><br>栈是没有碎片的情况，因为他有严格的出栈入栈，不会存在一个内存块从栈的中间位置弹出；<br>堆有碎片的情况，频繁的调用new/delete分配释放内存，必然会造成内存碎片。</p>
+<li><p><strong>从碎片问题上</strong><br>栈是没有碎片的情况，因为它有严格的出栈入栈，不会存在一个内存块从栈的中间位置弹出；<br>堆有碎片的情况，频繁的调用new/delete分配释放内存，必然会造成内存碎片。</p>
 </li>
 <li><p><strong>从分配方式上</strong></p>
 <p>堆都是动态分配的，栈大多是静态分配的，也可以动态分配，可以由alloc函数分配。</p>
@@ -592,7 +592,7 @@
 <h4 id="7、malloc和new的区别"><a href="#7、malloc和new的区别" class="headerlink" title="7、malloc和new的区别"></a>7、malloc和new的区别</h4><p>答：最大的区别在于malloc只是简单的分配了内存空间，而new在分配了内存空间之后调用了对象的构造函数。</p>
 <h4 id="8、引用和指针的区别"><a href="#8、引用和指针的区别" class="headerlink" title="8、引用和指针的区别"></a>8、引用和指针的区别</h4><ul>
 <li>引用是一个已有对象的别称，指针是一个地址，从非空性上说，引用不能为空，指针本身是个值，可以为空</li>
-<li>在编码的时候，对应用不需要判断，但是对于指针，必须对其非空性进行判断</li>
+<li>在编码的时候，对引用不需要判断，但是对于指针，必须对其非空性进行判断</li>
 <li>当指向的对象可能再发生变化的时候，往往用指针，而引用是一定固定的！</li>
 </ul>
 <h4 id="9、多态的实现原理-非懂"><a href="#9、多态的实现原理-非懂" class="headerlink" title="9、多态的实现原理(非懂)"></a>9、多态的实现原理(非懂)</h4><p>答：C++多态主要是通过虚函数表实现的</p>
@@ -639,6 +639,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/01/区间覆盖问题/" rel="prev" title="区间覆盖问题">
+                区间覆盖问题 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -717,7 +721,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

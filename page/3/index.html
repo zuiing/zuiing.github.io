@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="还没想好取什么名字诶" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="Girl Who Code" type="application/atom+xml">
 
 
 
@@ -82,12 +82,12 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="还没想好取什么名字诶">
+<meta property="og:title" content="Girl Who Code">
 <meta property="og:url" content="http://yoursite.com/page/3/index.html">
-<meta property="og:site_name" content="还没想好取什么名字诶">
+<meta property="og:site_name" content="Girl Who Code">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="还没想好取什么名字诶">
+<meta name="twitter:title" content="Girl Who Code">
 
 
 
@@ -123,7 +123,7 @@
 
 
 
-  <title>还没想好取什么名字诶</title>
+  <title>Girl Who Code</title>
   
 
 
@@ -154,7 +154,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">还没想好取什么名字诶</span>
+        <span class="site-title">Girl Who Code</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -293,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/剑指offer/剑指offer-二维数组中的查找/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/22/数据结构与算法/数据结构与算法-递归/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chris">
@@ -302,7 +302,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="还没想好取什么名字诶">
+      <meta itemprop="name" content="Girl Who Code">
     </span>
 
     
@@ -312,7 +312,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/21/剑指offer/剑指offer-二维数组中的查找/" itemprop="url">剑指offer——二维数组中的查找</a></h1>
+                <a class="post-title-link" href="/2019/03/22/数据结构与算法/数据结构与算法-递归/" itemprop="url">数据结构与算法_递归</a></h1>
         
 
         <div class="post-meta">
@@ -324,8 +324,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-21T00:00:00+08:00">
-                2019-03-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-22T13:20:53+08:00">
+                2019-03-22
               </time>
             
 
@@ -347,8 +347,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/剑指offer/" itemprop="url" rel="index">
-                    <span itemprop="name">剑指offer</span>
+                  <a href="/categories/Struct-Alogorithms/" itemprop="url" rel="index">
+                    <span itemprop="name">Struct&Alogorithms</span>
                   </a>
                 </span>
 
@@ -387,18 +387,18 @@
 
       
         
-          <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。<br>时间限制：1秒 空间限制：32768K </p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>利用二维数组从上到下、从左到右递增的规律，选取右上角或左下角的元素a[i][j]与target比较：  </p>
-<ul>
-<li>当target小于元素a[i][j]时，那么target必定在元素a[i][j]所在行的左边，即j–；</li>
-<li>当target大于元素a[i][j]时，那么target必定在元素a[i][j]所在列的下边，即i++。</li></ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/21/剑指offer/剑指offer-二维数组中的查找/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h2 id="1-如何理解”递归”？"><a href="#1-如何理解”递归”？" class="headerlink" title="1.如何理解”递归”？"></a>1.如何理解”递归”？</h2><p>当你在电影院看电影时忘记自己是在第几排，电影院里面太黑看不清，没法数，于是就问前面的人他是第几排，你想只要在他的数字上加1，就知道自己是在哪一排了；但是前面的人也看不清啊，所以他也问他前面的人…就这样一排一排往前问，直到问到第一排的人，说我在第一排，然后再这样一排一排把数字传回来，于是你就知道答案了。<br>这就是一个非常标准的递归求解问题的分解过程，去的过程叫”递”，回来的过程叫”归”。基本上，所有的递归问题都可以用递推公式来表示。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">f(n)=f(n-1)+1 其中，f(1)=1</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-递归需要满足的三个条件"><a href="#2-递归需要满足的三个条件" class="headerlink" title="2.递归需要满足的三个条件"></a>2.递归需要满足的三个条件</h2><h3 id="2-1-一个问题的解可以分解为几个子问题的解"><a href="#2-1-一个问题的解可以分解为几个子问题的解" class="headerlink" title="2.1 一个问题的解可以分解为几个子问题的解"></a>2.1 一个问题的解可以分解为几个子问题的解</h3><p>子问题就是数据规模更小的问题。比如，你要知道，“自己在哪一排”的问题，可以分解为“前一排的人在哪一排”这样一个子问题。</p>
+<h3 id="2-2-这个问题与分解之后的子问题，除了数据规模不同，求解思路完全一样"><a href="#2-2-这个问题与分解之后的子问题，除了数据规模不同，求解思路完全一样" class="headerlink" title="2.2 这个问题与分解之后的子问题，除了数据规模不同，求解思路完全一样"></a>2.2 这个问题与分解之后的子问题，除了数据规模不同，求解思路完全一样</h3><p>你在求解“自己在哪一排”的思路，和前一排的人求解“自己在哪一排”的思路是一模一样的。</p>
+<h3 id="2-3-存在递归终止条件"><a href="#2-3-存在递归终止条件" class="headerlink" title="2.3 存在递归终止条件"></a>2.3 存在递归终止条件</h3><p>写递归代码最关键的是<strong>写出递推公式，找到终止条件。</strong><br>举个例子：假如这里有n个台阶，每次可以跨1个台阶或2个台阶，请问走完这n个台阶有多少种走法？<br>可以这样思考：走到第n个台阶的走法有两类，第一类是从第n-1阶走了1个台阶，另一类是从n-2阶走了2个台阶。所以n个台阶的走法就等于:(走n-1阶的走法，再走1个台阶)+(走n-2阶的走法，再走2个台阶)，用公式表示就是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(n)=f(n-1)+f(n-2)</span><br></pre></td></tr></table></figure></p>
+<p>来看终止条件：当有一个台阶时，就只有一种走法 ，所以f(1)=1。如果递归终止条件只有f(1)=1一个，那f(2)就没法求解了，所以我们可以把f(2)=2作为另一个终止条件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f(1) = 1;</span><br><span class="line">f(2) = 2;</span><br><span class="line">f(n) = f(n-1)+f(n-2)</span><br></pre></td></tr></table></figure></p>
+<p>最终的递归代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int f(int n) &#123;</span><br><span class="line">  if (n == 1) return 1;</span><br><span class="line">  if (n == 2) return 2;</span><br><span class="line">  return f(n-1) + f(n-2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>总结：</strong>  <font color="#FF8F00">写递归代码的关键就是找到如何将大问题分解为小问题的规律，并且基于此写出递推公式，然后再推敲终止条件，最后将递推公式和终止条件翻译成代码。</font><br>编写递归代码的关键是，只要遇到递归，就把它抽象成一个递推公式，不用想一层层的调用关系，不要试图用人脑去分解递归的每个步骤。  </p>
+<h2 id="3-递归代码要警惕堆栈溢出"><a href="#3-递归代码要警惕堆栈溢出" class="headerlink" title="3.递归代码要警惕堆栈溢出"></a>3.递归代码要警惕堆栈溢出</h2><p>函数调用会使用栈来保存临时变量。每调用一个函数，都会将临时变量封装为栈帧压入内存栈，等函数执行完返回时，才出栈。系统栈或则虚拟机栈空间一般都不大，如果递归求解的数据规模很大，调用层次很深，一直压入栈，就会有堆栈溢出的风险。  </p>
+<h2 id="4-递归代码要警惕重复计算"><a href="#4-递归代码要警惕重复计算" class="headerlink" title="4.递归代码要警惕重复计算"></a>4.递归代码要警惕重复计算</h2><p>上述第二个递归例子，如果把整个过程分解一下，如图所示：<br><img src="/2019/03/22/数据结构与算法/数据结构与算法-递归/recursion.jpg" alt="递归分解"><br>从图中可以发现，计算f(5)时，要先计算f(4)和f(3),而计算f(4)时还需要计算f(3),因此f(3)被计算了很多次，这就是重复计算问题。<br>重复子问题可以用数组保存中间值的方法来优化，之后动态规划问题会用到这类思想。  </p>
+
+          
         
       
     </div>
@@ -454,7 +454,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="还没想好取什么名字诶">
+      <meta itemprop="name" content="Girl Who Code">
     </span>
 
     
@@ -597,6 +597,158 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/剑指offer/剑指offer-二维数组中的查找/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chris">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Girl Who Code">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/21/剑指offer/剑指offer-二维数组中的查找/" itemprop="url">剑指offer——二维数组中的查找</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-21T00:00:00+08:00">
+                2019-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/剑指offer/" itemprop="url" rel="index">
+                    <span itemprop="name">剑指offer</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+		
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。<br>时间限制：1秒 空间限制：32768K </p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>利用二维数组从上到下、从左到右递增的规律，选取右上角或左下角的元素a[i][j]与target比较：  </p>
+<ul>
+<li>当target小于元素a[i][j]时，那么target必定在元素a[i][j]所在行的左边，即j–；</li>
+<li>当target大于元素a[i][j]时，那么target必定在元素a[i][j]所在列的下边，即i++。</li></ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/21/剑指offer/剑指offer-二维数组中的查找/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/数据结构与算法/数据结构与算法_数组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -606,7 +758,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="还没想好取什么名字诶">
+      <meta itemprop="name" content="Girl Who Code">
     </span>
 
     
@@ -755,7 +907,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="还没想好取什么名字诶">
+      <meta itemprop="name" content="Girl Who Code">
     </span>
 
     
@@ -904,7 +1056,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="还没想好取什么名字诶">
+      <meta itemprop="name" content="Girl Who Code">
     </span>
 
     
@@ -1048,7 +1200,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="还没想好取什么名字诶">
+      <meta itemprop="name" content="Girl Who Code">
     </span>
 
     
@@ -1201,7 +1353,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="还没想好取什么名字诶">
+      <meta itemprop="name" content="Girl Who Code">
     </span>
 
     
@@ -1350,7 +1502,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="还没想好取什么名字诶">
+      <meta itemprop="name" content="Girl Who Code">
     </span>
 
     
@@ -1532,7 +1684,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

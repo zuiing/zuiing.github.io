@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="还没想好取什么名字诶" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="Girl Who Code" type="application/atom+xml">
 
 
 
@@ -82,12 +82,12 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="还没想好取什么名字诶">
+<meta property="og:title" content="Girl Who Code">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="还没想好取什么名字诶">
+<meta property="og:site_name" content="Girl Who Code">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="还没想好取什么名字诶">
+<meta name="twitter:title" content="Girl Who Code">
 
 
 
@@ -123,7 +123,7 @@
 
 
 
-  <title>还没想好取什么名字诶</title>
+  <title>Girl Who Code</title>
   
 
 
@@ -154,7 +154,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">还没想好取什么名字诶</span>
+        <span class="site-title">Girl Who Code</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -293,6 +293,156 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/01/区间覆盖问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chris">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Girl Who Code">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/01/区间覆盖问题/" itemprop="url">区间覆盖问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-01T08:57:02+08:00">
+                2019-09-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+		
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="区间覆盖问题"><a href="#区间覆盖问题" class="headerlink" title="区间覆盖问题"></a>区间覆盖问题</h2><p>题目描述：小Q在游戏中需要守卫一条路线，范围是[0,L]，可认为是一维数轴，现在有n个守卫，每个守卫的守护范围是[xi,yi]，问小Q至少需要多少个守卫能守护这条路线。</p>
+<p>输入：</p>
+<p>5 8<br>0 2<br>0 7<br>2 4<br>4 6<br>6 9</p>
+<p>输出：2</p>
+<h3 id="1-贪心求解"><a href="#1-贪心求解" class="headerlink" title="1.贪心求解"></a>1.贪心求解</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">struct Node</span><br><span class="line">&#123;</span><br><span class="line">	int x, y;</span><br><span class="line">&#125;;</span><br><span class="line">bool cmp(Node a, Node b) &#123;</span><br><span class="line">	return a.x &lt; b.x;//按照区间左界从小到大排列</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">	int n, L;</span><br><span class="line">	Node arr[100];;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; L;</span><br><span class="line">	for (int i = 0; i &lt; n; ++i) &#123;</span><br><span class="line">		cin &gt;&gt; arr[i].x &gt;&gt; arr[i].y;</span><br><span class="line">	&#125;</span><br><span class="line">	sort(arr, arr + n, cmp);</span><br><span class="line">	//区间[0,L]</span><br><span class="line">	if (arr[0].x &lt; 0) &#123;</span><br><span class="line">		cout &lt;&lt; -1; return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	int left = 0, right = 0, cnt = 1;</span><br><span class="line">	for (int i = 0; i &lt; n; ++i) &#123;</span><br><span class="line">		if (arr[i].x &lt;= left) &#123;</span><br><span class="line">			if (arr[i].y &gt; right) &#123;</span><br><span class="line">				right = arr[i].y;</span><br><span class="line">				if (right &gt;= L)</span><br><span class="line">					break;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			//left = right; 如果这条语句放这里，则上述测试案例会得到错误答案</span><br><span class="line">			if (arr[i].x &lt;= right) &#123;</span><br><span class="line">				if (arr[i].y &gt; right) &#123;</span><br><span class="line">					left = right;//这条赋值语句应该在这儿</span><br><span class="line">					right = arr[i].y;</span><br><span class="line">					cnt++;</span><br><span class="line">					if (right &gt;= L)</span><br><span class="line">						break;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">				cout &lt;&lt; -1; return 0;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; &quot;result:&quot;&lt;&lt;cnt;</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="另一种贪心求解，比上一种方法简单，但是须排序两次"><a href="#另一种贪心求解，比上一种方法简单，但是须排序两次" class="headerlink" title="另一种贪心求解，比上一种方法简单，但是须排序两次"></a>另一种贪心求解，比上一种方法简单，但是须排序两次</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">struct Node</span><br><span class="line">&#123;</span><br><span class="line">	int x, y;</span><br><span class="line">&#125;;</span><br><span class="line">bool cmp(Node a, Node b) &#123;</span><br><span class="line">	return a.x &lt; b.x;//按照区间左界从小到大排列</span><br><span class="line">&#125;</span><br><span class="line">bool cmpy(Node a, Node b) &#123;</span><br><span class="line">	return a.y &gt; b.y;</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">		int n, L;</span><br><span class="line">	Node arr[100];;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; L;</span><br><span class="line">	//cout &lt;&lt; &quot;请输入区间\n&quot;;</span><br><span class="line">	for (int i = 0; i &lt; n; ++i) &#123;</span><br><span class="line">		cin &gt;&gt; arr[i].x &gt;&gt; arr[i].y;</span><br><span class="line">	&#125;</span><br><span class="line">	//sort(arr, arr + n, cmpy);</span><br><span class="line">	sort(arr, arr + n, cmp);</span><br><span class="line"></span><br><span class="line">	//区间[0,L]</span><br><span class="line">	if (arr[0].x &lt; 0) &#123;</span><br><span class="line">		cout &lt;&lt; -1; return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	int board=0, cnt = 0;</span><br><span class="line">	for (int i = 0; i &lt; n; ++i) &#123;</span><br><span class="line">		if (arr[i].x &lt;= board &amp;&amp; arr[i].y &gt; board) &#123;</span><br><span class="line">			board = arr[i].y;</span><br><span class="line">			cnt++;</span><br><span class="line">			if (board &gt;= L)</span><br><span class="line">				break;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; &quot;result:&quot;&lt;&lt;cnt;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-动态规划"><a href="#2-动态规划" class="headerlink" title="2.动态规划"></a>2.动态规划</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">	int n, L;</span><br><span class="line">	Node arr[100];;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; L;</span><br><span class="line">	for (int i = 0; i &lt; n; ++i) &#123;</span><br><span class="line">		cin &gt;&gt; arr[i].x &gt;&gt; arr[i].y;</span><br><span class="line">	&#125;</span><br><span class="line">	vector&lt;int&gt; dp(L + 1, n + 1);</span><br><span class="line">	dp[0] = 0;</span><br><span class="line">	//区间[0,L]</span><br><span class="line">	for (int i = 1; i &lt;= L; ++i) &#123;</span><br><span class="line">		for (int j = 0; j &lt; n; ++j) &#123;</span><br><span class="line">			if (arr[j].x &lt; i&amp;&amp;arr[j].y &gt;= i) &#123;</span><br><span class="line">				dp[i] = min(dp[arr[j].x] + 1, dp[i]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if(dp[L]=n+1) cout&lt;&lt;-1;</span><br><span class="line">	else</span><br><span class="line">		cout &lt;&lt; &quot;result:&quot;&lt;&lt;dp[L];</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/04/相关面试题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -302,7 +452,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="还没想好取什么名字诶">
+      <meta itemprop="name" content="Girl Who Code">
     </span>
 
     
@@ -536,8 +686,8 @@
 </ol>
 </li>
 </ol>
-<h4 id="14、如何防止C-头文件被重复引用"><a href="#14、如何防止C-头文件被重复引用" class="headerlink" title="14、如何防止C++头文件被重复引用"></a>14、如何防止C++头文件被重复引用</h4><pre><code>可以使用ifndef或者program once，都可以。但是两者有一些区别。从兼容性上说，ifndfe更好，有些老的编译器可能不支持program once；此外，对于2个名字不同的头文件，但内容相同，ifndef还是可以鉴别出来，防止重复，program once 不行。
-</code></pre><h4 id="15、内联函数和宏的区别"><a href="#15、内联函数和宏的区别" class="headerlink" title="15、内联函数和宏的区别"></a>15、内联函数和宏的区别</h4><ol>
+<h4 id="14、如何防止C-头文件被重复引用"><a href="#14、如何防止C-头文件被重复引用" class="headerlink" title="14、如何防止C++头文件被重复引用"></a>14、如何防止C++头文件被重复引用</h4><p>可以使用ifndef或者program once，都可以。但是两者有一些区别。从兼容性上说，ifndfe更好，有些老的编译器可能不支持program once；此外，对于2个名字不同的头文件，但内容相同，ifndef还是可以鉴别出来，防止重复，program once 不行。</p>
+<h4 id="15、内联函数和宏的区别"><a href="#15、内联函数和宏的区别" class="headerlink" title="15、内联函数和宏的区别"></a>15、内联函数和宏的区别</h4><ol>
 <li>内联函数的展开发生在编译期，而宏是在预处理阶段；</li>
 <li>内联函数本身是函数，而宏不是；</li>
 <li>最重要的一点：内联函数会对参数进行类型检查，而宏只是简单的替换，所以内联函数更加安全，所以往往宏需要对参数加括号，但是也不一定安全， 内联函数有自己明确的作用域或者访问权限，比如放在类里面的private，而宏是没有的。</li>
@@ -558,8 +708,8 @@
 <li>使用C++11新增的final关键字，使得声明的类是一个最终类，无法被继承</li>
 <li>将构造函数放入到private里面，这样无法构造出子列对象</li>
 </ul>
-<h4 id="3、什么叫字长？"><a href="#3、什么叫字长？" class="headerlink" title="3、什么叫字长？"></a>3、什么叫字长？</h4><p>答：计算机在同一个时间能处理的一组二进制数成为计算机的一个字，这组二进制数的位数就是子长，所以现在计算机有16位、32位、64位等。</p>
-<h4 id="4、计算机的存储系统"><a href="#4、计算机的存储系统" class="headerlink" title="4、计算机的存储系统"></a>4、计算机的存储系统</h4><p>答：分为内存和外村，其中内存有主存、cache、寄存器等，外村分为磁盘、光盘等。</p>
+<h4 id="3、什么叫字长？"><a href="#3、什么叫字长？" class="headerlink" title="3、什么叫字长？"></a>3、什么叫字长？</h4><p>答：计算机在同一时间能处理的一组二进制数成为计算机的一个字，这组二进制数的位数就是字长，所以现在计算机有16位、32位、64位等。</p>
+<h4 id="4、计算机的存储系统"><a href="#4、计算机的存储系统" class="headerlink" title="4、计算机的存储系统"></a>4、计算机的存储系统</h4><p>答：分为内存和外村，其中内存有主存、cache、寄存器等，外存分为磁盘、光盘等。</p>
 <h4 id="5、static关键字的作用、存放位置"><a href="#5、static关键字的作用、存放位置" class="headerlink" title="5、static关键字的作用、存放位置"></a>5、static关键字的作用、存放位置</h4><p>作用：</p>
 <ul>
 <li><p>static关键字有隔离隐藏的作用，比如多个cpp文件，如果将全局变量声明为static，那么该变量只对该文件可见；</p>
@@ -577,7 +727,7 @@
 </li>
 <li><p><strong>从申请大小上</strong><br>栈是由高地址向低地址扩展的，是一块连续的内存区域，所以栈的栈顶地址或者大小是一开始就分配好的。在使用过程中，比如递归调用层数过多，那么就有可能造成栈溢出，所以栈能获得的空间比较少；<br>堆是向高地址扩展的，是链表组织的方式，所以有可能是不连续的，他的大小只受限于有效的虚拟内存大小，所以堆能开辟的空间较大。</p>
 </li>
-<li><p><strong>从碎片问题上</strong><br>栈是没有碎片的情况，因为他有严格的出栈入栈，不会存在一个内存块从栈的中间位置弹出；<br>堆有碎片的情况，频繁的调用new/delete分配释放内存，必然会造成内存碎片。</p>
+<li><p><strong>从碎片问题上</strong><br>栈是没有碎片的情况，因为它有严格的出栈入栈，不会存在一个内存块从栈的中间位置弹出；<br>堆有碎片的情况，频繁的调用new/delete分配释放内存，必然会造成内存碎片。</p>
 </li>
 <li><p><strong>从分配方式上</strong></p>
 <p>堆都是动态分配的，栈大多是静态分配的，也可以动态分配，可以由alloc函数分配。</p>
@@ -587,7 +737,7 @@
 <h4 id="7、malloc和new的区别"><a href="#7、malloc和new的区别" class="headerlink" title="7、malloc和new的区别"></a>7、malloc和new的区别</h4><p>答：最大的区别在于malloc只是简单的分配了内存空间，而new在分配了内存空间之后调用了对象的构造函数。</p>
 <h4 id="8、引用和指针的区别"><a href="#8、引用和指针的区别" class="headerlink" title="8、引用和指针的区别"></a>8、引用和指针的区别</h4><ul>
 <li>引用是一个已有对象的别称，指针是一个地址，从非空性上说，引用不能为空，指针本身是个值，可以为空</li>
-<li>在编码的时候，对应用不需要判断，但是对于指针，必须对其非空性进行判断</li>
+<li>在编码的时候，对引用不需要判断，但是对于指针，必须对其非空性进行判断</li>
 <li>当指向的对象可能再发生变化的时候，往往用指针，而引用是一定固定的！</li>
 </ul>
 <h4 id="9、多态的实现原理-非懂"><a href="#9、多态的实现原理-非懂" class="headerlink" title="9、多态的实现原理(非懂)"></a>9、多态的实现原理(非懂)</h4><p>答：C++多态主要是通过虚函数表实现的</p>
@@ -652,7 +802,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="还没想好取什么名字诶">
+      <meta itemprop="name" content="Girl Who Code">
     </span>
 
     
@@ -877,7 +1027,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="还没想好取什么名字诶">
+      <meta itemprop="name" content="Girl Who Code">
     </span>
 
     
@@ -1374,7 +1524,7 @@ public:
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="还没想好取什么名字诶">
+      <meta itemprop="name" content="Girl Who Code">
     </span>
 
     
@@ -1536,7 +1686,7 @@ public:
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="还没想好取什么名字诶">
+      <meta itemprop="name" content="Girl Who Code">
     </span>
 
     
@@ -1860,7 +2010,7 @@ public:
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="还没想好取什么名字诶">
+      <meta itemprop="name" content="Girl Who Code">
     </span>
 
     
@@ -2037,7 +2187,7 @@ public:
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="还没想好取什么名字诶">
+      <meta itemprop="name" content="Girl Who Code">
     </span>
 
     
@@ -2191,7 +2341,7 @@ public:
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="还没想好取什么名字诶">
+      <meta itemprop="name" content="Girl Who Code">
     </span>
 
     
@@ -2381,7 +2531,7 @@ public:
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="还没想好取什么名字诶">
+      <meta itemprop="name" content="Girl Who Code">
     </span>
 
     
@@ -2570,154 +2720,6 @@ public:
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/LeetCode刷题/分治/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chris">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/assets/img/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="还没想好取什么名字诶">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/02/LeetCode刷题/分治/" itemprop="url">分治</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-02T13:14:28+08:00">
-                2019-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode刷题/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode刷题</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-		
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="给表达式加括号-241-Different-Ways-to-Add-Parentheses-Medium"><a href="#给表达式加括号-241-Different-Ways-to-Add-Parentheses-Medium" class="headerlink" title="给表达式加括号 241.Different Ways to Add Parentheses(Medium)"></a>给表达式加括号 <a href="https://leetcode.com/problems/different-ways-to-add-parentheses/description/" target="_blank" rel="noopener">241.Different Ways to Add Parentheses(Medium)</a></h2><p>Input: “2-1-1”.<br>((2-1)-1) = 0<br>(2-(1-1)) = 2<br>Output : [0, 2]</p>
-<p>题目描述：给出一个可能含有加减乘的表达式，让我们在任意位置添加括号，求出所有可能的表达式的值。</p>
-<p>解题思路：以遇到的运算符为界，将表达式分为两部分，分别递归求解。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; diffWaysToCompute(string input) &#123;</span><br><span class="line">        vector&lt;int&gt; res;</span><br><span class="line">        for(int i=0;i&lt;input.size();i++)&#123;</span><br><span class="line">            if(input[i]==&apos;+&apos;||input[i]==&apos;-&apos;||input[i]==&apos;*&apos;)&#123;</span><br><span class="line">                vector&lt;int&gt; left=diffWaysToCompute(input.substr(0,i));//获得字符串input中从0开始长度为i的字符串</span><br><span class="line">                vector&lt;int&gt; right=diffWaysToCompute(input.substr(i+1));//默认时的长度是从开始到尾</span><br><span class="line">                for(int j=0;j&lt;left.size();j++)&#123;</span><br><span class="line">                    for(int k=0;k&lt;right.size();k++)&#123;</span><br><span class="line">                        if(input[i]==&apos;+&apos;) res.push_back(left[j]+right[k]);</span><br><span class="line">                        else if(input[i]==&apos;-&apos;) res.push_back(left[j]-right[k]);</span><br><span class="line">                        else res.push_back(left[j]*right[k]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;           </span><br><span class="line">        &#125;</span><br><span class="line">        //若res为空，说明传入的字符串为一个数字，直接将该数字存入结果即可</span><br><span class="line">        //c_str()函数返回一个指向正规C字符串的指针常量,atoi()的参数类型是const char*</span><br><span class="line">        if(res.empty()) res.push_back(atoi(input.c_str()));</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>上述解法中的递归函数的参数没用指针，这样的话每次调用都要拷贝string对象，如果用指针的化就是直接引用，在leetcode上测试两种方法消耗的内存没差，可能是因为传入的对象本身就不大。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; diffWaysToCompute(string input) &#123;</span><br><span class="line">        if(input.empty()) return &#123;&#125;;</span><br><span class="line">        return helper(input,0,input.size()-1);</span><br><span class="line">    &#125;</span><br><span class="line">private:</span><br><span class="line">    vector&lt;int&gt; helper(string&amp; input,int l,int r)&#123;</span><br><span class="line">        vector&lt;int&gt; res;</span><br><span class="line">        for(int i=l;i&lt;=r;i++)&#123;</span><br><span class="line">            if(input[i]==&apos;+&apos;||input[i]==&apos;-&apos;||input[i]==&apos;*&apos;)&#123;</span><br><span class="line">                vector&lt;int&gt; left=helper(input,l,i-1);//获得字符串input中从0开始长度为i的字符串</span><br><span class="line">                vector&lt;int&gt; right=helper(input,i+1,r);//默认时的长度是从开始到尾</span><br><span class="line">                for(int j=0;j&lt;left.size();j++)&#123;</span><br><span class="line">                    for(int k=0;k&lt;right.size();k++)&#123;</span><br><span class="line">                        if(input[i]==&apos;+&apos;) res.push_back(left[j]+right[k]);</span><br><span class="line">                        else if(input[i]==&apos;-&apos;) res.push_back(left[j]-right[k]);</span><br><span class="line">                        else res.push_back(left[j]*right[k]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;           </span><br><span class="line">        &#125;</span><br><span class="line">        if(res.empty()) res.push_back(atoi(input.substr(l,r-l+1).c_str()));</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2770,7 +2772,7 @@ public:
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
