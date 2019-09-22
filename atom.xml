@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-20T15:01:27.158Z</updated>
+  <updated>2019-09-22T01:35:04.601Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>数据结构与算法——数组：为什么很多编程语言中数组都从0开始编号？</title>
-    <link href="http://yoursite.com/2019/09/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B01-7%E7%AB%A0%E8%8A%82/"/>
-    <id>http://yoursite.com/2019/09/19/数据结构与算法/算法笔记1-7章节/</id>
-    <published>2019-09-18T16:00:00.000Z</published>
-    <updated>2019-09-20T15:01:27.158Z</updated>
+    <title></title>
+    <link href="http://yoursite.com/2019/09/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/AlgorithmNotes/"/>
+    <id>http://yoursite.com/2019/09/22/数据结构与算法/AlgorithmNotes/</id>
+    <published>2019-09-22T01:38:27.403Z</published>
+    <updated>2019-09-22T01:35:04.601Z</updated>
     
     <summary type="html">
     
@@ -29,16 +29,12 @@
       
         
         
-          &lt;h1 id=&quot;算法笔记&quot;&gt;&lt;a href=&quot;#算法笔记&quot; class=&quot;headerlink&quot; title=&quot;算法笔记&quot;&gt;&lt;/a&gt;算法笔记&lt;/h1&gt;&lt;h2 id=&quot;第三章-入门篇（1）——入门模拟&quot;&gt;&lt;a href=&quot;#第三章-入门篇（1）——入门模拟&quot;
+          &lt;h1 id=&quot;AlgorithmNotes&quot;&gt;&lt;a href=&quot;#AlgorithmNotes&quot; class=&quot;headerlink&quot; title=&quot;AlgorithmNotes&quot;&gt;&lt;/a&gt;AlgorithmNotes&lt;/h1&gt;&lt;h2
         
       
     
     </summary>
     
-      <category term="Struct&amp;Alogorithms" scheme="http://yoursite.com/categories/Struct-Alogorithms/"/>
-    
-    
-      <category term="算法笔记" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
