@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="......" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="第八章 提高篇（2）——搜索专题8.1 深度优先搜索（DFS）DFS是一种枚举所有完整路径以遍历所有情况的搜索方法。 8.1.1. 0-1背包 123456789101112131415161718const int maxn = 30;int n, V, maxVal = 0;//物品件数n，背包容量V，最大价值maxValint w[maxn], c[maxn];//w[i]为每件物品的重量，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="......">
+<meta property="og:url" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/index.html">
+<meta property="og:site_name" content="......">
+<meta property="og:description" content="第八章 提高篇（2）——搜索专题8.1 深度优先搜索（DFS）DFS是一种枚举所有完整路径以遍历所有情况的搜索方法。 8.1.1. 0-1背包 123456789101112131415161718const int maxn = 30;int n, V, maxVal = 0;//物品件数n，背包容量V，最大价值maxValint w[maxn], c[maxn];//w[i]为每件物品的重量，">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/AlgorithmNotes/8.1背包.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/AlgorithmNotes/8.1最大平方和.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/AlgorithmNotes/8.2矩阵中块的个数.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/AlgorithmNotes/8.2ST最短步数.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/AlgorithmNotes/9.2PathOfEqualWeight.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/AlgorithmNotes/9.4二叉查找树的删除.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/AlgorithmNotes/9.4二叉查找树的删除.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/algorithmNotes/9.4判断二叉查找树.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/algorithmNotes/9.5AVL树.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/algorithmNotes/9.6并查集.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/algorithmNotes/9.6好朋友.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/algorithmNotes/9.6好朋友2.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/algorithmNotes/9.7堆.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/algorithmNotes/9.8哈夫曼树.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/algorithmNotes/9.8哈夫曼树2.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/algorithmNotes/9.8哈夫曼树3.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/algorithmNotes/9.8哈夫曼编码.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/algorithmNotes/9.8哈夫曼编码2.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/algorithmNotes/11.1树塔问题.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/algorithmNotes/11.1树塔问题2.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/algorithmNotes/11.1总结.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/algorithmNotes/11.2最大连续子序列和.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/algorithmNotes/11.3最长不下降子序列.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/algorithmNotes/11.4最长公共子序列.png">
+<meta property="og:updated_time" content="2019-09-22T10:37:23.823Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="......">
+<meta name="twitter:description" content="第八章 提高篇（2）——搜索专题8.1 深度优先搜索（DFS）DFS是一种枚举所有完整路径以遍历所有情况的搜索方法。 8.1.1. 0-1背包 123456789101112131415161718const int maxn = 30;int n, V, maxVal = 0;//物品件数n，背包容量V，最大价值maxValint w[maxn], c[maxn];//w[i]为每件物品的重量，">
+<meta name="twitter:image" content="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/AlgorithmNotes/8.1背包.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/">
+
+
+
+
+
+  <title> | ......</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">......</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每天都要开心哦 ^_^</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/21/数据结构与算法/算法笔记8-13章/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chris">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="......">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-21T11:15:41+08:00">
+                2019-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+		
+		  <span class="post-meta-divider">|</span>
+		  <span id="busuanzi_value_page_pv"></span>次阅读
+		
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="第八章-提高篇（2）——搜索专题"><a href="#第八章-提高篇（2）——搜索专题" class="headerlink" title="第八章 提高篇（2）——搜索专题"></a>第八章 提高篇（2）——搜索专题</h2><h3 id="8-1-深度优先搜索（DFS）"><a href="#8-1-深度优先搜索（DFS）" class="headerlink" title="8.1 深度优先搜索（DFS）"></a>8.1 深度优先搜索（DFS）</h3><p>DFS是一种枚举所有完整路径以遍历所有情况的搜索方法。</p>
+<h4 id="8-1-1-0-1背包"><a href="#8-1-1-0-1背包" class="headerlink" title="8.1.1. 0-1背包"></a>8.1.1. 0-1背包</h4><p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./AlgorithmNotes\8.1背包.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">const int maxn = 30;</span><br><span class="line">int n, V, maxVal = 0;//物品件数n，背包容量V，最大价值maxVal</span><br><span class="line">int w[maxn], c[maxn];//w[i]为每件物品的重量，c[i]为没见物品的价值</span><br><span class="line">void dfs(int index, int curW, int curC) &#123;</span><br><span class="line">	if (index == n) &#123; maxVal = max(maxVal, curC); return; &#125;</span><br><span class="line">	dfs(index + 1, curW, curC);//不装第index件物品</span><br><span class="line">	//这里使用到剪枝</span><br><span class="line">	if (curW + w[index] &lt;= V) dfs(index + 1, curW + w[index], curC + c[index]);</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; V;</span><br><span class="line">	for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">		cin &gt;&gt; w[i] &gt;&gt; c[i];</span><br><span class="line">	&#125;</span><br><span class="line">	dfs(0, 0, 0);</span><br><span class="line">	cout &lt;&lt; maxVal;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<font color="orangered">上面的问题给出了以累常见DFS问题的解法，即<strong>给定一个序列，枚举这个序列的所有子序列（可以不连续）。</strong>例如对{1，2，3}来说，它的所有子序列为{1}、{2}、{3}、{1，2}、{1，3}、{2，3}、{1，2，4}。枚举所有子序列的问题很明显——可以从中选择一个“最优”子序列，使它的某个特征是所有子序列中最优的；如果有需要，还可以把这个最有子序列保存下来。显然，这个问题也等价于<strong>枚举从N个整数中选择K个数的所有方案。</strong></font>
+
+<p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./AlgorithmNotes\8.1最大平方和.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">const int maxn=30;</span><br><span class="line">int n, k, x, maxSumSq = -1, A[maxn];//序列A中n个数选择k个使得其和为x，最大平方和为maxSumSq</span><br><span class="line">vector&lt;int&gt; tmp;//存储最终平方和最大的方案</span><br><span class="line">void dfs(int index, int nowK, int nowS, int nowSumSq,vector&lt;int&gt;&amp; ans) &#123;</span><br><span class="line">	if (nowK == k &amp;&amp; nowS == x) &#123;</span><br><span class="line">		if (nowSumSq &gt; maxSumSq) &#123;</span><br><span class="line">			maxSumSq = nowSumSq;</span><br><span class="line">			tmp = ans;</span><br><span class="line">		&#125;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	if (index == n || nowK &gt; k || nowS &gt; x) return;</span><br><span class="line"></span><br><span class="line">	ans.push_back(A[index]);</span><br><span class="line">	dfs(index + 1, nowK + 1, nowS + A[index], nowSumSq + A[index] * A[index],ans);</span><br><span class="line">	ans.pop_back();</span><br><span class="line">	dfs(index + 1, nowK, nowS, nowSumSq, ans);//不选择第index个数</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">	vector&lt;int&gt; ans;//存放最优子序列</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; k &gt;&gt; x;</span><br><span class="line">	for (int i = 0; i &lt; n; i++)</span><br><span class="line">		cin &gt;&gt; A[i];</span><br><span class="line">	dfs(0, 0, 0, 0,ans);</span><br><span class="line">	cout &lt;&lt; maxSumSq &lt;&lt; endl &lt;&lt; &quot;平方和最大子序列为：\n&quot;;</span><br><span class="line">	for (int i = 0; i &lt; tmp.size(); i++) &#123;</span><br><span class="line">		cout &lt;&lt; tmp[i] &lt;&lt; &quot; &quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="8-2-广度优先搜索（BFS）"><a href="#8-2-广度优先搜索（BFS）" class="headerlink" title="8.2 广度优先搜索（BFS）"></a>8.2 广度优先搜索（BFS）</h3><p>当碰到岔路口时，总是先依次访问从该岔路口能直接到达的所有结点，然后再按这些结点被访问的顺序去一次访问它们能直接到达的所有结点，以此类推，直到所有结点都被访问为止。</p>
+<p><strong>广度优先搜索一般由队列实现，且总时按层次的顺序进行遍历，其基本写法如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void bfs(int s)&#123;</span><br><span class="line">	queue&lt;int&gt; q;</span><br><span class="line">	q.push(s);</span><br><span class="line">	while(!q.empty())&#123;</span><br><span class="line">		取出队首元素top并将其出队;</span><br><span class="line">		访问队首元素top;</span><br><span class="line">		将top的下一层节点中未曾入队的结点全部入队，并设置为已入队;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="8-2-1-求给定矩阵中“块”的个数，类似岛屿数量、朋友圈"><a href="#8-2-1-求给定矩阵中“块”的个数，类似岛屿数量、朋友圈" class="headerlink" title="8.2.1 求给定矩阵中“块”的个数，类似岛屿数量、朋友圈"></a>8.2.1 求给定矩阵中“块”的个数，类似岛屿数量、朋友圈</h4><p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./AlgorithmNotes\8.2矩阵中块的个数.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">int XY[4][2] = &#123; &#123;0,-1&#125;,&#123;0,1&#125;,&#123;-1,0&#125;,&#123;1,0&#125; &#125;;//增量数组，坐标上下左右移动</span><br><span class="line">void dfs(int x,int y,vector&lt;vector&lt;int&gt;&gt; &amp;matrix, vector&lt;vector&lt;bool&gt;&gt; &amp;visited) &#123;</span><br><span class="line">	if (x&lt;0||x&gt;=matrix.size()||y&lt;0||y&gt;=matrix[0].size())&#123; return;&#125;</span><br><span class="line">	if (matrix[x][y] != 1 || visited[x][y]) return;</span><br><span class="line">	visited[x][y] = true;</span><br><span class="line">	for (int i = 0; i &lt; 4; i++)</span><br><span class="line">		dfs(x + XY[i][0], y + XY[i][1],matrix, visited);</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">	int n, m, res = 0;//矩阵大小n*m,res结果</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	vector&lt;vector&lt;int&gt;&gt; matrix(n, vector&lt;int&gt;(m, 0));//01矩阵</span><br><span class="line">	vector&lt;vector&lt;bool&gt;&gt; visited(n, vector&lt;bool&gt;(m, false));//记录位置(x,y)是否被访问过</span><br><span class="line">	for (int x = 0; x &lt; n; x++) &#123;</span><br><span class="line">		for (int y = 0; y &lt; m; y++)</span><br><span class="line">			cin &gt;&gt; matrix[x][y];</span><br><span class="line">	&#125;</span><br><span class="line">	for (int x = 0; x &lt; n; x++) &#123;</span><br><span class="line">		for (int y = 0; y &lt; m; y++) &#123;</span><br><span class="line">			if (matrix[x][y]==1&amp;&amp;!visited[x][y]) &#123;</span><br><span class="line">				dfs(x, y, matrix, visited);</span><br><span class="line">				res++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; res;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<font color="orangered">上述方法使用BFS思想并不是很明显（因为我使用了递归去做，其实也可以不使用递归，借助queue迭代去做，就像二叉树的层次遍历那样），主要体现在使用增量数组那里，没到一个符合要求的结点，都要先访问其上下左右结点！！！</font>
+
+<h4 id="8-2-2-求迷宫中从S到T的最短步数"><a href="#8-2-2-求迷宫中从S到T的最短步数" class="headerlink" title="8.2.2 求迷宫中从S到T的最短步数"></a>8.2.2 求迷宫中从S到T的最短步数</h4><p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./AlgorithmNotes\8.2ST最短步数.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">int XY[4][2] = &#123; &#123;0,-1&#125;,&#123;0,1&#125;,&#123;-1,0&#125;,&#123;1,0&#125; &#125;;//增量数组，坐标上下左右移动</span><br><span class="line">void dfs(int x, int y, int cur, int &amp;res, vector&lt;vector&lt;char&gt;&gt; &amp;maze, vector&lt;vector&lt;bool&gt;&gt; &amp;visited) &#123;</span><br><span class="line">	if (x &lt; 0 || x &gt;= maze.size() || y &lt; 0 || y &gt;= maze[0].size()) return; </span><br><span class="line">	if (maze[x][y] == &apos;*&apos;) return;</span><br><span class="line">	else if (maze[x][y] == &apos;T&apos;) &#123; res = min(cur, res); return; &#125;</span><br><span class="line">	else if(!visited[x][y])&#123;</span><br><span class="line">		visited[x][y] = true;</span><br><span class="line">		for (int i = 0; i &lt; 4; i++)</span><br><span class="line">			dfs(x + XY[i][0], y + XY[i][1], cur+1, res, maze, visited);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">	int n, m, res = INT_MAX;//矩阵大小n*m,res结果</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	vector&lt;vector&lt;char&gt;&gt; maze(n, vector&lt;char&gt;(m, 0));//01矩阵</span><br><span class="line">	vector&lt;vector&lt;bool&gt;&gt; visited(n, vector&lt;bool&gt;(m, false));</span><br><span class="line">	for (int x = 0; x &lt; n; x++) &#123;</span><br><span class="line">		for (int y = 0; y &lt; m; y++)</span><br><span class="line">			cin &gt;&gt; maze[x][y];</span><br><span class="line">	&#125;</span><br><span class="line">	for (int x = 0; x &lt; n; x++) &#123;</span><br><span class="line">		for (int y = 0; y &lt; m; y++) &#123;</span><br><span class="line">			if (maze[x][y] == &apos;S&apos;)</span><br><span class="line">				dfs(x, y, 0, res, maze, visited);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; res;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<font color="orangered">上面的两个例子总是可以使用枚举所有路径的方法来做，使用了回溯的思想！！！</font>
+
+<h2 id="第九章-提高篇（3）——数据结构专题（2）"><a href="#第九章-提高篇（3）——数据结构专题（2）" class="headerlink" title="第九章 提高篇（3）——数据结构专题（2）"></a>第九章 提高篇（3）——数据结构专题（2）</h2><h3 id="9-1-树与二叉树"><a href="#9-1-树与二叉树" class="headerlink" title="9.1 树与二叉树"></a>9.1 树与二叉树</h3><h4 id="9-1-1-树的定义与性质"><a href="#9-1-1-树的定义与性质" class="headerlink" title="9.1.1 树的定义与性质"></a>9.1.1 树的定义与性质</h4><ul>
+<li>树可以没有结点，这种情况下把树称为空树；</li>
+<li>树的层次(layer)从根节点开始算起，即根节点为第一层，根节点子树的根节点为第二层，以此类推；</li>
+<li>把节点的子树棵数称为结点的度(degree)，而树中结点最大的度称为树的度（也称树的宽度）；</li>
+<li>由于一条边连接两个结点，且树中不存在环，<strong>因此对有n个结点的树，边数一定是n-1。且满足连通、边数等于顶点数减1的结构一定是一棵树；</strong></li>
+<li>叶子节点被定义为度为0的结点，因此当树中只有一个结点（即只有根结点）时，根结点也算作叶子节点；</li>
+<li>结点的<strong>深度(depth)</strong>是指从根结点（深度为1）开始自顶向下逐层累加至该节点时的深度值；结点的<strong>高度(height)</strong>是指从最底层叶子节点（高度为1）开始自底向上逐层累加至该结点时的高度值。树的深度是指树中结点的最大深度，树的高度是指树中结点的最大高度。对树而言，深度和高度是相等的。</li>
+<li>多棵树组合在一起称为森林（forest），及森林是若干棵树的集合。</li>
+</ul>
+<h4 id="9-1-2-二叉树的递归定义："><a href="#9-1-2-二叉树的递归定义：" class="headerlink" title="9.1.2 二叉树的递归定义："></a>9.1.2 二叉树的递归定义：</h4><ul>
+<li>要么二叉树没有根节点，是一颗空树；</li>
+<li>要么二叉树是由根节点、左子树、右子树组成，且左子树和右子树都似乎二叉树。</li>
+</ul>
+<p>二叉树与度为2的树的区别：度为2的树只能说明树中每个结点的子节点个数不超过2.而二叉树虽然满足每个结点的子节点个数不超过2，但它的左右子树是严格区分的，不能随意交换左子树和右子树的位置！</p>
+<p>下面介绍两种特殊的二叉树：</p>
+<ul>
+<li><strong>满二叉树：</strong>每一层的节点个数都达到了当层能达到的最大结点数。</li>
+<li><strong>完全二叉树：</strong>除了最下面一层，其余层的结点个数都达到了当前层能达到的最大结点数，且最下面一层之从左至右连续存在若干结点，而这些连续结点右边的结点全部不存在。</li>
+</ul>
+<h4 id="9-1-3-二叉树的存储结构与基本操作"><a href="#9-1-3-二叉树的存储结构与基本操作" class="headerlink" title="9.1.3 二叉树的存储结构与基本操作"></a>9.1.3 二叉树的存储结构与基本操作</h4><ul>
+<li><strong>二叉树的存储结构、二叉树结点的查找、修改、插入、二叉树的创建</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">//二叉树结点的定义</span><br><span class="line">struct node &#123;</span><br><span class="line">	int data;</span><br><span class="line">	node* left,*right;</span><br><span class="line">	node(int v) :data(v) &#123; left = right = NULL; &#125;//构造函数</span><br><span class="line">&#125;;</span><br><span class="line">//查找（修改）：指给定数据域的条件下，在二叉树中找到所有数据域为给定数据域的结点，或将它们的数据呼吁修改为给行的数据域</span><br><span class="line">void search(node* root, int x, int newdata) &#123;</span><br><span class="line">	if (!root) return;//空树，递归边界</span><br><span class="line">	if (root-&gt;data == x)//找到数据域为x的结点，把它修改为newdata</span><br><span class="line">		root-&gt;data = newdata;</span><br><span class="line">	search(root-&gt;left, x, newdata);</span><br><span class="line">	search(root-&gt;right, x, newdata);</span><br><span class="line">&#125;</span><br><span class="line">//插入：在二叉树中插入一个数据域为x的新结点</span><br><span class="line">//注意根结点指针root要用引用，否则插入不会成功</span><br><span class="line">void insert(node* &amp;root, int x) &#123;</span><br><span class="line">	if (!root) &#123;//空树，说明查找失败，即插入位置</span><br><span class="line">		root = new node(x); return;</span><br><span class="line">	&#125;</span><br><span class="line">	if (由二叉树的性质，x应该插在左子树) &#123;</span><br><span class="line">		insert(root-&gt;left, x);</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">		insert(root-&gt;right, x);</span><br><span class="line">&#125;</span><br><span class="line">//二叉树的创建，根据数组来创建</span><br><span class="line">node* creat(vector&lt;int&gt; &amp;data) &#123;</span><br><span class="line">	node* root = NULL;</span><br><span class="line">	for (int i = 0; i &lt; data.size(); i++)</span><br><span class="line">		insert(root, data[i]);</span><br><span class="line">	return root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>完全二叉树的存储结构</strong></p>
+<p>对于完全二叉树来说，除了采用二叉链表的存储结构外，还可以用数组存储。<strong>对完全二叉树中的任何一个编号为x的结点，其左孩子的编号一定是2x，有孩子的编号一定是2x+1</strong>。</p>
+<p>完全二叉树可以通过创建一个大小为2^k的数组来存放所有节点的信息，其中k为完全二叉树的最大高度，且1号位存放的是根结点，这样可以用数组的下来表示结点编号，且左孩子和右孩子的编号可以直接计算得到。</p>
+<ul>
+<li><strong>该数组中存放的顺序恰好是该完全二叉树层序遍历序列</strong>；</li>
+<li><strong>判断某个结点是否为叶节点的标志为：该节点的左子节点的编号2*x大于节点总个数</strong></li>
+<li><strong>判断某个结点是否为空结点的标志：该节点下标大于节点总个数。</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="9-2-二叉树的遍历"><a href="#9-2-二叉树的遍历" class="headerlink" title="9.2 二叉树的遍历"></a>9.2 二叉树的遍历</h3><h4 id="9-2-1-前中后、层次遍历"><a href="#9-2-1-前中后、层次遍历" class="headerlink" title="9.2.1 前中后、层次遍历"></a>9.2.1 前中后、层次遍历</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">void preorder(node* root)&#123;</span><br><span class="line">	if(!root) return;</span><br><span class="line">	cout&lt;&lt;root-&gt;data&lt;&lt;endl;</span><br><span class="line">	preorder(root-&gt;left);</span><br><span class="line">	preorder(root-&gt;&gt;right);</span><br><span class="line">&#125;</span><br><span class="line">void inorder(node* root)&#123;</span><br><span class="line">	if(!root) return;</span><br><span class="line">	inorder(root-&gt;left);</span><br><span class="line">	cout&lt;&lt;root-&gt;data&lt;&lt;endl;</span><br><span class="line">	inorder(root-&gt;right);</span><br><span class="line">&#125;</span><br><span class="line">void postorder(node* root)&#123;</span><br><span class="line">	if(!root) return;</span><br><span class="line">	postorder(root-&gt;left);</span><br><span class="line">	postorder(root-&gt;right);</span><br><span class="line">	cout&lt;&lt;root-&gt;data&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line">void levelorder(node* root)&#123;</span><br><span class="line">	queue&lt;node*&gt; q&#123;root&#125;;</span><br><span class="line">	while(!q.empty())&#123;</span><br><span class="line">		node* now=q.top();q.pop();</span><br><span class="line">		cout&lt;&lt;now-&gt;data&lt;&lt;endl;</span><br><span class="line">		if(now.left) q.push(now-&gt;left);</span><br><span class="line">		if(now.right) q.push(now-&gt;right);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="9-2-2-给定一棵二叉树的先序和中序遍历序列，重建这颗二叉树"><a href="#9-2-2-给定一棵二叉树的先序和中序遍历序列，重建这颗二叉树" class="headerlink" title="9.2.2 给定一棵二叉树的先序和中序遍历序列，重建这颗二叉树"></a>9.2.2 给定一棵二叉树的先序和中序遍历序列，重建这颗二叉树</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">const int maxn = 50;</span><br><span class="line">struct node&#123;</span><br><span class="line">	int data;</span><br><span class="line">	node* left, *right;</span><br><span class="line">	node(int v) :data(v) &#123; left = right = NULL; &#125;</span><br><span class="line">&#125;;</span><br><span class="line">int pre[maxn], in[maxn], post[maxn];</span><br><span class="line">int n;//结点个数</span><br><span class="line">//根左右：当前先序序列区间为[preL,preR],左根右：中序序列区间为[inL,inR],返回根结点地址</span><br><span class="line">node* creat(int preL, int preR, int inL, int inR) &#123;</span><br><span class="line">	if (preL &gt; preR) return NULL;//先序序列长度小于0时，直接返回</span><br><span class="line">	node *root = new node(pre[preL]);//新建一个新结点，用来存放当前二叉树的根结点</span><br><span class="line">	int k;</span><br><span class="line">	for (k = inL; k &lt;= inR; k++) &#123;//找到当前根结点在中序遍历序列中的位置</span><br><span class="line">		if (in[k] == pre[preL]) break;</span><br><span class="line">	&#125;</span><br><span class="line">	int numleft = k - inL;//左子树的结点个数</span><br><span class="line">	root-&gt;left = creat(preL + 1, preL + numleft, inL, k - 1);</span><br><span class="line">	root-&gt;right = creat(preL + numleft + 1,preR, k + 1, inR);</span><br><span class="line">	return root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="9-2-3-从树的遍历看DFS和BFS"><a href="#9-2-3-从树的遍历看DFS和BFS" class="headerlink" title="9.2.3 从树的遍历看DFS和BFS"></a>9.2.3 从树的遍历看DFS和BFS</h4><ul>
+<li><p>深度优先搜索与先序遍历</p>
+<blockquote>
+<p>对所有合法的DFS求解过程，都可以把它画成树的形式，此时死胡同等价于树中的叶子节点，而岔道口等价于树中的非叶子节点，并且对这棵树的DFS遍历过程就是树的先根遍历的过程。</p>
+</blockquote>
+</li>
+<li><p>广度优先搜索与层序遍历</p>
+<blockquote>
+<p>对所有合法的BFS求解过程，都可以像DFS中那样画出一棵树，并且将广度优先搜索问题转换为树的层序遍历的问题。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="9-2-4-Path-of-Equal-Weight"><a href="#9-2-4-Path-of-Equal-Weight" class="headerlink" title="9.2.4 Path of Equal Weight"></a>9.2.4 Path of Equal Weight</h4><p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./AlgorithmNotes\9.2PathOfEqualWeight.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">const int maxn = 110;</span><br><span class="line">struct node &#123;</span><br><span class="line">	int weight;//数据域</span><br><span class="line">	vector&lt;int&gt; child;//指针域,存放的是子节点所在Node数组中的位置（下标）</span><br><span class="line">&#125;Node[maxn];//结点数组</span><br><span class="line">bool cmp(int a, int b) &#123;</span><br><span class="line">	return Node[a].weight &gt; Node[b].weight;//按结点数据域从大到小</span><br><span class="line">&#125;</span><br><span class="line">int n, m, S;//结点数、边数、给定的和</span><br><span class="line">int path[maxn];//记录路径</span><br><span class="line">void DFS(int index, int numNode, int sum) &#123;</span><br><span class="line">	if (sum &gt; S) return;//当前和sum超过S，直接返回</span><br><span class="line">	if (sum == S) &#123;		//当前和sum等于S</span><br><span class="line">		if (Node[index].child.size() != 0) return;//还没到叶子结点，直接返回</span><br><span class="line">		//到达叶子节点，此时path[]中存放了一条完整的路径，输出它</span><br><span class="line">		for (int i = 0; i &lt; numNode; i++) &#123;</span><br><span class="line">			cout &lt;&lt; Node[path[i]].weight;</span><br><span class="line">			if (i &lt; numNode - 1) cout &lt;&lt; &quot; &quot;;</span><br><span class="line">			else cout &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	for (int i = 0; i &lt; Node[index].child.size(); i++) &#123;//枚举所以子节点</span><br><span class="line">		int child = Node[index].child[i];//结点index的第i的子节点编号</span><br><span class="line">		path[numNode] = child;//将结点child加到路径path末尾</span><br><span class="line">		DFS(child, numNode + 1, sum + Node[child].weight);//递归进入下一层</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; m &gt;&gt; S;</span><br><span class="line">	for (int i = 0; i &lt; n; i++)</span><br><span class="line">		cin &gt;&gt; Node[i].weight;</span><br><span class="line">	int id, k, child;</span><br><span class="line">	for (int i = 0; i &lt; m; i++) &#123;</span><br><span class="line">		cin &gt;&gt; id &gt;&gt; k;//结点编号、孩子个数</span><br><span class="line">		for (int j = 0; j &lt; k; j++) &#123;</span><br><span class="line">			cin &gt;&gt; child;</span><br><span class="line">			Node[id].child.push_back(child);//读进来的k个结点都是id的子节点</span><br><span class="line">		&#125;</span><br><span class="line">		sort(Node[id].child.begin(), Node[id].child.end(), cmp);</span><br><span class="line">	&#125;</span><br><span class="line">	path[0] = 0;//路径的第一个结点设置为0号结点</span><br><span class="line">	DFS(0, 1, Node[0].weight);//DFS求解</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<font color="orangered">上述代码用到静态树的写法，好难啊啊啊啊！！！</font>
+
+<h3 id="9-4-二叉查找树（BST）"><a href="#9-4-二叉查找树（BST）" class="headerlink" title="9.4 二叉查找树（BST）"></a>9.4 二叉查找树（BST）</h3><h4 id="9-4-1-二叉查找树的定义"><a href="#9-4-1-二叉查找树的定义" class="headerlink" title="9.4.1 二叉查找树的定义"></a>9.4.1 二叉查找树的定义</h4><p>BST是一种特殊的二叉树，又称排序二叉树、二叉搜索树、二叉排序树。其定义如下：</p>
+<ul>
+<li>要么二叉查找树是一棵空树；</li>
+<li>要么二叉查找树由根结点、左子树、右子树组成，其中左子树和右子树都是二叉查找树，且左子树上所有结点的额数据域均小于或等于根结点的数据域，右子树桑所有结点的数据域均大于根结点的数据域。</li>
+</ul>
+<h4 id="9-4-2-二叉查找树的基本操作"><a href="#9-4-2-二叉查找树的基本操作" class="headerlink" title="9.4.2 二叉查找树的基本操作"></a>9.4.2 二叉查找树的基本操作</h4><ul>
+<li><p>查找、插入、二叉查找树的创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">struct node &#123;</span><br><span class="line">	int data;</span><br><span class="line">	node* left, *right;</span><br><span class="line">	node(int v=-1) :data(v) &#123; left = right = NULL; &#125;</span><br><span class="line">&#125;;</span><br><span class="line">//search函数查找BST中数据域为x的结点</span><br><span class="line">void search(node* root, int x) &#123;</span><br><span class="line">	if (!root) &#123; cout &lt;&lt; &quot;search failed\n&quot;; return; &#125;</span><br><span class="line">	if (x == root-&gt;data) cout &lt;&lt; root-&gt;data;</span><br><span class="line">	else if (x &lt; root-&gt;data) search(root-&gt;left, x);</span><br><span class="line">	else search(root-&gt;right, x);</span><br><span class="line">&#125;</span><br><span class="line">//search函数将在BST中插入一个数据域为x的新节点（注意参数root要加引用&amp;），</span><br><span class="line">//当然如果不知道引用的做法，可以使用非递归的用法进行插入</span><br><span class="line">void insert(node* &amp;root, int x) &#123;</span><br><span class="line">	if (!root) &#123;//空树，查找失败，也即插入位置</span><br><span class="line">		root = new node(x); return;</span><br><span class="line">	&#125;</span><br><span class="line">	/*if (x == root-&gt;data) &#123;//查找成功，说明节点已存在，直接返回</span><br><span class="line">		return;//为了能够叉树重符的数字，将该句注释</span><br><span class="line">	&#125;</span><br><span class="line">	else*/ if (x &lt; root-&gt;data) &#123;//如果x比根结点小，说明x需要插在左子树</span><br><span class="line">		insert(root-&gt;left, x);</span><br><span class="line">	&#125;</span><br><span class="line">	else//如果x比根结点大或者相等的情况，说明x需要插在右子树</span><br><span class="line">		insert(root-&gt;right, x);</span><br><span class="line">&#125;</span><br><span class="line">//二叉树的建立</span><br><span class="line">/*注意：即便是一组相同的数字，如果插入它们的顺序不同，最后生成的二叉查找树也可能不同*/</span><br><span class="line">node* creat(vector&lt;int&gt;&amp; data) &#123;</span><br><span class="line">	node* root = NULL;//创建根结点root</span><br><span class="line">	for (int i = 0; i &lt; data.size(); i++)</span><br><span class="line">		insert(root, data[i]);//将data中的数据依次插入二叉查找树中</span><br><span class="line">	return root;//返回根节点</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>二叉查找树的删除</p>
+<p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./AlgorithmNotes\9.4二叉查找树的删除.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//寻找以root为根结点的树中的最大权值结点,找前驱</span><br><span class="line">node* findMax(node* root) &#123;</span><br><span class="line">	while (root-&gt;right)</span><br><span class="line">		root = root-&gt;right;//不断往右，直到没有右孩子</span><br><span class="line">	return root;</span><br><span class="line">&#125;</span><br><span class="line">//寻找以root为根结点的树中的最小权值结点，找后继</span><br><span class="line">node* findMin(node* root) &#123;</span><br><span class="line">	while (root-&gt;left)</span><br><span class="line">		root = root-&gt;left;//不断往左，直到没有左孩子</span><br><span class="line">	return root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>假设决定用结点N的前驱(后继)P来替换N，于是就把问题转换为在N的左子树(右子树)中删除结点P，就可以一直递归下去，直到递归到一个叶子节点，就可以直接把它删除了。</strong></p>
+<p>删除操作的基本思路如下：</p>
+<p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./AlgorithmNotes\9.4二叉查找树的删除.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//删除以root为根结点的树中权值为x的结点</span><br><span class="line">void deleteNode(node* root, int x) &#123;</span><br><span class="line">	if (!root) return;//不存在权值为x的结点</span><br><span class="line">	if (root-&gt;data == x) &#123;//找到欲删除结点</span><br><span class="line">		if (!root-&gt;left &amp;&amp; !root-&gt;right) &#123;//叶子节点直接删除</span><br><span class="line">			root = NULL;//把root地址设为NULL，父节点就找不到它了</span><br><span class="line">		&#125;</span><br><span class="line">		else if (root-&gt;left) &#123;//左子树不为空</span><br><span class="line">			node* pre = findMax(root);//找root前驱</span><br><span class="line">			root-&gt;data = pre-&gt;data;//用前驱覆盖root</span><br><span class="line">			deleteNode(root-&gt;left, pre-&gt;data);//在左子树中删除结点pre</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;//右子树不为空时</span><br><span class="line">			node* next = findMin(root);//找root后继</span><br><span class="line">			root-&gt;data = next-&gt;data;//用后继覆盖root</span><br><span class="line">			deleteNode(root-&gt;right, next-&gt;data);//在右子树中删除结点next</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	else if (root-&gt;data &gt; x)</span><br><span class="line">		deleteNode(root-&gt;left, x);//在左子树中删除x</span><br><span class="line">	else</span><br><span class="line">		deleteNode(root-&gt;right, x);//在右子树中删除x</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<font color="orangered">注意：总时优先删除前驱或者后继容易导致树的左右子树高度极度不平衡，使得二叉查找树退化成一条链表。解决这一问题的办法有两种：一种是每次交替删除前驱或后继，另一种是记录字数高度，总是优先在高度较高的一棵子树里删除节点。</font>
+
+</li>
+</ul>
+<h4 id="9-4-3-二叉查找树的性质——左子树-lt-根结点-lt-右子树"><a href="#9-4-3-二叉查找树的性质——左子树-lt-根结点-lt-右子树" class="headerlink" title="9.4.3 二叉查找树的性质——左子树&lt;根结点&lt;右子树"></a>9.4.3 二叉查找树的性质——左子树&lt;根结点&lt;右子树</h4><p>BST一个实用的性质：<strong>对二叉查找树进行中序遍历，遍历的结果是有序的。</strong></p>
+<p>如果合理调整二叉查找树的形态，使得树上的每个结点都尽量有两个子节点，这样整个二叉查找树的高度就会很低，即树的最大高度大概在log(N)的级别，其中N是节点个数，能实现这个要求的一种树是平衡二叉树(AVL)。</p>
+<h4 id="Is-it-a-Binary-Search-Tree"><a href="#Is-it-a-Binary-Search-Tree" class="headerlink" title="Is it a Binary Search Tree"></a>Is it a Binary Search Tree</h4><p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./algorithmNotes\9.4判断二叉查找树.png" alt></p>
+<blockquote>
+<p>通过给定的插入序列，构建出二叉查找树。对镜像树的先序遍历只需要在原树的先序遍历时交换左右子树的访问顺序即可。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">//search函数将在BST中插入一个数据域为x的新节点（注意参数root要加引用&amp;），</span><br><span class="line">//当然如果不知道引用的做法，可以使用非递归的用法进行插入</span><br><span class="line">void insert(node* &amp;root, int x) &#123;</span><br><span class="line">	if (!root) &#123;//空树，查找失败，也即插入位置</span><br><span class="line">		root = new node(x); return;</span><br><span class="line">	&#125;</span><br><span class="line">	/*if (x == root-&gt;data) &#123;//查找成功，说明节点已存在，直接返回</span><br><span class="line">		return;//为了能够叉树重符的数字，将该句注释</span><br><span class="line">	&#125;</span><br><span class="line">	else*/ if (x &lt; root-&gt;data) &#123;//如果x比根结点小，说明x需要插在左子树</span><br><span class="line">		insert(root-&gt;left, x);</span><br><span class="line">	&#125;</span><br><span class="line">	else//如果x比根结点大或者相等的情况，说明x需要插在右子树</span><br><span class="line">		insert(root-&gt;right, x);</span><br><span class="line">&#125;</span><br><span class="line">//先序遍历，结果存于vi</span><br><span class="line">void preOrder(node* root, vector&lt;int&gt;&amp; vi) &#123;</span><br><span class="line">	if (!root) return;</span><br><span class="line">	vi.push_back(root-&gt;data);</span><br><span class="line">	preOrder(root-&gt;left, vi);</span><br><span class="line">	preOrder(root-&gt;right, vi);</span><br><span class="line">&#125;</span><br><span class="line">//镜像树先序遍历，结果存于vi</span><br><span class="line">void preOrderMirror(node* root, vector&lt;int&gt;&amp; vi) &#123;</span><br><span class="line">	if (!root) return;</span><br><span class="line">	vi.push_back(root-&gt;data);</span><br><span class="line">	preOrderMirror(root-&gt;right, vi);</span><br><span class="line">	preOrderMirror(root-&gt;left, vi);</span><br><span class="line">&#125;</span><br><span class="line">//后序遍历，结果存于vi</span><br><span class="line">void postOrder(node* root, vector&lt;int&gt;&amp; vi) &#123;</span><br><span class="line">	if (!root) return;</span><br><span class="line">	postOrder(root-&gt;left, vi);</span><br><span class="line">	postOrder(root-&gt;right, vi);</span><br><span class="line">	vi.push_back(root-&gt;data);</span><br><span class="line">&#125;</span><br><span class="line">//镜像树后序遍历，结果存于vi</span><br><span class="line">void postOrderMirror(node* root, vector&lt;int&gt;&amp; vi) &#123;</span><br><span class="line">	if (!root) return;</span><br><span class="line">	postOrderMirror(root-&gt;right, vi);</span><br><span class="line">	postOrderMirror(root-&gt;left, vi);</span><br><span class="line">	vi.push_back(root-&gt;data);</span><br><span class="line">&#125;</span><br><span class="line">//origin存放初始序列；pre、post为先序后序；preM、postM为镜像树的先序后序</span><br><span class="line">vector&lt;int&gt; origin, pre, preM, post, postM;</span><br><span class="line">int main() &#123;</span><br><span class="line">	int n, data;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	node* root = NULL;</span><br><span class="line">	for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">		cin &gt;&gt; data;</span><br><span class="line">		origin.push_back(data);</span><br><span class="line">		insert(root, data);</span><br><span class="line">	&#125;</span><br><span class="line">	preOrder(root, pre);</span><br><span class="line">	preOrderMirror(root, preM);</span><br><span class="line">	postOrder(root, post);</span><br><span class="line">	postOrderMirror(root, postM);</span><br><span class="line">	if (origin == pre) &#123;</span><br><span class="line">		cout &lt;&lt; &quot;YES\n&quot;;</span><br><span class="line">		for (int i = 0; i &lt; post.size(); i++) &#123;</span><br><span class="line">			cout &lt;&lt; post[i];</span><br><span class="line">			if (i &lt; post.size() - 1) cout &lt;&lt; &quot; &quot;;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	else if (origin == preM) &#123;</span><br><span class="line">		cout &lt;&lt; &quot;YES\n&quot;;</span><br><span class="line">		for (int i = 0; i &lt; postM.size(); i++) &#123;</span><br><span class="line">			cout &lt;&lt; postM[i];</span><br><span class="line">			if (i &lt; postM.size() - 1) cout &lt;&lt; &quot; &quot;;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	else &#123;</span><br><span class="line">		cout &lt;&lt; &quot;NO\n&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="9-5-平衡二叉树（AVL树）"><a href="#9-5-平衡二叉树（AVL树）" class="headerlink" title="9.5 平衡二叉树（AVL树）"></a>9.5 平衡二叉树（AVL树）</h3><h4 id="9-5-1-平衡二叉树的定义"><a href="#9-5-1-平衡二叉树的定义" class="headerlink" title="9.5.1 平衡二叉树的定义"></a>9.5.1 平衡二叉树的定义</h4><p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./algorithmNotes\9.5AVL树.png" alt></p>
+<ul>
+<li>由于需要对每个结点都得到平衡因子，因此需要在树的结构中加入一个变量height，用来记录以当前给根结点的子树的高度</li>
+<li>通过getHeight函数获取结点root所在子树的当前高度</li>
+<li>需要借助子树的高度间接求得该结点的平衡因子</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">struct node &#123;</span><br><span class="line">	int v, height;//v为当前结点权值，height为当前子树高度</span><br><span class="line">	node* left, *right;//左右子孩子地址</span><br><span class="line">	//生成一个新节点，节点高度初始化为1</span><br><span class="line">	node(int val = -1) :v(val), height(1) &#123; left = right = NULL; &#125;</span><br><span class="line">&#125;;</span><br><span class="line">//获取以root为根结点的子树的当前height</span><br><span class="line">int getHeight(node* root) &#123;</span><br><span class="line">	if (!root) return 0;//空结点高度为0</span><br><span class="line">	return root-&gt;height;</span><br><span class="line">&#125;</span><br><span class="line">//计算结点root的平衡因子</span><br><span class="line">int getBalanceFactor(node* root) &#123;</span><br><span class="line">	//左子树高度减右子树高度</span><br><span class="line">	return getHeight(root-&gt;left) - getHeight(root-&gt;right);</span><br><span class="line">&#125;</span><br><span class="line">//更新root的height</span><br><span class="line">void updateHeight(node* root) &#123;</span><br><span class="line">	//max(左孩子的height，右孩子的height)+1</span><br><span class="line">	root-&gt;height = max(getHeight(root-&gt;left), getHeight(root-&gt;right)) + 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="9-5-2-平衡二叉树的基本操作"><a href="#9-5-2-平衡二叉树的基本操作" class="headerlink" title="9.5.2 平衡二叉树的基本操作"></a>9.5.2 平衡二叉树的基本操作</h4><p>和二叉查找树相同，AVL树的基本操作有查找、插入、建树及删除，由于删除操作较为复杂，因此主要介绍AVL树的查找、插入和建立。</p>
+<p>暂空~</p>
+<h3 id="9-6-并查集"><a href="#9-6-并查集" class="headerlink" title="9.6 并查集"></a>9.6 并查集</h3><h4 id="9-6-1-并查集的定义"><a href="#9-6-1-并查集的定义" class="headerlink" title="9.6.1 并查集的定义"></a>9.6.1 并查集的定义</h4><p>​    并查集是一种维护集合的数据结构，它的名字中“并”“查”“集”分别取自Union（合并）、Find（查找）、Set（集合）这三个单词。也就是说，并查集支持下面两个操作：</p>
+<ul>
+<li>合并：合并两个集合；</li>
+<li>查找：判断两个元素是否在一个集合。</li>
+</ul>
+<p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./algorithmNotes\9.6并查集.png" alt></p>
+<h4 id="9-5-2-并查集的基本操作"><a href="#9-5-2-并查集的基本操作" class="headerlink" title="9.5.2 并查集的基本操作"></a>9.5.2 并查集的基本操作</h4><ol>
+<li><p>初始化：一开始，每个元素都是独立的一个集合，因此许哟啊令所有father[i]等于i：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(int i=1;i&lt;=N;i++)&#123;</span><br><span class="line">	father[i]=i;//lingfather[i]=-1也可以，此处以father[i]=i为例</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查找：由于规定同一个集合只存在一个根结点，因此查找操作就是对给定的结点寻找其根结点的过程。实现的方式可以是递推或是递归，即反复循环早父亲结点，直到找到根结点（即father[i]=i的结点）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//findFather函数返回元素x所在集合的根结点</span><br><span class="line">int findFather(int x)&#123;//递推实现</span><br><span class="line">	while(x!=father[x])&#123;//如果不是根结点，继续循环</span><br><span class="line">		x=father[x];</span><br><span class="line">	&#125;</span><br><span class="line">	return x;</span><br><span class="line">&#125;</span><br><span class="line">int findFather(int x)&#123;//递归实现</span><br><span class="line">	if(x==father[x]) return x;</span><br><span class="line">	else return findFather(father[x]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>合并：指把两个集合合并成一个集合，题目中一般给出两个元素，要求把这两个元素所在的集合合并。具体实现一般实现判断两个元素是否属于同一个集合，只有当两个元素属于不同的集合时才合并，而合并的过程一般是把其中一个几何的根结点的父亲指向另一个集合的根结点。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void Union(int a,int b)&#123;</span><br><span class="line">	int faA=findFather(a);//查找a的根结点</span><br><span class="line">	int faB=findFather(b);//查找b的根结点</span><br><span class="line">	if(faA!=faB)//如果不属于同一个集合</span><br><span class="line">		father[faA]=faB;//合并它们</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<font color="orangered">最后说明并查集的一个性质：在合并的过程中，只对两个不同的集合进行合并，如果哦两个元素在相同的集合中，那么就不会对它们进行操作。这就保证了在同一个集合中一定不会产生环！即<strong>并查集产生的每一个集合都是一棵树。</strong></font>
+
+<h4 id="8-6-3-路径压缩"><a href="#8-6-3-路径压缩" class="headerlink" title="8.6.3 路径压缩"></a>8.6.3 路径压缩</h4><p>相当于把当前查询结点的路径上的所有结点的父亲都指向根结点，查找的时候就不需要一直回溯去找父亲了，查询的复杂度可以将为O(1)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const int maxn = 110;</span><br><span class="line">int father[maxn];</span><br><span class="line">int findFather(int x) &#123;</span><br><span class="line">	//由于x在下面的while循环中会变成根结点，因此先把原先的x保存一下</span><br><span class="line">	int a = x;</span><br><span class="line">	while (x != father[x])//寻找根结点</span><br><span class="line">		x = father[x];</span><br><span class="line">	//到这里，x存放的是根结点。下面把路径上的所有结点的father都改成根结点</span><br><span class="line">	while (a != father[a]) &#123;</span><br><span class="line">		int z = a;//因为等下a要更新，所以先保存a的值，以修改father[a]</span><br><span class="line">		a = father[a];//回溯父亲节点</span><br><span class="line">		father[a] = x;//将原先的结点a的父亲改为根结点x</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="好朋友"><a href="#好朋友" class="headerlink" title="好朋友"></a>好朋友</h4><p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./algorithmNotes\9.6好朋友.png" alt></p>
+<p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./algorithmNotes\9.6好朋友2.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">const int maxn = 110;</span><br><span class="line">int father[maxn];//存放父亲结点</span><br><span class="line">bool isRoot[maxn];</span><br><span class="line">int findFather(int x) &#123;</span><br><span class="line">	//由于x在下面的while循环中会变成根结点，因此先把原先的x保存一下</span><br><span class="line">	int a = x;</span><br><span class="line">	while (x != father[x])//寻找根结点</span><br><span class="line">		x = father[x];</span><br><span class="line">	//到这里，x存放的是根结点。下面把路径上的所有结点的father都改成根结点</span><br><span class="line">	while (a != father[a]) &#123;</span><br><span class="line">		int z = a;//因为等下a要更新，所以先保存a的值，以修改father[a]</span><br><span class="line">		a = father[a];//回溯父亲节点</span><br><span class="line">		father[a] = x;//将原先的结点a的父亲改为根结点x</span><br><span class="line">	&#125;</span><br><span class="line">	return x;</span><br><span class="line">&#125;</span><br><span class="line">void Union(int a, int b) &#123;</span><br><span class="line">	int faA = findFather(a);//查找a的根结点</span><br><span class="line">	int faB = findFather(b);//查找b的根结点</span><br><span class="line">	if (faA != faB)//如果不属于同一个集合</span><br><span class="line">		father[faA] = faB;//合并它们</span><br><span class="line">&#125;</span><br><span class="line">void init(int n) &#123;//初始化father[i]为i，且isRoot[i]为false</span><br><span class="line">	for (int i = 1; i &lt;= n; i++) &#123;</span><br><span class="line">		father[i] = i;</span><br><span class="line">		isRoot[i] = false;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">	int n, m, a, b;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	init(n);</span><br><span class="line">	for (int i = 0; i &lt; m; i++) &#123;</span><br><span class="line">		cin &gt;&gt; a &gt;&gt; b;//输入两个好朋友的关系</span><br><span class="line">		Union(a, b);//合并a和b所在的集合</span><br><span class="line">	&#125;</span><br><span class="line">	for (int i = 1; i &lt;= n; i++)</span><br><span class="line">		isRoot[findFather(i)] = true;</span><br><span class="line">	int res = 0;</span><br><span class="line">	for (int i = 1; i &lt;= n; i++)</span><br><span class="line">		res += isRoot[i];</span><br><span class="line">	cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="9-7-堆"><a href="#9-7-堆" class="headerlink" title="9.7 堆"></a>9.7 堆</h3><h4 id="9-7-1-堆的定义与基本操作"><a href="#9-7-1-堆的定义与基本操作" class="headerlink" title="9.7.1 堆的定义与基本操作"></a>9.7.1 堆的定义与基本操作</h4><p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./algorithmNotes\9.7堆.png" alt></p>
+<p>对于完全二叉树来说，比较简洁的方法是使用数组来存储。这样结点就按层序存储于数组中，其中第一个节点将存储于数组中的1号位，并且数组i号位表示的结点的左孩子就是2i号位，右孩子则是2i+1号位。</p>
+<p>建堆的过程：假设序列中元素的个数为n，由于完全二叉树的叶子结点个数为n/2（向上取整），因此数组下标在[1,n/2(向下取整)]范围内的结点都是非叶子节点，于是可以从n/2(向下取整)号位开始倒着枚举结点，对每个遍历到的结点i进行[i,n]范围的调整。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">const int maxn = 110;</span><br><span class="line">//heap为堆，n为元素个数</span><br><span class="line">int heap[maxn], n = 10;</span><br><span class="line">//heap数组在[low,high]范围内进行向下调整 </span><br><span class="line">//其中low为欲调整结点的数组下标，high一般为堆的最后一个元素的数组下标</span><br><span class="line">void downAdjust(int low, int high) &#123;</span><br><span class="line">	int i = low, j = 2 * i;//i为欲调整结点，j为其左孩子</span><br><span class="line">	while (j &lt; high) &#123;//存在孩子结点</span><br><span class="line">		if (j + 1 &lt; high&amp;&amp;heap[j + 1] &gt; heap[j]) &#123;</span><br><span class="line">			j = j + 1;//让j存储右孩子下标</span><br><span class="line">		&#125;</span><br><span class="line">		//如果孩子中最大的权值比欲调整结点i大</span><br><span class="line">		if (heap[j] &gt; heap[i]) &#123;</span><br><span class="line">			swap(heap[i], heap[j]);//交换最大权值的孩子与欲调整节点i</span><br><span class="line">			i = j + 1;//保持i为欲调整结点，j为i的左孩子</span><br><span class="line">			j = 2 * i;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">			break;//孩子的权值比欲调整节点i小，调整结束</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//建堆</span><br><span class="line">void creatHeap() &#123;</span><br><span class="line">	for (int i = n / 2; i &gt;= 1; i--)</span><br><span class="line">		downAdjust(i, n);</span><br><span class="line">&#125;</span><br><span class="line">//删除堆顶元素</span><br><span class="line">void deleteTop() &#123;</span><br><span class="line">	heap[1] = heap[n--];//用最后一个元素覆盖堆顶元素，并让元素个数减1</span><br><span class="line">	downAdjust(1, n);//向下调整堆顶元素</span><br><span class="line">&#125;</span><br><span class="line">//对heap数组在[low,high]范围内进行向上调整</span><br><span class="line">//其中low一般设置为1，high表示欲调整结点的数组下标</span><br><span class="line">void upAdjust(int low,int high) &#123;</span><br><span class="line">	int i = high, j = high / 2;//i为欲调整节点，j为其父节点</span><br><span class="line">	while (j &gt;= low) &#123;//父节点在[low,high]范围内</span><br><span class="line">		//父亲节点小于欲调整节点i的权值</span><br><span class="line">		if (heap[i] &gt; heap[j]) &#123;</span><br><span class="line">			swap(heap[i], heap[j]);//交换父节点和欲调整节点</span><br><span class="line">			i = j;</span><br><span class="line">			j = i / 2;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">			break;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//添加元素</span><br><span class="line">void add(int x) &#123;</span><br><span class="line">	heap[n++] = x;//让元素个数加1，然后将数组末位赋值为x</span><br><span class="line">	upAdjust(1, n);//向上调整新加入的结点n</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="9-7-2-堆排序"><a href="#9-7-2-堆排序" class="headerlink" title="9.7.2 堆排序"></a>9.7.2 堆排序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//堆排序</span><br><span class="line">void heapSort() &#123;</span><br><span class="line">	creatHeap();//建堆</span><br><span class="line">	for (int i = n; i &gt; 1; i--) &#123;//倒着枚举，直到堆中只有一个元素</span><br><span class="line">		swap(heap[1], heap[n]);//交换heap[i]和堆顶</span><br><span class="line">		downAdjust(1, i - 1);//调整堆顶</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="9-8-哈夫曼树"><a href="#9-8-哈夫曼树" class="headerlink" title="9.8 哈夫曼树"></a>9.8 哈夫曼树</h3><p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./algorithmNotes\9.8哈夫曼树.png" alt></p>
+<p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./algorithmNotes\9.8哈夫曼树2.png" alt></p>
+<p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./algorithmNotes\9.8哈夫曼树3.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">typedef long long ll;</span><br><span class="line">priority_queue&lt;ll, vector&lt;ll&gt;, greater&lt;ll&gt;&gt; q;</span><br><span class="line">int main() &#123;</span><br><span class="line">	int n;</span><br><span class="line">	ll tmp, x, y, res = 0;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">		cin &gt;&gt; tmp;</span><br><span class="line">		q.push(tmp);//将初始重量压入优先队列</span><br><span class="line">	&#125;</span><br><span class="line">	while (!q.empty()) &#123;//只要优先队列中至少有两个元素</span><br><span class="line">		x = q.top(); q.pop();</span><br><span class="line">		y = q.top(); q.pop();</span><br><span class="line">		res += x + y;//累计求和</span><br><span class="line">		q.push(x + y);//取出堆顶的两个元素，求和后压入优先队列</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="9-8-2-哈夫曼编码"><a href="#9-8-2-哈夫曼编码" class="headerlink" title="9.8.2 哈夫曼编码"></a>9.8.2 哈夫曼编码</h4><p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./algorithmNotes\9.8哈夫曼编码.png" alt></p>
+<p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./algorithmNotes\9.8哈夫曼编码2.png" alt></p>
+<h2 id="第十章-提高篇（4）——图算法专题（空）"><a href="#第十章-提高篇（4）——图算法专题（空）" class="headerlink" title="第十章 提高篇（4）——图算法专题（空）"></a>第十章 提高篇（4）——图算法专题（空）</h2><h2 id="第十一章-提高篇（5）——动态规划专题"><a href="#第十一章-提高篇（5）——动态规划专题" class="headerlink" title="第十一章 提高篇（5）——动态规划专题"></a>第十一章 提高篇（5）——动态规划专题</h2><h3 id="11-1-动态规划的递归写法和地推写法"><a href="#11-1-动态规划的递归写法和地推写法" class="headerlink" title="11.1 动态规划的递归写法和地推写法"></a>11.1 动态规划的递归写法和地推写法</h3><h4 id="11-1-1-什么是动态规划？"><a href="#11-1-1-什么是动态规划？" class="headerlink" title="11.1.1 什么是动态规划？"></a>11.1.1 什么是动态规划？</h4><p>​    动态规划（DP）是一种用来解决一类<strong>最优化问题</strong>的算法思想。简单来说，将一个复杂的问题分解成若干个子问题，通过综合子问题的最优解来得到原问题的最优解。需要注意的是，动态规划会将每个求解过的子问题的解记录下来，这样当下一次碰到同样的子问题时，就可以直接使用之前记录的结果，而不是重复计算。</p>
+<p>​    一般可以使用递归或者递推的写法来实现动态规划，其中递归写法在此处又称作<strong>记忆化搜索</strong>。</p>
+<h4 id="11-1-2-动态规划的递归写法"><a href="#11-1-2-动态规划的递归写法" class="headerlink" title="11.1.2 动态规划的递归写法"></a>11.1.2 动态规划的递归写法</h4><p>​    理解动态规划是如何<strong>记录子问题的解，来避免下次遇到相同的子问题时的重复计算的</strong>。</p>
+<p>以斐波那契数列为例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">int Fibonacci(int n) &#123;</span><br><span class="line">	if (n == 0 || n == 1) return 1;</span><br><span class="line">	else return Fibonacci(n - 1) + Fibonacci(n - 2);</span><br><span class="line">&#125;</span><br><span class="line">//为避免重复计算，开一个一维数组dp</span><br><span class="line">vector&lt;int&gt; dp(maxn,-1);</span><br><span class="line">int F(int n) &#123;</span><br><span class="line">	if (n == 0 || n == 1) return 1;//递归边界</span><br><span class="line">	if (dp[n] != -1) return dp[n];//已经计算过，直接返回结果</span><br><span class="line">	else &#123;</span><br><span class="line">		dp[n] = F(n - 1) + F(n - 2);//计算F(n)m并保存</span><br><span class="line">		return dp[n];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="11-1-3-动态规划的递推写法"><a href="#11-1-3-动态规划的递推写法" class="headerlink" title="11.1.3 动态规划的递推写法"></a>11.1.3 动态规划的递推写法</h4><p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./algorithmNotes\11.1树塔问题.png" alt></p>
+<p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./algorithmNotes\11.1树塔问题2.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">const int maxn = 1010;</span><br><span class="line">int f[maxn][maxn], dp[maxn][maxn];</span><br><span class="line">int main() &#123;</span><br><span class="line">	int n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	for (int i = 1; i &lt;= n; i++) &#123;</span><br><span class="line">		for (int j = 1; j &lt;= i; j++) &#123;</span><br><span class="line">			cin &gt;&gt; f[i][j];//输入树塔</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	for (int j = 1; j &lt;= n; j++)</span><br><span class="line">		dp[n][j] = f[n][j];//设置边界</span><br><span class="line">	for (int i = n - 1; i &gt;= 1; i--) &#123;</span><br><span class="line">		for (int j = 1; j &lt;= i; j++) &#123;</span><br><span class="line">			//转移方程</span><br><span class="line">			dp[i][j] = max(dp[i + 1][j], dp[i + 1][j + 1]) + f[i][j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; dp[1][1];//最终答案</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<font color="orangered">使用递归也可以实现上面的例子（即从dp[1][1]开始递归，直至到达边界时返回结果）。二者的区别在于：使用<strong>递推写法</strong>的计算方式是<strong>自底向上</strong>，即从边界开始，不断向上解决问题，直到问题解决；而是用<strong>递归写法</strong>的计算方式是<strong>自顶向下</strong>，即从目标开始，将它分解成子问题的组合，直到分解至边界为止。</font>
+
+<p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./algorithmNotes\11.1总结.png" alt></p>
+<h3 id="11-2-最大连续子序列和"><a href="#11-2-最大连续子序列和" class="headerlink" title="11.2 最大连续子序列和"></a>11.2 最大连续子序列和</h3><p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./algorithmNotes\11.2最大连续子序列和.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">const int maxn = 10010;</span><br><span class="line">int A[maxn], dp[maxn];</span><br><span class="line">int main() &#123;</span><br><span class="line">	int n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	for (int i = 0; i &lt; n; i++)//读入序列</span><br><span class="line">		cin &gt;&gt; A[i];</span><br><span class="line">	dp[0] = 0;//设置边界</span><br><span class="line">	for (int i = 1; i &lt; n; i++)</span><br><span class="line">		dp[i] = max(A[i], dp[i - 1] + A[i]);</span><br><span class="line">	int k = 0;</span><br><span class="line">	for (int i = 1; i &lt; n; i++) &#123;</span><br><span class="line">		if (dp[i] &gt; dp[k])</span><br><span class="line">			k = i;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; dp[k] &lt;&lt; endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="11-3-最长不下降子序列（LIS）"><a href="#11-3-最长不下降子序列（LIS）" class="headerlink" title="11.3 最长不下降子序列（LIS）"></a>11.3 最长不下降子序列（LIS）</h3><p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./algorithmNotes\11.3最长不下降子序列.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">int main() &#123;</span><br><span class="line">	int n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	vector&lt;int&gt; A(n,0), dp(n,1);//dp初始化为1</span><br><span class="line">	for (int i = 0; i &lt; n; i++)//读入序列</span><br><span class="line">		cin &gt;&gt; A[i];</span><br><span class="line">	</span><br><span class="line">	for (int i = 1; i &lt; n; i++) &#123;</span><br><span class="line">		for (int j = 0; j &lt; i; j++) &#123;</span><br><span class="line">			if (A[j] &lt;= A[i])</span><br><span class="line">				dp[i] = max(dp[i], dp[j] + 1);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; dp[n-1] &lt;&lt; endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="11-4-最长公共子序列（LOS）"><a href="#11-4-最长公共子序列（LOS）" class="headerlink" title="11.4 最长公共子序列（LOS）"></a>11.4 最长公共子序列（LOS）</h3><p><img src="/2019/09/21/数据结构与算法/算法笔记8-13章/./algorithmNotes\11.4最长公共子序列.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">int main() &#123;</span><br><span class="line">	string A, B;</span><br><span class="line">	cin &gt;&gt; A &gt;&gt; B;</span><br><span class="line">	int n = A.size(), m = B.size();</span><br><span class="line">	vector&lt;vector&lt;int&gt;&gt; dp(n + 1, vector&lt;int&gt;(m + 1, 0));</span><br><span class="line">	for (int i = 1; i &lt;= n; i++) &#123;</span><br><span class="line">		for (int j = 1; j &lt;= m; j++) &#123;</span><br><span class="line">			if (A[i] == B[j])</span><br><span class="line">				dp[i][j] = dp[i - 1][j - 1] + 1;</span><br><span class="line">			else &#123;</span><br><span class="line">				dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; dp[n][m];</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="11-5-最长回文子串"><a href="#11-5-最长回文子串" class="headerlink" title="11.5 最长回文子串"></a>11.5 最长回文子串</h3><h3 id="11-6-DAG最长路"><a href="#11-6-DAG最长路" class="headerlink" title="11.6 DAG最长路"></a>11.6 DAG最长路</h3><h3 id="11-8-背包问题"><a href="#11-8-背包问题" class="headerlink" title="11.8 背包问题"></a>11.8 背包问题</h3><h3 id="11-9-总结"><a href="#11-9-总结" class="headerlink" title="11.9 总结"></a>11.9 总结</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/01/区间覆盖问题/" rel="next" title="区间覆盖问题">
+                <i class="fa fa-chevron-left"></i> 区间覆盖问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/22/数据结构与算法/算法笔记1-7章/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/assets/img/avatar.jpg" alt="Chris">
+            
+              <p class="site-author-name" itemprop="name">Chris</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第八章-提高篇（2）——搜索专题"><span class="nav-text">第八章 提高篇（2）——搜索专题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-深度优先搜索（DFS）"><span class="nav-text">8.1 深度优先搜索（DFS）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-1-0-1背包"><span class="nav-text">8.1.1. 0-1背包</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-广度优先搜索（BFS）"><span class="nav-text">8.2 广度优先搜索（BFS）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-1-求给定矩阵中“块”的个数，类似岛屿数量、朋友圈"><span class="nav-text">8.2.1 求给定矩阵中“块”的个数，类似岛屿数量、朋友圈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-2-求迷宫中从S到T的最短步数"><span class="nav-text">8.2.2 求迷宫中从S到T的最短步数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第九章-提高篇（3）——数据结构专题（2）"><span class="nav-text">第九章 提高篇（3）——数据结构专题（2）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-树与二叉树"><span class="nav-text">9.1 树与二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1-1-树的定义与性质"><span class="nav-text">9.1.1 树的定义与性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1-2-二叉树的递归定义："><span class="nav-text">9.1.2 二叉树的递归定义：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1-3-二叉树的存储结构与基本操作"><span class="nav-text">9.1.3 二叉树的存储结构与基本操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-二叉树的遍历"><span class="nav-text">9.2 二叉树的遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-2-1-前中后、层次遍历"><span class="nav-text">9.2.1 前中后、层次遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-2-2-给定一棵二叉树的先序和中序遍历序列，重建这颗二叉树"><span class="nav-text">9.2.2 给定一棵二叉树的先序和中序遍历序列，重建这颗二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-2-3-从树的遍历看DFS和BFS"><span class="nav-text">9.2.3 从树的遍历看DFS和BFS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-2-4-Path-of-Equal-Weight"><span class="nav-text">9.2.4 Path of Equal Weight</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-4-二叉查找树（BST）"><span class="nav-text">9.4 二叉查找树（BST）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-4-1-二叉查找树的定义"><span class="nav-text">9.4.1 二叉查找树的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-4-2-二叉查找树的基本操作"><span class="nav-text">9.4.2 二叉查找树的基本操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-4-3-二叉查找树的性质——左子树-lt-根结点-lt-右子树"><span class="nav-text">9.4.3 二叉查找树的性质——左子树&lt;根结点&lt;右子树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Is-it-a-Binary-Search-Tree"><span class="nav-text">Is it a Binary Search Tree</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-5-平衡二叉树（AVL树）"><span class="nav-text">9.5 平衡二叉树（AVL树）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-5-1-平衡二叉树的定义"><span class="nav-text">9.5.1 平衡二叉树的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-5-2-平衡二叉树的基本操作"><span class="nav-text">9.5.2 平衡二叉树的基本操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-6-并查集"><span class="nav-text">9.6 并查集</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-6-1-并查集的定义"><span class="nav-text">9.6.1 并查集的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-5-2-并查集的基本操作"><span class="nav-text">9.5.2 并查集的基本操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-6-3-路径压缩"><span class="nav-text">8.6.3 路径压缩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#好朋友"><span class="nav-text">好朋友</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-7-堆"><span class="nav-text">9.7 堆</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-7-1-堆的定义与基本操作"><span class="nav-text">9.7.1 堆的定义与基本操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-7-2-堆排序"><span class="nav-text">9.7.2 堆排序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-8-哈夫曼树"><span class="nav-text">9.8 哈夫曼树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-8-2-哈夫曼编码"><span class="nav-text">9.8.2 哈夫曼编码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第十章-提高篇（4）——图算法专题（空）"><span class="nav-text">第十章 提高篇（4）——图算法专题（空）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第十一章-提高篇（5）——动态规划专题"><span class="nav-text">第十一章 提高篇（5）——动态规划专题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-1-动态规划的递归写法和地推写法"><span class="nav-text">11.1 动态规划的递归写法和地推写法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#11-1-1-什么是动态规划？"><span class="nav-text">11.1.1 什么是动态规划？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-1-2-动态规划的递归写法"><span class="nav-text">11.1.2 动态规划的递归写法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-1-3-动态规划的递推写法"><span class="nav-text">11.1.3 动态规划的递推写法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-2-最大连续子序列和"><span class="nav-text">11.2 最大连续子序列和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-3-最长不下降子序列（LIS）"><span class="nav-text">11.3 最长不下降子序列（LIS）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-4-最长公共子序列（LOS）"><span class="nav-text">11.4 最长公共子序列（LOS）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-5-最长回文子串"><span class="nav-text">11.5 最长回文子串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-6-DAG最长路"><span class="nav-text">11.6 DAG最长路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-8-背包问题"><span class="nav-text">11.8 背包问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-9-总结"><span class="nav-text">11.9 总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chris</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+<div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv" style="display:none">
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style="display:none">
+    有<span id="busuanzi_value_site_uv"></span>人看过我的博客啦
+</span>
+</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
